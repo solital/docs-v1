@@ -2,12 +2,12 @@
     "docs": [
         {
             "location": "/",
-            "text": "Welcome to Solital Framework documentation\n\n\n\n\nYou are reading the version documentation: \n1.0-beta\n\n\nAttention: this framework is still being developed, dont' use it in a real project\n\n\nPlease read the \nStarting\n page to start using Solital",
+            "text": "Welcome to Solital Framework documentation\n\n\n\n\n\n  \n\n  \n\n\n\n\n\nYou are reading the version documentation: \n1.0-beta\n\n\nAttention: this framework is still being developed, dont' use it in a real project\n\n\nLicense\n\n\nSolital uses \nMIT\n license by default\n\n\nPlease read the \nStarting\n page to start using Solital",
             "title": "1. Welcome"
         },
         {
             "location": "/#welcome-to-solital-framework-documentation",
-            "text": "You are reading the version documentation:  1.0-beta  Attention: this framework is still being developed, dont' use it in a real project  Please read the  Starting  page to start using Solital",
+            "text": "You are reading the version documentation:  1.0-beta  Attention: this framework is still being developed, dont' use it in a real project  License  Solital uses  MIT  license by default  Please read the  Starting  page to start using Solital",
             "title": "Welcome to Solital Framework documentation"
         },
         {
