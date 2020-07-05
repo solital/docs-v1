@@ -1,4 +1,5 @@
 site_name: Solital Framework v1.0-beta
+repo_url: https://github.com/solital/docs-v1/tree/gh-pages
 pages:
   - 1. Welcome: index.md
   - 2. Starting: 2.starting.md
