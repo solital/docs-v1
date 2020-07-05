@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>5. Components - Solital Framework v1.0-beta</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "5. Components";
+    var mkdocs_page_input_path = "5.components.md";
+    var mkdocs_page_url = "/5.components/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Solital Framework v1.0-beta</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">1. Welcome</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../2.starting/">2. Starting</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3.installation/">3. Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../4.vinci/">4. Vinci Console</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">5. Components</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#components">Components</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#wolf-template">Wolf Template</a></li>
+        
+            <li><a class="toctree-l3" href="#message">Message</a></li>
+        
+            <li><a class="toctree-l3" href="#mail">Mail</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../6.routes/">6. Routes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../7.requisitions/">7. Requisitions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../8.input.params/">8. Input & params</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../9.events/">9. Events</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.auth/">10. Authenticate</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.injection/">11. Dependency Container</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.csrf/">12. CSRF Protection</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.cache/">13. Cache</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.katrina/">14. Katrina ORM</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Solital Framework v1.0-beta</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>5. Components</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="components">Components</h1>
+<h2 id="wolf-template">Wolf Template</h2>
+<p>Wolf is Solital's standard template system. You can load any template into the <code>resource/views</code> folder</p>
+<h3 id="basic">Basic</h3>
+<p>Below is the basic code to load any template:</p>
+<pre><code class="php">Wolf::loadView('home');
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+<p>The sitaxe below loads the parameters to be viewed in your template.</p>
+<pre><code class="php">Wolf::loadView('home', [
+    'title' =&gt; 'My Title'
+]);
+</code></pre>
+
+<p>And in your <code>home.php</code>, retrieve the value informed in this way:</p>
+<pre><code class="html">&lt;title&gt;$title&lt;/title&gt;
+</code></pre>
+
+<h3 id="custom-extensions">Custom extensions</h3>
+<p>Wolf will search for files in php format, but to search for a different format, use the last parameter.</p>
+<pre><code class="php">Wolf::loadView('home', [
+    'title' =&gt; 'My Title'
+], false, &quot;html&quot;);
+</code></pre>
+
+<h3 id="loading-css-js-and-images">Loading CSS, JS and images</h3>
+<p>Make sure the files exist in the folder <code>public/assets/_css</code>, <code>public/assets/_js</code> and <code>public/assets/_img</code></p>
+<p>To upload a CSS file, use the syntax below in your template</p>
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;? self::loadCss('style.css'); ?&gt;&quot;&gt;
+</code></pre>
+
+<p>To upload a JS file, use the syntax below in your template</p>
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;? self::loadJs('file.js'); ?&gt;&quot;&gt;
+</code></pre>
+
+<p>To upload an image, use the syntax below in your template</p>
+<pre><code class="html">&lt;img src=&quot;&lt;? self::loadImg('image.png'); ?&gt;&quot;&gt;
+</code></pre>
+
+<h3 id="cache">Cache</h3>
+<p>See the cache part here to learn how to use the cache in Wolf.</p>
+<h2 id="message">Message</h2>
+<p>Message helps you when displaying messages in your view. Its syntax is basic as shown below.</p>
+<p>To create a new message:</p>
+<pre><code class="php">use Solital\Message\Message;
+
+Message::newMessage(&quot;your_index_message&quot;, &quot;your_messsage&quot;);
+</code></pre>
+
+<p>To retrieve a message:</p>
+<pre><code class="php">use Solital\Message\Message;
+
+Message::getMessage(&quot;your_index_message&quot;);
+</code></pre>
+
+<p>To delete a message:</p>
+<pre><code class="php">use Solital\Message\Message;
+
+Message::clearMessage(&quot;your_index_message&quot;);
+</code></pre>
+
+<p>To recover and then delete a message:</p>
+<pre><code class="php">use Solital\Message\Message;
+
+Message::getMessage(&quot;your_index_message&quot;);
+Message::clearMessage(&quot;your_index_message&quot;);
+</code></pre>
+
+<h2 id="mail">Mail</h2>
+<p>Mail is a class of Solital that uses PHP's native mail to send email.</p>
+<h3 id="use">Use</h3>
+<p>The sitaxis below is used to be able to send basic e-mail.</p>
+<pre><code class="php">use Solital\Mail\Mail;
+
+Mail::send(&quot;your_sender@email.com&quot;, &quot;your_recipient@email.com&quot;, 
+&quot;your_subject&quot;, &quot;your_message&quot;);
+</code></pre>
+
+<h3 id="optional-parameters">Optional parameters</h3>
+<p>To add a reply, text type, charset and priority, use the optional parameters.</p>
+<pre><code class="php">use Solital\Mail\Mail;
+
+Mail::send(&quot;your_sender@email.com&quot;, &quot;your_recipient@email.com&quot;, &quot;your_subject&quot;, 
+&quot;your_message&quot;, [&quot;your_reply@email.com&quot;, &quot;type_text&quot;, &quot;your_charset&quot;, your_priority]);
+
+</code></pre>
+
+<p>Optional parameters have the following values by default:</p>
+<ul>
+<li>Reply to: <code>(string)</code> null</li>
+<li>Type: <code>(string)</code> text/plan</li>
+<li>Charset: <code>(string)</code> UTF-8</li>
+<li>Priority: <code>(int)</code> 3</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../6.routes/" class="btn btn-neutral float-right" title="6. Routes">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../4.vinci/" class="btn btn-neutral" title="4. Vinci Console"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../4.vinci/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../6.routes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

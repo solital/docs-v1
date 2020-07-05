@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>10. Authenticate - Solital Framework v1.0-beta</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "10. Authenticate";
+    var mkdocs_page_input_path = "10.auth.md";
+    var mkdocs_page_url = "/10.auth/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Solital Framework v1.0-beta</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">1. Welcome</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../2.starting/">2. Starting</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3.installation/">3. Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../4.vinci/">4. Vinci Console</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../5.components/">5. Components</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../6.routes/">6. Routes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../7.requisitions/">7. Requisitions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../8.input.params/">8. Input & params</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../9.events/">9. Events</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">10. Authenticate</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#authenticate">Authenticate</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#setting">Setting</a></li>
+        
+            <li><a class="toctree-l3" href="#check-login">Check login</a></li>
+        
+            <li><a class="toctree-l3" href="#log-off">Log off</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.injection/">11. Dependency Container</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.csrf/">12. CSRF Protection</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.cache/">13. Cache</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.katrina/">14. Katrina ORM</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Solital Framework v1.0-beta</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>10. Authenticate</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="authenticate">Authenticate</h1>
+<p>Solital uses the Guardian class to perform authentication. First of all, make sure to change the Guardian constants in config.php inside the config folder.</p>
+<pre><code class="php">/**
+* GUARDIAN CONSTANTS
+*/
+
+/* Login route if login verification is false */
+define('URL_LOGIN', 'your_login_url');
+/* Dashboard route if login verification is true */
+define('URL_DASHBOARD', 'your_dashboard_url');
+/* Standard Guardian index */
+define('INDEX_LOGIN', 'solital_index_login');
+</code></pre>
+
+<h2 id="setting">Setting</h2>
+<p>On your Controller, extend the <code>AuthController</code> class.</p>
+<pre><code class="php">&lt;?php
+
+namespace Solital\Components\Controller;
+use Solital\Components\Controller\Auth\AuthController;
+
+class UserController extends AuthController {
+    #...
+}
+</code></pre>
+
+<p>To do this, define your database username and password fields, the values ​​of your form input and the table where your username and password will be stored as shown below.</p>
+<pre><code class="php">$res = $this-&gt;columns('your_username_column', 'your_password_column')
+            -&gt;values('input_username_name', 'input_password_name')
+            -&gt;register('your_table');
+</code></pre>
+
+<p>The <code>$res</code> variable will return <code>true</code> if authentication is true. But if it is <code>false</code>, you can add a reply message after the above code if authentication fails.</p>
+<pre><code class="php">if ($res == false) {
+    Message::newMessage('wrongLogin', 'Incorrect username or password');
+    response()-&gt;redirect('your_login_url');
+}
+</code></pre>
+
+<p>Below is an example method of authentication.</p>
+<pre><code class="php">&lt;?php
+
+namespace Solital\Components\Controller;
+use Solital\Components\Controller\Auth\AuthController;
+
+class UserController extends AuthController 
+{
+
+    public function verifyLogin() 
+    {
+        $res = $this-&gt;columns('email_column', 'pass_column')
+                    -&gt;values('input_email', 'input_password')
+                    -&gt;register('tb_users');
+
+        if ($res == false) {
+            Message::newMessage('wrongLogin', 'Incorrect username or password');
+            response()-&gt;redirect('your_login_url');
+        }
+    }
+
+}
+</code></pre>
+
+<h2 id="check-login">Check login</h2>
+<p>To ensure that the user is authenticated, use <code>checkLogin()</code> method. If the login has not been validated using the <code>validate()</code> method, the user will be redirected to the route defined in the constant <code>URL_LOGIN</code>. The example below shows the method along with the Wolf template.</p>
+<pre><code class="php">Guardian::checkLogin();
+
+Wolf::loadView('home');
+</code></pre>
+
+<p>To ensure that the user doesn't fall into the login route when it has already been validated, insert the <code>checkLogged()</code> method in your login route. This method will redirect the user to your system's dashboard. Make sure your constant <code>URL_DASHBOARD</code> has a defined value.</p>
+<pre><code class="php">Guardian::checkLogged();
+
+Wolf::loadView('login');
+</code></pre>
+
+<h2 id="log-off">Log off</h2>
+<p>To log off, use the <code>logoff()</code> method.</p>
+<pre><code class="php">Guardian::logoff();
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../11.injection/" class="btn btn-neutral float-right" title="11. Dependency Container">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../9.events/" class="btn btn-neutral" title="9. Events"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../9.events/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../11.injection/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

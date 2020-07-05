@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>3. Installation - Solital Framework v1.0-beta</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "3. Installation";
+    var mkdocs_page_input_path = "3.installation.md";
+    var mkdocs_page_url = "/3.installation/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Solital Framework v1.0-beta</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">1. Welcome</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../2.starting/">2. Starting</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">3. Installation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#installation">Installation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#setting-up-nginx">Setting up Nginx</a></li>
+        
+            <li><a class="toctree-l3" href="#setting-up-apache">Setting up Apache</a></li>
+        
+            <li><a class="toctree-l3" href="#setting-up-iis">Setting up IIS</a></li>
+        
+            <li><a class="toctree-l3" href="#helper-functions">Helper functions</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../4.vinci/">4. Vinci Console</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../5.components/">5. Components</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../6.routes/">6. Routes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../7.requisitions/">7. Requisitions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../8.input.params/">8. Input & params</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../9.events/">9. Events</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.auth/">10. Authenticate</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.injection/">11. Dependency Container</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.csrf/">12. CSRF Protection</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.cache/">13. Cache</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.katrina/">14. Katrina ORM</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Solital Framework v1.0-beta</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>3. Installation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="installation">Installation</h1>
+<h3 id="setting-up-nginx">Setting up Nginx</h3>
+<p>If you are using Nginx please make sure that url-rewriting is enabled.</p>
+<p>You can easily enable url-rewriting by adding the following configuration for the Nginx configuration-file for the demo-project.</p>
+<pre><code>location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+</code></pre>
+
+<h3 id="setting-up-apache">Setting up Apache</h3>
+<p>Nothing special is required for Apache to work. We've include the <code>.htaccess</code> file in the <code>public</code> folder. If rewriting is not working for you, please check that the <code>mod_rewrite</code> module (htaccess support) is enabled in the Apache configuration.</p>
+<p>Below is an example of an working <code>.htaccess</code> file used by Solital.</p>
+<p>Simply create a new <code>.htaccess</code> file in your projects <code>public</code> directory and paste the contents below in your newly created file. This will redirect all requests to your <code>index.php</code> file (see Configuration section below).</p>
+<pre><code>RewriteEngine on
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-l
+RewriteRule ^(.*)$ index.php/$1
+</code></pre>
+
+<h3 id="setting-up-iis">Setting up IIS</h3>
+<p>On IIS you have to add some lines your <code>web.config</code> file in the <code>public</code> folder or create a new one. If rewriting is not working for you, please check that your IIS version have included the <code>url rewrite</code> module or download and install them from Microsoft web site.</p>
+<h4 id="webconfig-example">web.config example</h4>
+<p>Below is an example of an working <code>web.config</code> file used by Solital.</p>
+<p>Simply create a new <code>web.config</code> file in your projects <code>public</code> directory and paste the contents below in your newly created file. This will redirect all requests to your <code>index.php</code> file (see Configuration section below). If the <code>web.config</code> file already exists, add the <code>&lt;rewrite&gt;</code> section inside the <code>&lt;system.webServer&gt;</code> branch.</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;configuration&gt;
+    &lt;system.webServer&gt;
+    &lt;rewrite&gt;
+      &lt;rules&gt;
+        &lt;!-- Remove slash '/' from the en of the url --&gt;
+        &lt;rule name=&quot;RewriteRequestsToPublic&quot;&gt;
+          &lt;match url=&quot;^(.*)$&quot; /&gt;
+          &lt;conditions logicalGrouping=&quot;MatchAll&quot; trackAllCaptures=&quot;false&quot;&gt;
+          &lt;/conditions&gt;
+          &lt;action type=&quot;Rewrite&quot; url=&quot;/{R:0}&quot; /&gt;
+        &lt;/rule&gt;
+
+        &lt;!-- When requested file or folder don't exists, will request again through index.php --&gt;
+        &lt;rule name=&quot;Imported Rule 1&quot; stopProcessing=&quot;true&quot;&gt;
+          &lt;match url=&quot;^(.*)$&quot; ignoreCase=&quot;true&quot; /&gt;
+          &lt;conditions logicalGrouping=&quot;MatchAll&quot;&gt;
+            &lt;add input=&quot;{REQUEST_FILENAME}&quot; matchType=&quot;IsDirectory&quot; negate=&quot;true&quot; /&gt;
+            &lt;add input=&quot;{REQUEST_FILENAME}&quot; matchType=&quot;IsFile&quot; negate=&quot;true&quot; /&gt;
+          &lt;/conditions&gt;
+          &lt;action type=&quot;Rewrite&quot; url=&quot;/index.php/{R:1}&quot; appendQueryString=&quot;true&quot; /&gt;
+        &lt;/rule&gt;
+      &lt;/rules&gt;
+    &lt;/rewrite&gt;
+    &lt;/system.webServer&gt;
+&lt;/configuration&gt;
+</code></pre>
+
+<h4 id="troubleshooting">Troubleshooting</h4>
+<p>If you do not have a <code>favicon.ico</code> file in your project, you can get a <code>NotFoundHttpException</code> (404 - not found).</p>
+<p>To add <code>favicon.ico</code> to the IIS ignore-list, add the following line to the <code>&lt;conditions&gt;</code> group:</p>
+<pre><code>&lt;add input=&quot;{REQUEST_FILENAME}&quot; negate=&quot;true&quot; pattern=&quot;favicon.ico&quot; ignoreCase=&quot;true&quot; /&gt;
+</code></pre>
+
+<p>You can also make one exception for files with some extensions:</p>
+<pre><code>&lt;add input=&quot;{REQUEST_FILENAME}&quot; pattern=&quot;\.ico|\.png|\.css|\.jpg&quot; negate=&quot;true&quot; ignoreCase=&quot;true&quot; /&gt;
+</code></pre>
+
+<p>If you are using <code>$_SERVER['ORIG_PATH_INFO']</code>, you will get <code>\index.php\</code> as part of the returned value. </p>
+<p><strong>Example:</strong></p>
+<pre><code>/index.php/test/mypage.php
+</code></pre>
+
+<h3 id="helper-functions">Helper functions</h3>
+<p>We recommend that you add these helper functions to your project. These will allow you to access functionality of the router more easily.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../4.vinci/" class="btn btn-neutral float-right" title="4. Vinci Console">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../2.starting/" class="btn btn-neutral" title="2. Starting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../2.starting/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../4.vinci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

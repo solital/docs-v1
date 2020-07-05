@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>4. Vinci Console - Solital Framework v1.0-beta</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "4. Vinci Console";
+    var mkdocs_page_input_path = "4.vinci.md";
+    var mkdocs_page_url = "/4.vinci/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Solital Framework v1.0-beta</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">1. Welcome</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../2.starting/">2. Starting</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3.installation/">3. Installation</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">4. Vinci Console</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#vinci-console">Vinci Console</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#access-vinci">Access Vinci</a></li>
+        
+            <li><a class="toctree-l3" href="#how-to-use">How to use</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../5.components/">5. Components</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../6.routes/">6. Routes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../7.requisitions/">7. Requisitions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../8.input.params/">8. Input & params</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../9.events/">9. Events</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.auth/">10. Authenticate</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.injection/">11. Dependency Container</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.csrf/">12. CSRF Protection</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.cache/">13. Cache</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../14.katrina/">14. Katrina ORM</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Solital Framework v1.0-beta</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>4. Vinci Console</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="vinci-console">Vinci Console</h1>
+<p>Vinci is the development assistant at Solital. You can create controllers, models, views, CSS files and JS files in graphical mode right from your browser.</p>
+<h2 id="access-vinci">Access Vinci</h2>
+<p>To access Vinci, open the terminal in your project folder and type php vinci for information.</p>
+<h2 id="how-to-use">How to use</h2>
+<p>To access information about Solital and its dependencies, open your terminal inside your project folder and type <code>php vinci about</code></p>
+<h3 id="create-a-component">Create a component</h3>
+<p>You can create a new component using the syntax below.</p>
+<pre><code>php vinci [component]:[name_file]
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code>php vinci controller:User
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>controller</td>
+<td>Creates a new controller</td>
+</tr>
+<tr>
+<td>model</td>
+<td>Create a new Model</td>
+</tr>
+<tr>
+<td>view</td>
+<td>Create a new view</td>
+</tr>
+<tr>
+<td>css</td>
+<td>Create a new CSS file</td>
+</tr>
+<tr>
+<td>js</td>
+<td>Create a new JavaScript file</td>
+</tr>
+<tr>
+<td>router</td>
+<td>Creates a new file for the route system</td>
+</tr>
+</tbody>
+</table>
+<p>To see the complete list of commands, run <code>php vinci show</code></p>
+<h3 id="remove-a-component">Remove a component</h3>
+<p>Add the <code>remove-</code> command before using one of the aforementioned commands to remove a component created with Vinci.</p>
+<pre><code>php vinci remove-controller:user
+</code></pre>
+
+<h3 id="clearing-the-cache-on-solital">Clearing the cache on solital</h3>
+<p>To clear the entire solital cache, run the command below.</p>
+<pre><code>php vinci cache-clear
+</code></pre>
+
+<h3 id="login-structure">Login structure</h3>
+<p>To create a predefined login structure, use <code>php vinci auth</code></p>
+<p>This command will create a <code>LoginController</code> class, templates for authentication and dashboard and predefined routes. Plus a standard user in the database</p>
+<p>If you want to remove this structure, use <code>php vinci remove-auth</code></p>
+<h3 id="configure-database">Configure database</h3>
+<p>The <code>db.php</code> file has the necessary constants for Katrina ORM to communicate with the database. To configure the <code>db.php</code> file, run the command<code>php vinci katrina:configure</code></p>
+<p>This command will ask for: database drive, host, database name, database user and password. Remember to enter the values in that order as shown below.</p>
+<pre><code class="shell">Enter the drive, host, database name, username and password for your database separated by commas
+
+
+&gt; mysql, localhost, db_solital, root, root
+</code></pre>
+
+<p>If you want to create a standard user in the database, run <code>php vinci katrina:userAuth</code></p>
+<p><strong>Custom commands</strong></p>
+<p>You can create a custom method to create your tables using the <code>SQLCommands</code> method.</p>
+<pre><code class="php">&lt;?php
+
+namespace Solital\Database\Create;
+use Solital\Components\Model\Model;
+use Solital\Database\Create\Create;
+
+class SQLCommands extends Model
+{
+    public function myTable()
+    {
+        # Here will be the commands for creating a table
+    }
+}
+</code></pre>
+
+<p>And in vinci, execute the method as follows:</p>
+<pre><code>php vinci katrina:myTable
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../5.components/" class="btn btn-neutral float-right" title="5. Components">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../3.installation/" class="btn btn-neutral" title="3. Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../3.installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../5.components/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

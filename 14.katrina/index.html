@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>14. Katrina ORM - Solital Framework v1.0-beta</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "14. Katrina ORM";
+    var mkdocs_page_input_path = "14.katrina.md";
+    var mkdocs_page_url = "/14.katrina/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Solital Framework v1.0-beta</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">1. Welcome</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../2.starting/">2. Starting</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../3.installation/">3. Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../4.vinci/">4. Vinci Console</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../5.components/">5. Components</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../6.routes/">6. Routes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../7.requisitions/">7. Requisitions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../8.input.params/">8. Input & params</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../9.events/">9. Events</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../10.auth/">10. Authenticate</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../11.injection/">11. Dependency Container</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../12.csrf/">12. CSRF Protection</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../13.cache/">13. Cache</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">14. Katrina ORM</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#getting-started">Getting Started</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#what-is-katrina-orm">What is Katrina ORM?</a></li>
+        
+            <li><a class="toctree-l3" href="#initial-structure">Initial structure</a></li>
+        
+            <li><a class="toctree-l3" href="#data-manipulation">Data manipulation</a></li>
+        
+            <li><a class="toctree-l3" href="#manipulating-tables">Manipulating tables</a></li>
+        
+            <li><a class="toctree-l3" href="#procedure">Procedure</a></li>
+        
+            <li><a class="toctree-l3" href="#pagination">Pagination</a></li>
+        
+            <li><a class="toctree-l3" href="#types-of-data">Types of data</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Solital Framework v1.0-beta</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>14. Katrina ORM</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="getting-started">Getting Started</h1>
+<h2 id="what-is-katrina-orm">What is Katrina ORM?</h2>
+<p>Katrina ORM is a component to bring the object-oriented application development paradigm closer to the relational database paradigm. It helps when carrying out common routines, such as the famous CRUD (create, read, edit and delete), in addition to having a login and data paging system.</p>
+<h3 id="requirements">Requirements</h3>
+<p>Make sure that the PDO is enabled in your development environment or in your hosting.</p>
+<h3 id="installation">Installation</h3>
+<p>Katrina ORM is already installed by default in Solital. But if you are going to install in another project, use the command below to download via Composer.</p>
+<pre><code>composer require solital/katrina
+</code></pre>
+
+<p>Or add the code below to your <code>composer.json</code> file.</p>
+<pre><code>&quot;require&quot;: {
+    &quot;solital/katrina&quot;: &quot;0.1.*&quot;
+}
+</code></pre>
+
+<h3 id="settings">Settings</h3>
+<p>To configure your database, create or edit (in Solital) the <code>db.php</code> file inside the <code>config</code> folder.</p>
+<pre><code class="php">define('DB_CONFIG', [
+    'DRIVE' =&gt; 'your_drive',
+    'HOST' =&gt; 'your_host',
+    'DBNAME' =&gt; 'your_database_name',
+    'USER' =&gt; 'your_user',
+    'PASS' =&gt; 'your_password'
+]);
+</code></pre>
+
+<h2 id="initial-structure">Initial structure</h2>
+<p>You can use katrina in two ways:</p>
+<p>1°) In solital, extend the model already created and define the variables <code>$table</code>, <code>$primaryKey</code> and <code>$columns</code> in your model's constructor as listed below:</p>
+<pre><code class="php">&lt;?php
+
+namespace Solital\Components\Model;
+use Solital\Components\Model\Model;
+
+class User extends Model
+{
+    public function __construct()
+    {
+        $this-&gt;table = 'your_database_table';
+        $this-&gt;primaryKey = 'primary_key_of_the_table';
+        $this-&gt;columns = [
+            'first_column_of_the_table', 
+            'second column of the table',
+            #...
+        ];
+    }
+
+    public function get()
+    {
+        return $this-&gt;instance()-&gt;select()-&gt;build(&quot;ALL&quot;);
+    }
+}
+</code></pre>
+
+<p>2°) Or if you are using it in another project</p>
+<pre><code class="php">&lt;?php
+
+use Katrina\Katrina as Katrina;
+
+class User
+{
+
+    # String
+    private $table = 'your_database_table';
+    # String
+    private $primaryKey = 'primary_key_of_the_table';
+    # Array
+    private $columns = [
+        'first_column_of_the_table', 
+        'second column of the table',
+        #...
+    ];
+
+    public function instance()
+    {
+        $katrina = new Katrina($this-&gt;table, $this-&gt;columnPrimaryKey, $this-&gt;columns);
+        return $katrina;
+    }
+
+    public function get()
+    {
+        return $this-&gt;instance()-&gt;select()-&gt;build(&quot;ALL&quot;);
+    }
+}
+</code></pre>
+
+<h2 id="data-manipulation">Data manipulation</h2>
+<h3 id="list">List</h3>
+<p>To list all fields in the table, use <code>select()</code> as shown in the previous example. By default, the method will list all fields in the table.</p>
+<pre><code class="php">public function get()
+{
+    return $this-&gt;instance()-&gt;select()-&gt;build(&quot;ALL&quot;);
+}
+</code></pre>
+
+<p>To list a single value, pass the table field <code>id</code> as a parameter, and in <code>build()</code> method use ONLY.</p>
+<pre><code class="php">public function get()
+{
+    return $this-&gt;instance()-&gt;select(3)-&gt;build(&quot;ONLY&quot;);
+}
+</code></pre>
+
+<p>To specify which fields you want to list, pass the values ​​as parameters.</p>
+<pre><code class="php">public function get()
+{
+    return $this-&gt;instance()-&gt;select(&quot;name, city, country&quot;)-&gt;build();
+}
+</code></pre>
+
+<p>If you need the <code>WHERE</code> clause, use the second parameter.</p>
+<h3 id="listing-foreign-key">Listing foreign key</h3>
+<p><strong>Inner join</strong></p>
+<p>The <code>innerJoin()</code> method returns the values of two tables that have a foreign key. Enter the name of the table and the field of the other table that has the primary key for your main table.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;innerJoin(&quot;address&quot;, &quot;idAddress&quot;)-&gt;build(&quot;ALL&quot;);
+    return $res;
+}
+</code></pre>
+
+<p>If you want to return only a single value, use the third parameter passing the primary key.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;innerJoin(&quot;address&quot;, &quot;idAddress&quot;, 2)-&gt;build(&quot;ALL&quot;);
+    return $res;
+}
+</code></pre>
+
+<p>You can inform which fields you want to return. "a" is your main table while "b" is your table that has the foreign key.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()
+    -&gt;innerJoin(&quot;address&quot;, &quot;idAddress&quot;, 2 &quot;a.idPerson, a.name, b.street&quot;, &quot;address&quot;, &quot;idAddress&quot;)-&gt;build(&quot;ALL&quot;);
+    return $res;
+}
+</code></pre>
+
+<h3 id="insert">Insert</h3>
+<p>The <code>insert()</code> method inserts the values ​​into the table. It is NOT necessary to use <code>build()</code> method to insert the data. To do this, create an array with the values ​​that the method will receive</p>
+<pre><code class="php">public function insert()
+{
+    $res = $this-&gt;instance()-&gt;insert(['Clark', 'Metropolis', 'EUA']);
+    return $res;
+}
+</code></pre>
+
+<h3 id="update">Update</h3>
+<p>The <code>update()</code> method updates the values ​​in the table. It is NOT necessary to use <code>build()</code> method to update the data. The process is similar to the insert method. The first parameter is the columns that will be updated, the second parameter the values ​​and the third the row <code>id</code>.</p>
+<pre><code class="php">public function update()
+{
+    $res = $this-&gt;instance()-&gt;update(['name', 'age'], ['Specter', '41'], 8);
+    return $res;
+}
+</code></pre>
+
+<h3 id="delete">Delete</h3>
+<p>The <code>delete()</code> method deletes the values ​​in the table. Enter the primary key corresponding to the table row you want to delete.</p>
+<pre><code class="php">public function delete()
+{
+    $res = $this-&gt;instance()-&gt;delete(3)-&gt;build();
+    return $res;
+}
+</code></pre>
+
+<h2 id="manipulating-tables">Manipulating tables</h2>
+<h3 id="create-a-new-table">Create a new table</h3>
+<p>The <code>createTable()</code> method starts opening the table. After inserting the fields and data types that the tables will have, use <code>closeTable()</code> to close the table. For a better understanding see the syntax below.</p>
+<pre><code class="php">$res = $this-&gt;instance()
+            /* Starts the table by specifying its name */
+            -&gt;createTable(&quot;your_table_name&quot;)
+            /* Fields and table type */
+            -&gt;int(&quot;id_orm&quot;)-&gt;primary()-&gt;increment()
+            -&gt;varchar(&quot;name&quot;, 20)-&gt;unique()-&gt;notNull()-&gt;default(&quot;specter&quot;)
+            -&gt;int(&quot;age&quot;, 3)-&gt;unsigned()-&gt;notNull()
+            -&gt;varchar(&quot;email&quot;, 30)-&gt;default(&quot;harvey.specter@gmail.com&quot;)-&gt;notNull()
+            -&gt;varchar(&quot;profession&quot;, 40)
+            -&gt;int(&quot;tipo&quot;)
+            -&gt;constraint(&quot;dev_cons_fk&quot;)-&gt;foreign(&quot;type&quot;)-&gt;references(&quot;dev&quot;, &quot;iddev&quot;)
+            /* Close the command to create the table */
+            -&gt;closeTable()
+            /* Compile the code above */
+            -&gt;build();
+</code></pre>
+
+<h3 id="list-tables">List tables</h3>
+<p>To have a list of all the tables in your database, use the <code>listTables()</code> method by passing <code>ALL</code> in the <code>build()</code> method.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;listTables()-&gt;build(&quot;ALL&quot;);
+    return $res;
+}
+</code></pre>
+
+<h3 id="list-columns">List columns</h3>
+<p>To list the columns of a table, use the <code>describeTable()</code> method passing as a parameter the name of your table together with <code>ALL</code> in the <code>build()</code></p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;describeTable(&quot;your_table&quot;)-&gt;build(&quot;ALL&quot;);
+    return $res;
+}
+</code></pre>
+
+<h3 id="alter-table">Alter table</h3>
+<p>The <code>alter()</code> method performs the procedures of adding, changing and deleting a field from the database table.</p>
+<p><strong>Add new field</strong></p>
+<p>Use <code>add()</code> method together with the data type to add a new field.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()
+                -&gt;alter(&quot;message&quot;)-&gt;add()
+                -&gt;varchar(&quot;first_field&quot;, 10)
+                -&gt;build();
+}
+</code></pre>
+
+<p><strong>Drop column</strong></p>
+<p>Use the <code>drop()</code> method to delete a column from the table.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()
+                -&gt;alter(&quot;message&quot;)-&gt;drop(&quot;type&quot;)
+                -&gt;build();
+}
+</code></pre>
+
+<p><strong>Modify column</strong></p>
+<p>Use the modify SQL with the <code>modify()</code> method.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()
+                -&gt;alter(&quot;message&quot;)-&gt;modify()
+                -&gt;varchar(&quot;person_type&quot;, 100)
+                -&gt;build();
+}
+</code></pre>
+
+<p><strong>Change column</strong></p>
+<p>Use the <code>change()</code> method to change a column. As a parameter, pass the current column name.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()
+                -&gt;alter(&quot;message&quot;)-&gt;change(&quot;person_type&quot;)
+                -&gt;varchar(&quot;type&quot;, 100)
+                -&gt;build();
+}
+</code></pre>
+
+<h3 id="rename-table">Rename table</h3>
+<p>Use the <code>rename()</code> method to rename a database table. Use the first parameter the current table name and the second parameter the new table name.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()
+                -&gt;rename(&quot;message&quot;, &quot;new_message&quot;)
+                -&gt;build();
+}
+</code></pre>
+
+<h3 id="adding-foreign-key">Adding foreign key</h3>
+<p>To add a foreign key to an already created table, use the <code>addConstraint()</code> method to add a constraint; <code>foreign()</code> to inform the column and <code>references()</code> to refer to the table.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()
+                -&gt;alter(&quot;message&quot;)-&gt;addConstraint(&quot;dev_cons_fk&quot;)-&gt;foreign(&quot;type&quot;)-&gt;references(&quot;dev&quot;, &quot;iddev&quot;)
+                -&gt;build();
+}
+</code></pre>
+
+<p>NOTE: if you are creating a new table, use the <code>constraint()</code> method instead of <code>addConstraint()</code> as shown below:</p>
+<pre><code class="php">#...
+-&gt;constraint(&quot;dev_cons_fk&quot;)-&gt;foreign(&quot;type&quot;)-&gt;references(&quot;dev&quot;, &quot;iddev&quot;)
+#...
+</code></pre>
+
+<h3 id="drop-table">Drop table</h3>
+<p>To delete a table from the database, use the <code>dropTable()</code> method.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()
+                -&gt;dropTable(&quot;message&quot;)
+                -&gt;build();
+}
+</code></pre>
+
+<h3 id="truncate-table">Truncate table</h3>
+<p>To use the sql truncate command, use the <code>truncate()</code> method.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()
+                -&gt;truncate()
+                -&gt;build();
+}
+</code></pre>
+
+<p>By default, the database checks the table's foreign key and locks the truncate command. To disable foreign key verification, enter <code>true</code> as a parameter.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()
+                -&gt;truncate(true)
+                -&gt;build();
+}
+</code></pre>
+
+<h2 id="procedure">Procedure</h2>
+<p>To call a database procedure, use the <code>call()</code> method.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;call('procedure_name');
+    return $res;
+}
+</code></pre>
+
+<p>To use procedure parameters, pass the values in array format.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;call('procedure_name' , ['param_1, param_2, param_3']);
+    return $res;
+}
+</code></pre>
+
+<h2 id="pagination">Pagination</h2>
+<p>The <code>pagination()</code> method creates a system for paging results. To initialize, the first parameter must be the table you want to use to start paging. The second parameter will list the amount of values that will be returned from the table as shown in the example below.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;pagination('your_table', 3);
+    return $res;
+}
+</code></pre>
+
+<p>The above method will return an array containing <code>rows</code> indexes that will return values, and <code>arrows</code> that will return commands for pagination. To use in the Wolf template, use it this way.</p>
+<pre><code class="php">$html = $this-&gt;instance()-&gt;pagination('your_table', 3);
+
+Wolf::loadView('home', [
+    'rows' =&gt; $html['rows'],
+    'arrows' =&gt; $html['arrows']
+]);
+</code></pre>
+
+<p>And in your view, return the results that way.</p>
+<pre><code class="html">&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+            &lt;th&gt;Gender&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;?php foreach ($rows as $r): ?&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;?= $r['name'] ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= $r['age'] ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= $r['gender'] ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;?php endforeach; ?&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;?php
+echo $arrows;
+</code></pre>
+
+<p>The result will be as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Gender</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sam</td>
+<td>47</td>
+<td>Male</td>
+</tr>
+<tr>
+<td>Dean</td>
+<td>49</td>
+<td>Male</td>
+</tr>
+<tr>
+<td>Marry</td>
+<td>52</td>
+<td>Female</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="html">&lt;&lt; 1 2 3 &gt;&gt;
+</code></pre>
+
+<p>To change the arrows (<code>&lt;&lt;</code> and <code>&gt;&gt;</code>), use the last two parameters of the <code>pagination()</code> method.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;dbInstance()-&gt;pagination('tb_users', 3, 'First Item', 'Last Item');
+    return $res;
+}
+</code></pre>
+
+<p>The result will be:</p>
+<pre><code class="html">First item 1 2 3 Last item
+</code></pre>
+
+<h2 id="types-of-data">Types of data</h2>
+<p>Below is listed the attributes and data supported by Katrina ORM:</p>
+<p><strong>String data</strong></p>
+<table>
+<thead>
+<tr>
+<th>Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>varchar("column_name", size)</code></td>
+</tr>
+<tr>
+<td><code>char("column_name", size)</code></td>
+</tr>
+<tr>
+<td><code>tinytext("column_name", size)</code></td>
+</tr>
+<tr>
+<td><code>mediumtext("column_name", size)</code></td>
+</tr>
+<tr>
+<td><code>longtext("column_name", size)</code></td>
+</tr>
+<tr>
+<td><code>text("column_name", size)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Numerical data</strong></p>
+<table>
+<thead>
+<tr>
+<th>Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tinyint("column_name", size)</code></td>
+</tr>
+<tr>
+<td><code>smallint("column_name", size)</code></td>
+</tr>
+<tr>
+<td><code>mediumint("column_name", size)</code></td>
+</tr>
+<tr>
+<td><code>bigint("column_name", size)</code></td>
+</tr>
+<tr>
+<td><code>int("column_name", size)</code></td>
+</tr>
+<tr>
+<td><code>decimal("column_name", value1, value2)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Date and time</strong></p>
+<table>
+<thead>
+<tr>
+<th>Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date("column_name")</code></td>
+</tr>
+<tr>
+<td><code>year("column_name")</code></td>
+</tr>
+<tr>
+<td><code>time("column_name")</code></td>
+</tr>
+<tr>
+<td><code>datetime("column_name")</code></td>
+</tr>
+<tr>
+<td><code>timestamp("column_name")</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Boolean</strong></p>
+<table>
+<thead>
+<tr>
+<th>Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>boolean("column_name")</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attributes</strong></p>
+<table>
+<thead>
+<tr>
+<th>Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>default("default_value")</code></td>
+</tr>
+<tr>
+<td><code>unique()</code></td>
+</tr>
+<tr>
+<td><code>unsigned()</code></td>
+</tr>
+<tr>
+<td><code>incremet()</code></td>
+</tr>
+<tr>
+<td><code>notNull()</code></td>
+</tr>
+<tr>
+<td><code>primary()</code></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../13.cache/" class="btn btn-neutral" title="13. Cache"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../13.cache/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
