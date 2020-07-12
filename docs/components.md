@@ -56,7 +56,7 @@ To upload an image, use the syntax below in your template
 ```
         
 ### Cache
-See the cache part here to learn how to use the cache in Wolf.
+See the cache part [here](https://solital.github.io/docs-v1/13.cache/) to learn how to use the cache in Wolf.
 
 ## Message
 
@@ -109,6 +109,16 @@ use Solital\Mail\Mail;
 Mail::send("your_sender@email.com", "your_recipient@email.com", 
 "your_subject", "your_message");
 ```
+
+### Validate
+
+To check if an email is really valid, use the `validateEmail` function.
+
+```php
+$res = Mail::validateEmail("brenno.gnr@gmail.com");
+
+pre($res);
+```
         
 ### Optional parameters
 
@@ -118,7 +128,7 @@ To add a reply, text type, charset and priority, use the optional parameters.
 use Solital\Mail\Mail;
 
 Mail::send("your_sender@email.com", "your_recipient@email.com", "your_subject", 
-"your_message", ["your_reply@email.com", "type_text", "your_charset", your_priority]);
+"your_message", "your_reply@email.com", "type_text", "your_charset", your_priority);
 
 ```
 

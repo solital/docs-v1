@@ -92,4 +92,14 @@ If you are using `$_SERVER['ORIG_PATH_INFO']`, you will get `\index.php\` as par
 
 ### Helper functions
 
-We recommend that you add these helper functions to your project. These will allow you to access functionality of the router more easily.
+Below is a list of all auxiliary functions present in Solital.
+
+- `url()`: Handles the URI class
+- `response()`: Handles the Response class
+- `request()`: Handles the Request class
+- `input()`: Get input class
+- `uploadFile()`: Uploads a file
+- `serverRequest()`: Handles the ServerRequest class
+- `redirect()`: Redirect to another route
+- `csrf_token()`: Get current csrf-token
+- `pre()`: formatted var_dump

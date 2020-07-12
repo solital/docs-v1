@@ -2,17 +2,17 @@ site_name: Solital Framework v1.0-beta
 repo_url: https://github.com/solital/docs-v1/tree/gh-pages
 pages:
   - 1. Welcome: index.md
-  - 2. Starting: 2.starting.md
-  - 3. Installation: 3.installation.md
-  - 4. Vinci Console: 4.vinci.md
-  - 5. Components: 5.components.md
-  - 6. Routes: 6.routes.md
-  - 7. Requisitions: 7.requisitions.md
-  - 8. Input & params : 8.input.params.md
-  - 9. Events: 9.events.md
-  - 10. Authenticate: 10.auth.md
-  - 11. Dependency Container: 11.injection.md
-  - 12. CSRF Protection: 12.csrf.md
-  - 13. Cache: 13.cache.md
-  - 14. Katrina ORM: 14.katrina.md
+  - 2. Starting: starting.md
+  - 3. Installation: installation.md
+  - 4. Vinci Console: vinci.md
+  - 5. Components: components.md
+  - 6. Routes: routes.md
+  - 7. Requisitions: requisitions.md
+  - 8. Input & params : input.params.md
+  - 9. Events: events.md
+  - 10. Authenticate: auth.md
+  - 11. Dependency Container: injection.md
+  - 12. Cache: cache.md
+  - 13. Security: security.md
+  - 14. Katrina ORM: katrina.md
 theme: readthedocs

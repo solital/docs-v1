@@ -20,7 +20,7 @@ Or add the code below to your `composer.json` file.
 
 ```
 "require": {
-    "solital/katrina": "0.1.*"
+    "solital/katrina": "0.2.*"
 }
 ```
 

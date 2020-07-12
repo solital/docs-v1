@@ -1,5 +1,77 @@
+# Security
 
-# CSRF Protection
+## Hash
+
+To create an encrypted key, use the `Hash` class together with the static` encrypt` function as shown below:
+
+```php
+$res = Hash::encrypt('word_to_encrypt');
+
+pre($res);
+```
+
+You can define how long this key will be valid. It can be 1 second, 1 hour or 1 year. by default the value is `+1 hour`.
+
+```php
+$res = Hash::encrypt('word_to_encrypt', '+1 month');
+
+pre($res);
+```
+
+If you want to decrypt, use the `decrypt` function chained with the` value` method.
+
+```php
+$res = Hash::decrypt('word_to_decrypt')::value();
+
+pre($res);
+```
+
+If you want to check if the encrypted key is still valid, use `isValid`. If you want to verify that the encrypted key is still valid, use `isValid`. the `isValid` method will return` true` if it is still valid, and `false` if it is already expired
+
+```php
+$res = Hash::decrypt('word_to_decrypt')::isValid();
+
+pre($res);
+```
+
+## Forgot password
+
+Solital has a standard method for sending a password. To use, use the `Reset` class as shown below:
+
+```php
+public function forgot()
+{    
+    $email = input()->post('email')->getValue();
+
+    (new Reset())->table('your_database_table', 'your_column_table')
+                 ->forgotPass($email, "/your_redirect_url");
+
+    response()->redirect('/home');
+}
+```
+
+Instantiate the `Reset` class. In the `table` function, the first parameter should be the name of your table where users’ emails are stored, and in the second parameter the column name where emails are stored, and then chain with the `forgotPass` method.
+
+In the `forgotPass` method, pass as first parameter the email you want to retrieve, and in the second the url in which the user will be redirected when clicking on the email link.
+
+To validate the information by clicking on the email link, you can use the structure below:
+
+```php
+public function change($hash)
+{
+    $res = Hash::decrypt($hash)::isValid();
+    
+    if ($res == true) {
+        Wolf::loadView('change', [
+            'hash' => $hash
+        ]);
+    } else {
+        response()->redirect('/home');
+    }
+}
+```
+
+## CSRF Protection
 
 Any forms posting to `POST`, `PUT` or `DELETE` routes should include the CSRF-token. We strongly recommend that you enable CSRF-verification on your site to maximize security.
 
@@ -8,7 +80,7 @@ You can use the `BaseCsrfVerifier` to enable CSRF-validation on all request. If 
 By default Solital will use the `CookieTokenProvider` class. This provider will store the security-token in a cookie on the clients machine.
 If you want to store the token elsewhere, please refer to the "Creating custom Token Provider" section below.
 
-## Adding CSRF-verifier
+### Adding CSRF-verifier
 
 When you've created your CSRF-verifier you need to tell Solital that it should use it. You can do this by adding the following line in your `routes.php` file:
 
@@ -16,7 +88,7 @@ When you've created your CSRF-verifier you need to tell Solital that it should u
 Course::csrfVerifier(new \Demo\Middlewares\CsrfVerifier());
 ```
 
-## Getting CSRF-token
+### Getting CSRF-token
 
 When posting to any of the urls that has CSRF-verification enabled, you need post your CSRF-token or else the request will get rejected.
 
@@ -46,7 +118,7 @@ The example below will post to the current url with a hidden field "`csrf_token`
 </form>
 ```
 
-## Custom CSRF-verifier
+### Custom CSRF-verifier
 
 Create a new class and extend the `BaseCsrfVerifier` middleware class provided by default with the simple-php-router library.
 
@@ -69,7 +141,7 @@ class CsrfVerifier extends BaseCsrfVerifier
 }
 ```
 
-## Custom Token Provider
+### Custom Token Provider
 
 By default the `BaseCsrfVerifier` will use the `CookieTokenProvider` to store the token in a cookie on the clients machine.
 

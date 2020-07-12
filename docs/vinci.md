@@ -6,11 +6,9 @@ Vinci is the development assistant at Solital. You can create controllers, model
 
 To access Vinci, open the terminal in your project folder and type php vinci for information.
 
-## How to use
-
 To access information about Solital and its dependencies, open your terminal inside your project folder and type `php vinci about`
 
-### Create a component
+## Create a component
 You can create a new component using the syntax below.
 
 ```
@@ -34,7 +32,7 @@ php vinci controller:User
 
 To see the complete list of commands, run `php vinci show`
 
-### Remove a component
+## Remove a component
 
 Add the `remove-` command before using one of the aforementioned commands to remove a component created with Vinci.
 
@@ -42,7 +40,7 @@ Add the `remove-` command before using one of the aforementioned commands to rem
 php vinci remove-controller:user
 ```
 
-### Clearing the cache on solital
+## Clearing the cache on solital
 
 To clear the entire solital cache, run the command below.
 
@@ -50,15 +48,7 @@ To clear the entire solital cache, run the command below.
 php vinci cache-clear
 ```
 
-### Login structure
-
-To create a predefined login structure, use `php vinci auth`
-
-This command will create a `LoginController` class, templates for authentication and dashboard and predefined routes. Plus a standard user in the database
-
-If you want to remove this structure, use `php vinci remove-auth`
-
-### Configure database
+## Configure database
 
 The `db.php` file has the necessary constants for Katrina ORM to communicate with the database. To configure the `db.php` file, run the command` php vinci katrina:configure`
 
@@ -98,3 +88,21 @@ And in vinci, execute the method as follows:
 ```
 php vinci katrina:myTable
 ```
+
+## Login structure
+
+To create a predefined login structure, use `php vinci auth`
+
+This command will create a `LoginController` class, templates for authentication and dashboard and predefined routes. Plus a standard user in the database. To learn more visit [https://solital.github.io/docs-v1/auth](this link).
+
+If you want to remove this structure, use `php vinci remove-auth`
+
+**NOTE:** the command to remove the components does not remove the routes created.
+
+## Recover password structure
+
+You can create a predefined password recovery framework. To do so, use the `php vinci forget` command
+
+This command creates a controller with the name `ForgotController`. With it you will have all the basis to create a password recovery system. To learn more visit [https://solital.github.io/docs-v1/security](this link).
+
+**NOTE:** the command to remove the components does not remove the routes created.

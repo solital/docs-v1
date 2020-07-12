@@ -1,6 +1,6 @@
 # Authenticate
 
-Solital uses the Guardian class to perform authentication. First of all, make sure to change the Guardian constants in config.php inside the config folder.
+Solital uses the `Guardian` class to perform authentication. First of all, make sure to change the Guardian constants in config.php inside the config folder.
 
 ```php
 /**
