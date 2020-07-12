@@ -18,8 +18,8 @@
   <script>
     // Current page data
     var mkdocs_page_name = "4. Vinci Console";
-    var mkdocs_page_input_path = "4.vinci.md";
-    var mkdocs_page_url = "/4.vinci/";
+    var mkdocs_page_input_path = "vinci.md";
+    var mkdocs_page_url = "/vinci/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -54,12 +54,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../2.starting/">2. Starting</a>
+    <a class="" href="../starting/">2. Starting</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../3.installation/">3. Installation</a>
+    <a class="" href="../installation/">3. Installation</a>
 	    </li>
           
             <li class="toctree-l1 current">
@@ -73,7 +73,17 @@
         
             <li><a class="toctree-l3" href="#access-vinci">Access Vinci</a></li>
         
-            <li><a class="toctree-l3" href="#how-to-use">How to use</a></li>
+            <li><a class="toctree-l3" href="#create-a-component">Create a component</a></li>
+        
+            <li><a class="toctree-l3" href="#remove-a-component">Remove a component</a></li>
+        
+            <li><a class="toctree-l3" href="#clearing-the-cache-on-solital">Clearing the cache on solital</a></li>
+        
+            <li><a class="toctree-l3" href="#configure-database">Configure database</a></li>
+        
+            <li><a class="toctree-l3" href="#login-structure">Login structure</a></li>
+        
+            <li><a class="toctree-l3" href="#recover-password-structure">Recover password structure</a></li>
         
         </ul>
     
@@ -83,52 +93,52 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../5.components/">5. Components</a>
+    <a class="" href="../components/">5. Components</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../6.routes/">6. Routes</a>
+    <a class="" href="../routes/">6. Routes</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../7.requisitions/">7. Requisitions</a>
+    <a class="" href="../requisitions/">7. Requisitions</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../8.input.params/">8. Input & params</a>
+    <a class="" href="../input.params/">8. Input & params</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../9.events/">9. Events</a>
+    <a class="" href="../events/">9. Events</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../10.auth/">10. Authenticate</a>
+    <a class="" href="../auth/">10. Authenticate</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../11.injection/">11. Dependency Container</a>
+    <a class="" href="../injection/">11. Dependency Container</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../12.csrf/">12. CSRF Protection</a>
+    <a class="" href="../cache/">12. Cache</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../13.cache/">13. Cache</a>
+    <a class="" href="../security/">13. Security</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../14.katrina/">14. Katrina ORM</a>
+    <a class="" href="../katrina/">14. Katrina ORM</a>
 	    </li>
           
         </ul>
@@ -156,7 +166,7 @@
     <li>4. Vinci Console</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/4.vinci.md"
+        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/vinci.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -170,9 +180,8 @@
 <p>Vinci is the development assistant at Solital. You can create controllers, models, views, CSS files and JS files in graphical mode right from your browser.</p>
 <h2 id="access-vinci">Access Vinci</h2>
 <p>To access Vinci, open the terminal in your project folder and type php vinci for information.</p>
-<h2 id="how-to-use">How to use</h2>
 <p>To access information about Solital and its dependencies, open your terminal inside your project folder and type <code>php vinci about</code></p>
-<h3 id="create-a-component">Create a component</h3>
+<h2 id="create-a-component">Create a component</h2>
 <p>You can create a new component using the syntax below.</p>
 <pre><code>php vinci [component]:[name_file]
 </code></pre>
@@ -216,21 +225,17 @@
 </tbody>
 </table>
 <p>To see the complete list of commands, run <code>php vinci show</code></p>
-<h3 id="remove-a-component">Remove a component</h3>
+<h2 id="remove-a-component">Remove a component</h2>
 <p>Add the <code>remove-</code> command before using one of the aforementioned commands to remove a component created with Vinci.</p>
 <pre><code>php vinci remove-controller:user
 </code></pre>
 
-<h3 id="clearing-the-cache-on-solital">Clearing the cache on solital</h3>
+<h2 id="clearing-the-cache-on-solital">Clearing the cache on solital</h2>
 <p>To clear the entire solital cache, run the command below.</p>
 <pre><code>php vinci cache-clear
 </code></pre>
 
-<h3 id="login-structure">Login structure</h3>
-<p>To create a predefined login structure, use <code>php vinci auth</code></p>
-<p>This command will create a <code>LoginController</code> class, templates for authentication and dashboard and predefined routes. Plus a standard user in the database</p>
-<p>If you want to remove this structure, use <code>php vinci remove-auth</code></p>
-<h3 id="configure-database">Configure database</h3>
+<h2 id="configure-database">Configure database</h2>
 <p>The <code>db.php</code> file has the necessary constants for Katrina ORM to communicate with the database. To configure the <code>db.php</code> file, run the command<code>php vinci katrina:configure</code></p>
 <p>This command will ask for: database drive, host, database name, database user and password. Remember to enter the values in that order as shown below.</p>
 <pre><code class="shell">Enter the drive, host, database name, username and password for your database separated by commas
@@ -260,6 +265,16 @@ class SQLCommands extends Model
 <p>And in vinci, execute the method as follows:</p>
 <pre><code>php vinci katrina:myTable
 </code></pre>
+
+<h2 id="login-structure">Login structure</h2>
+<p>To create a predefined login structure, use <code>php vinci auth</code></p>
+<p>This command will create a <code>LoginController</code> class, templates for authentication and dashboard and predefined routes. Plus a standard user in the database. To learn more visit <a href="../this link">https://solital.github.io/docs-v1/auth</a>.</p>
+<p>If you want to remove this structure, use <code>php vinci remove-auth</code></p>
+<p><strong>NOTE:</strong> the command to remove the components does not remove the routes created.</p>
+<h2 id="recover-password-structure">Recover password structure</h2>
+<p>You can create a predefined password recovery framework. To do so, use the <code>php vinci forget</code> command</p>
+<p>This command creates a controller with the name <code>ForgotController</code>. With it you will have all the basis to create a password recovery system. To learn more visit <a href="../this link">https://solital.github.io/docs-v1/security</a>.</p>
+<p><strong>NOTE:</strong> the command to remove the components does not remove the routes created.</p>
               
             </div>
           </div>
@@ -267,10 +282,10 @@ class SQLCommands extends Model
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../5.components/" class="btn btn-neutral float-right" title="5. Components">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../components/" class="btn btn-neutral float-right" title="5. Components">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../3.installation/" class="btn btn-neutral" title="3. Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../installation/" class="btn btn-neutral" title="3. Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -298,10 +313,10 @@ class SQLCommands extends Model
           <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../3.installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../5.components/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../components/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

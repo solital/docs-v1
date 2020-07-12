@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>12. Cache - Solital Framework v1.0-beta</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "12. Cache";
+    var mkdocs_page_input_path = "cache.md";
+    var mkdocs_page_url = "/cache/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Solital Framework v1.0-beta</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">1. Welcome</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../starting/">2. Starting</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">3. Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../vinci/">4. Vinci Console</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../components/">5. Components</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../routes/">6. Routes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../requisitions/">7. Requisitions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../input.params/">8. Input & params</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../events/">9. Events</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../auth/">10. Authenticate</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../injection/">11. Dependency Container</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">12. Cache</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#cache">Cache</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#how-to-use">How to use</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../security/">13. Security</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../katrina/">14. Katrina ORM</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Solital Framework v1.0-beta</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>12. Cache</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/cache.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="cache">Cache</h1>
+<p>Cache is a layer of high-speed physical data storage that holds a subset of data, usually temporary in nature, so that future requests for that data are answered more quickly than is possible when accessing the primary storage location of data. Caching allows you to efficiently reuse previously recovered or computed data.</p>
+<h2 id="how-to-use">How to use</h2>
+<p><strong>Single cache</strong></p>
+<p>You can cache through PSR-16. To do this, perform the instance of the Cache class as follows:</p>
+<pre><code class="php">use Solital\Cache\Cache;
+
+$cache = new Cache();
+
+$list = $this-&gt;instance()-&gt;select()-&gt;build(&quot;all&quot;);
+
+// The 'has' method checks whether the index exists
+if ($cache-&gt;has('list') == true) {
+    echo '&lt;h1&gt;from cache&lt;/h1&gt;';
+    // The 'get' method returns the cached value if it exists
+    $cache-&gt;get('list');
+} else {
+    echo '&lt;h1&gt;created cache&lt;/h1&gt;';
+    // The 'set' method creates the cached file
+    $cache-&gt;set('list', $list, 20);
+}
+
+// Displays the original content of the $list variable
+echo '&lt;h1&gt;from original&lt;/h1&gt;';
+var_dump($list);
+</code></pre>
+
+<p>To delete the cache that was created, use the <code>delete</code> method passing the cache key as a parameter.</p>
+<pre><code class="php">$cache-&gt;delete('list');
+</code></pre>
+
+<p>The <code>has</code> method checks whether the item key exists. If it exists, use the <code>get</code> method to retrieve the generated cache by passing the key value as a parameter. If it does not exist, the <code>set</code> method creates the cached file, passing in the first parameter the name of the key, the value that will be stored and the time (in <code>int</code>) that this cached file will be valid.</p>
+<p><strong>Mutiple cache</strong></p>
+<p>The syntax is similar to the single cache. But the <code>getMultiple</code> method needs an array containing the key values as a parameter. The <code>setMultiple</code> method generates the cache if it does not exist, but pass as an parameter an array in which the keys will be the indexes of the array, and in the last parameter spend the time that the cache will be valid.</p>
+<pre><code class="php">use Solital\Cache\Cache;
+
+$cache = new Cache();
+
+$list = [
+    'nome' =&gt; 'Harvey Specter',
+    'email' =&gt; 'specter@pearsonhardman.com'
+];
+
+$list2 = [
+    'nome' =&gt; 'Louis Litt',
+    'email' =&gt; 'liitup@pearsonhardman.com'
+];
+
+$cache-&gt;getMultiple(['list1', 'list2']);
+
+echo '&lt;h1&gt;created cache&lt;/h1&gt;';
+$cache-&gt;setMultiple([
+    'list1' =&gt; $list,
+    'list2' =&gt; $list2
+], 20);
+
+echo '&lt;h1&gt;from original&lt;/h1&gt;';
+print_r($list);
+print_r($list2);
+</code></pre>
+
+<p>In the multiple cache, use <code>deleteMultiple</code> by passing an array containing the cache keys to delete the cached files generated with the<code>setMultiple</code> method.</p>
+<pre><code class="php">$cache-&gt;deleteMultiple([&quot;list1&quot;, &quot;list2&quot;]);
+</code></pre>
+
+<p><strong>Clear cache</strong></p>
+<p>To clear the entire cache created with the <code>Cache</code> class, use the<code>clear</code> function.</p>
+<pre><code class="php">$cache-&gt;clear();
+</code></pre>
+
+<h3 id="wolf-template">Wolf Template</h3>
+<p>To cache a template in Wolf, use the static cache function to set the cache file time as shown below:</p>
+<pre><code class="php">Wolf::cache(date('Hi'));
+
+Wolf::loadView('home');
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../security/" class="btn btn-neutral float-right" title="13. Security">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../injection/" class="btn btn-neutral" title="11. Dependency Container"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../injection/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../security/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

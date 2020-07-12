@@ -18,8 +18,8 @@
   <script>
     // Current page data
     var mkdocs_page_name = "5. Components";
-    var mkdocs_page_input_path = "5.components.md";
-    var mkdocs_page_url = "/5.components/";
+    var mkdocs_page_input_path = "components.md";
+    var mkdocs_page_url = "/components/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -54,17 +54,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../2.starting/">2. Starting</a>
+    <a class="" href="../starting/">2. Starting</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../3.installation/">3. Installation</a>
+    <a class="" href="../installation/">3. Installation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../4.vinci/">4. Vinci Console</a>
+    <a class="" href="../vinci/">4. Vinci Console</a>
 	    </li>
           
             <li class="toctree-l1 current">
@@ -90,47 +90,47 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../6.routes/">6. Routes</a>
+    <a class="" href="../routes/">6. Routes</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../7.requisitions/">7. Requisitions</a>
+    <a class="" href="../requisitions/">7. Requisitions</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../8.input.params/">8. Input & params</a>
+    <a class="" href="../input.params/">8. Input & params</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../9.events/">9. Events</a>
+    <a class="" href="../events/">9. Events</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../10.auth/">10. Authenticate</a>
+    <a class="" href="../auth/">10. Authenticate</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../11.injection/">11. Dependency Container</a>
+    <a class="" href="../injection/">11. Dependency Container</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../12.csrf/">12. CSRF Protection</a>
+    <a class="" href="../cache/">12. Cache</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../13.cache/">13. Cache</a>
+    <a class="" href="../security/">13. Security</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../14.katrina/">14. Katrina ORM</a>
+    <a class="" href="../katrina/">14. Katrina ORM</a>
 	    </li>
           
         </ul>
@@ -158,7 +158,7 @@
     <li>5. Components</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/5.components.md"
+        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/components.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -209,7 +209,7 @@
 </code></pre>
 
 <h3 id="cache">Cache</h3>
-<p>See the cache part here to learn how to use the cache in Wolf.</p>
+<p>See the cache part <a href="https://solital.github.io/docs-v1/13.cache/">here</a> to learn how to use the cache in Wolf.</p>
 <h2 id="message">Message</h2>
 <p>Message helps you when displaying messages in your view. Its syntax is basic as shown below.</p>
 <p>To create a new message:</p>
@@ -247,12 +247,19 @@ Mail::send(&quot;your_sender@email.com&quot;, &quot;your_recipient@email.com&quo
 &quot;your_subject&quot;, &quot;your_message&quot;);
 </code></pre>
 
+<h3 id="validate">Validate</h3>
+<p>To check if an email is really valid, use the <code>validateEmail</code> function.</p>
+<pre><code class="php">$res = Mail::validateEmail(&quot;brenno.gnr@gmail.com&quot;);
+
+pre($res);
+</code></pre>
+
 <h3 id="optional-parameters">Optional parameters</h3>
 <p>To add a reply, text type, charset and priority, use the optional parameters.</p>
 <pre><code class="php">use Solital\Mail\Mail;
 
 Mail::send(&quot;your_sender@email.com&quot;, &quot;your_recipient@email.com&quot;, &quot;your_subject&quot;, 
-&quot;your_message&quot;, [&quot;your_reply@email.com&quot;, &quot;type_text&quot;, &quot;your_charset&quot;, your_priority]);
+&quot;your_message&quot;, &quot;your_reply@email.com&quot;, &quot;type_text&quot;, &quot;your_charset&quot;, your_priority);
 
 </code></pre>
 
@@ -270,10 +277,10 @@ Mail::send(&quot;your_sender@email.com&quot;, &quot;your_recipient@email.com&quo
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../6.routes/" class="btn btn-neutral float-right" title="6. Routes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../routes/" class="btn btn-neutral float-right" title="6. Routes">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../4.vinci/" class="btn btn-neutral" title="4. Vinci Console"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../vinci/" class="btn btn-neutral" title="4. Vinci Console"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -301,10 +308,10 @@ Mail::send(&quot;your_sender@email.com&quot;, &quot;your_recipient@email.com&quo
           <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../4.vinci/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../vinci/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../6.routes/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../routes/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
