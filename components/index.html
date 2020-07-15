@@ -130,7 +130,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../katrina/">14. Katrina ORM</a>
+    <a class="" href="../folders-files/">14. Handling Folders and Files</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../katrina/">15. Katrina ORM</a>
 	    </li>
           
         </ul>
@@ -173,7 +178,9 @@
 <p>Wolf is Solital's standard template system. You can load any template into the <code>resource/views</code> folder</p>
 <h3 id="basic">Basic</h3>
 <p>Below is the basic code to load any template:</p>
-<pre><code class="php">Wolf::loadView('home');
+<pre><code class="php">use Solital\Core\Wolf\Wolf;
+
+Wolf::loadView('home');
 </code></pre>
 
 <h3 id="parameters">Parameters</h3>
@@ -213,35 +220,35 @@
 <h2 id="message">Message</h2>
 <p>Message helps you when displaying messages in your view. Its syntax is basic as shown below.</p>
 <p>To create a new message:</p>
-<pre><code class="php">use Solital\Message\Message;
+<pre><code class="php">use Solital\Core\Resource\Message;
 
-Message::newMessage(&quot;your_index_message&quot;, &quot;your_messsage&quot;);
+Message::new(&quot;your_index_message&quot;, &quot;your_messsage&quot;);
 </code></pre>
 
 <p>To retrieve a message:</p>
-<pre><code class="php">use Solital\Message\Message;
+<pre><code class="php">use Solital\Core\Resource\Message;
 
-Message::getMessage(&quot;your_index_message&quot;);
+Message::get(&quot;your_index_message&quot;);
 </code></pre>
 
 <p>To delete a message:</p>
-<pre><code class="php">use Solital\Message\Message;
+<pre><code class="php">use Solital\Core\Resource\Message;
 
-Message::clearMessage(&quot;your_index_message&quot;);
+Message::clear(&quot;your_index_message&quot;);
 </code></pre>
 
 <p>To recover and then delete a message:</p>
-<pre><code class="php">use Solital\Message\Message;
+<pre><code class="php">use Solital\Core\Resource\Message;
 
-Message::getMessage(&quot;your_index_message&quot;);
-Message::clearMessage(&quot;your_index_message&quot;);
+Message::get(&quot;your_index_message&quot;);
+Message::clear(&quot;your_index_message&quot;);
 </code></pre>
 
 <h2 id="mail">Mail</h2>
 <p>Mail is a class of Solital that uses PHP's native mail to send email.</p>
 <h3 id="use">Use</h3>
 <p>The sitaxis below is used to be able to send basic e-mail.</p>
-<pre><code class="php">use Solital\Mail\Mail;
+<pre><code class="php">use Solital\Core\Resource\Mail;
 
 Mail::send(&quot;your_sender@email.com&quot;, &quot;your_recipient@email.com&quot;, 
 &quot;your_subject&quot;, &quot;your_message&quot;);
@@ -256,9 +263,7 @@ pre($res);
 
 <h3 id="optional-parameters">Optional parameters</h3>
 <p>To add a reply, text type, charset and priority, use the optional parameters.</p>
-<pre><code class="php">use Solital\Mail\Mail;
-
-Mail::send(&quot;your_sender@email.com&quot;, &quot;your_recipient@email.com&quot;, &quot;your_subject&quot;, 
+<pre><code class="php">Mail::send(&quot;your_sender@email.com&quot;, &quot;your_recipient@email.com&quot;, &quot;your_subject&quot;, 
 &quot;your_message&quot;, &quot;your_reply@email.com&quot;, &quot;type_text&quot;, &quot;your_charset&quot;, your_priority);
 
 </code></pre>

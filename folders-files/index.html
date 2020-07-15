@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>7. Requisitions - Solital Framework v1.0-beta</title>
+  <title>14. Handling Folders and Files - Solital Framework v1.0-beta</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "7. Requisitions";
-    var mkdocs_page_input_path = "requisitions.md";
-    var mkdocs_page_url = "/requisitions/";
+    var mkdocs_page_name = "14. Handling Folders and Files";
+    var mkdocs_page_input_path = "folders-files.md";
+    var mkdocs_page_url = "/folders-files/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -77,21 +77,9 @@
     <a class="" href="../routes/">6. Routes</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">7. Requisitions</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#requisitions">Requisitions</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#sessions-and-cookies">Sessions and Cookies</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../requisitions/">7. Requisitions</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -124,9 +112,27 @@
     <a class="" href="../security/">13. Security</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../folders-files/">14. Handling Folders and Files</a>
+    <a class="current" href="./">14. Handling Folders and Files</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#handling-folders-and-files">Handling Folders and Files</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#list-files-within-a-folder">List files within a folder</a></li>
+        
+            <li><a class="toctree-l3" href="#check-if-a-file-exists">Check if a file exists</a></li>
+        
+            <li><a class="toctree-l3" href="#create-folder">Create folder</a></li>
+        
+            <li><a class="toctree-l3" href="#remove-folder">Remove folder</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -156,10 +162,10 @@
     
       
     
-    <li>7. Requisitions</li>
+    <li>14. Handling Folders and Files</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/requisitions.md"
+        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/folders-files.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -169,44 +175,66 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="requisitions">Requisitions</h1>
-<h2 id="sessions-and-cookies">Sessions and Cookies</h2>
-<h3 id="create-session-and-cookie">Create session and cookie</h3>
-<p>The operation of the sessions and cookies are the same. To create a session, the first parameter reports the session index or the second value of it.</p>
-<pre><code class="php">use Solital\Core\Resource\Session;
+                <h1 id="handling-folders-and-files">Handling Folders and Files</h1>
+<p>You can manipulate folders and files within Solital through the <code>HandleFiles</code> class, such as creating folders, removing folders, listing files and deleting files.</p>
+<pre><code class="php">use Solital\Core\Resource\HandleFiles;
 
-Session::new('your_index', 'your_value');
+$folder = new HandleFiles();
 </code></pre>
 
-<p>And for Cookies.</p>
-<pre><code class="php">use Solital\Core\Resource\Cookie;
+<h2 id="list-files-within-a-folder">List files within a folder</h2>
+<p><strong>list multiple files</strong></p>
+<p>Use the <code>folder()</code> method to define the folder containing the files in Solital to be listed. To list all files within that folder, chain the <code>files()</code> method.</p>
+<pre><code class="php">/** Array return */
+$res = $folder-&gt;folder(&quot;folder_name&quot;)-&gt;files();
 
-Cookie::new('your_index', 'your_value');
+pre($res);
 </code></pre>
 
-<h3 id="display-session-and-cookie">Display session and cookie</h3>
-<p>To display a session and cookie, use a syntax below.</p>
-<pre><code class="php">Session::show('your_index');
+<p><strong>list single file</strong></p>
+<pre><code class="php">/** String return */
+$res = $folder-&gt;folder(&quot;folder_name&quot;)-&gt;file('README.md');
 
-Cookie::show('your_index');
+pre($res);
 </code></pre>
 
-<h3 id="check-session-and-cookie">Check session and cookie</h3>
-<p>To check if a session or cookie exists, use a sintax below.</p>
-<pre><code class="php">Session::has('your_index');
+<p>To list only a single file within the folder, use the <code>file()</code> method passing as a parameter the file you want to search for</p>
+<h2 id="check-if-a-file-exists">Check if a file exists</h2>
+<p>To check if there is a file inside the folder, use <code>fileExists()</code>.</p>
+<pre><code class="php">/** Boolean return */
+$res = $folder-&gt;folder(&quot;folder_name&quot;)-&gt;fileExists(&quot;README.md&quot;);
 
-Cookie::has('your_index');
+pre($res);
 </code></pre>
 
-<h3 id="delete-session-and-cookie">Delete session and cookie</h3>
-<p>To delete a session and cookie, use a syntax below.</p>
-<pre><code class="php">Session::delete('your_index');
+<h2 id="create-folder">Create folder</h2>
+<p>To create a folder inside Solital, use only the <code>create()</code> method.</p>
+<pre><code class="php">/** Boolean return */
+$res = $folder-&gt;create(&quot;folder_name&quot;);
 
-Cookie::delete('your_index');
+pre($res);
 </code></pre>
 
-<p>You can use <code>destroy</code> method to destroy all sessions.</p>
-<pre><code class="php">Session::destroy();
+<p>You can define the type of permission the folder will have. The default is 0777.</p>
+<pre><code class="php">/** Boolean return */
+$res = $folder-&gt;create(&quot;folder_name&quot;, 0755);
+
+pre($res);
+</code></pre>
+
+<h2 id="remove-folder">Remove folder</h2>
+<p>To delete a folder inside Solital, use only the <code>remove()</code> method. This method will delete a folder if it is empty.</p>
+<pre><code class="php">/** Boolean return */
+$res = $folder-&gt;remove(&quot;folder_name&quot;);
+
+pre($res);
+</code></pre>
+
+<p>The <code>remove()</code> method checks for files inside the folder. If you want to delete the files inside the folder, pass <code>false</code> in the second parameter.</p>
+<pre><code class="php">/** Boolean return */
+$res = $folder-&gt;remove(&quot;folder_name&quot;, false);
+
+pre($res);
 </code></pre>
               
             </div>
@@ -215,10 +243,10 @@ Cookie::delete('your_index');
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../input.params/" class="btn btn-neutral float-right" title="8. Input & params">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../katrina/" class="btn btn-neutral float-right" title="15. Katrina ORM">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../routes/" class="btn btn-neutral" title="6. Routes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../security/" class="btn btn-neutral" title="13. Security"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -246,10 +274,10 @@ Cookie::delete('your_index');
           <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../routes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../security/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../input.params/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../katrina/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

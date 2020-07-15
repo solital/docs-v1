@@ -132,7 +132,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../katrina/">14. Katrina ORM</a>
+    <a class="" href="../folders-files/">14. Handling Folders and Files</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../katrina/">15. Katrina ORM</a>
 	    </li>
           
         </ul>
@@ -241,15 +246,17 @@ RewriteRule ^(.*)$ index.php/$1
 <h3 id="helper-functions">Helper functions</h3>
 <p>Below is a list of all auxiliary functions present in Solital.</p>
 <ul>
-<li><code>url()</code>: Handles the URI class</li>
+<li><code>url(?string $name = null, $parameters = null, ?array $getParams)</code>: Handles the URI class</li>
 <li><code>response()</code>: Handles the Response class</li>
 <li><code>request()</code>: Handles the Request class</li>
-<li><code>input()</code>: Get input class</li>
-<li><code>uploadFile()</code>: Uploads a file</li>
-<li><code>serverRequest()</code>: Handles the ServerRequest class</li>
-<li><code>redirect()</code>: Redirect to another route</li>
+<li><code>input($index = null, $defaultValue = null, ...$methods)</code>: Get input class</li>
+<li><code>uploadFile($file)</code>: Uploads a file</li>
+<li><code>serverRequest(array $headers = null, $protocol = null)</code>: Handles the ServerRequest class</li>
+<li><code>redirect(string $url, ?int $code = null)</code>: Redirect to another route</li>
 <li><code>csrf_token()</code>: Get current csrf-token</li>
-<li><code>pre()</code>: formatted var_dump</li>
+<li><code>pre($value)</code>: formatted <code>var_dump</code></li>
+<li><code>pass_hash($value, int $cost = 10)</code>: Similar to <code>password_hash</code></li>
+<li><code>pass_verify($value, string $hash)</code>: Similar to <code>password_verify</code></li>
 </ul>
               
             </div>
