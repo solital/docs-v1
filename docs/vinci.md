@@ -93,7 +93,7 @@ php vinci katrina:myTable
 
 To create a predefined login structure, use `php vinci auth`
 
-This command will create a `LoginController` class, templates for authentication and dashboard and predefined routes. Plus a standard user in the database. To learn more visit [https://solital.github.io/docs-v1/auth](this link).
+This command will create a `LoginController` class, templates for authentication and dashboard and predefined routes. Plus a standard user in the database. To learn more visit [this link](https://solital.github.io/docs-v1/auth).
 
 If you want to remove this structure, use `php vinci remove-auth`
 
@@ -103,6 +103,6 @@ If you want to remove this structure, use `php vinci remove-auth`
 
 You can create a predefined password recovery framework. To do so, use the `php vinci forget` command
 
-This command creates a controller with the name `ForgotController`. With it you will have all the basis to create a password recovery system. To learn more visit [https://solital.github.io/docs-v1/security](this link).
+This command creates a controller with the name `ForgotController`. With it you will have all the basis to create a password recovery system. To learn more visit [this link](https://solital.github.io/docs-v1/security).
 
 **NOTE:** the command to remove the components does not remove the routes created.

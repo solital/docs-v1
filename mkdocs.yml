@@ -14,5 +14,6 @@ pages:
   - 11. Dependency Container: injection.md
   - 12. Cache: cache.md
   - 13. Security: security.md
-  - 14. Katrina ORM: katrina.md
+  - 14. Handling Folders and Files: folders-files.md
+  - 15. Katrina ORM: katrina.md
 theme: readthedocs

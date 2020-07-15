@@ -96,3 +96,7 @@ To log off, use the `logoff()` method.
 ```php
 Guardian::logoff();
 ```
+
+## Login structure and password recovery
+
+[See here](https://solital.github.io/docs-v1/vinci/#login-structure) how to create a pre-assembled login and password recovery framework using the vinci console.

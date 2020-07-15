@@ -7,6 +7,8 @@ Wolf is Solital's standard template system. You can load any template into the `
 Below is the basic code to load any template:
 
 ```php
+use Solital\Core\Wolf\Wolf;
+
 Wolf::loadView('home');
 ```
         
@@ -65,34 +67,34 @@ Message helps you when displaying messages in your view. Its syntax is basic as 
 To create a new message:
 
 ```php
-use Solital\Message\Message;
+use Solital\Core\Resource\Message;
 
-Message::newMessage("your_index_message", "your_messsage");
+Message::new("your_index_message", "your_messsage");
 ```
 
 To retrieve a message:
 
 ```php
-use Solital\Message\Message;
+use Solital\Core\Resource\Message;
 
-Message::getMessage("your_index_message");
+Message::get("your_index_message");
 ```
 
 To delete a message:
 
 ```php
-use Solital\Message\Message;
+use Solital\Core\Resource\Message;
 
-Message::clearMessage("your_index_message");
+Message::clear("your_index_message");
 ```
 
 To recover and then delete a message:
 
 ```php
-use Solital\Message\Message;
+use Solital\Core\Resource\Message;
 
-Message::getMessage("your_index_message");
-Message::clearMessage("your_index_message");
+Message::get("your_index_message");
+Message::clear("your_index_message");
 ```
 
 ## Mail
@@ -104,7 +106,7 @@ Mail is a class of Solital that uses PHP's native mail to send email.
 The sitaxis below is used to be able to send basic e-mail.
 
 ```php
-use Solital\Mail\Mail;
+use Solital\Core\Resource\Mail;
 
 Mail::send("your_sender@email.com", "your_recipient@email.com", 
 "your_subject", "your_message");
@@ -125,8 +127,6 @@ pre($res);
 To add a reply, text type, charset and priority, use the optional parameters.
 
 ```php
-use Solital\Mail\Mail;
-
 Mail::send("your_sender@email.com", "your_recipient@email.com", "your_subject", 
 "your_message", "your_reply@email.com", "type_text", "your_charset", your_priority);
 

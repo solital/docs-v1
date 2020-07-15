@@ -94,12 +94,14 @@ If you are using `$_SERVER['ORIG_PATH_INFO']`, you will get `\index.php\` as par
 
 Below is a list of all auxiliary functions present in Solital.
 
-- `url()`: Handles the URI class
+- `url(?string $name = null, $parameters = null, ?array $getParams)`: Handles the URI class
 - `response()`: Handles the Response class
 - `request()`: Handles the Request class
-- `input()`: Get input class
-- `uploadFile()`: Uploads a file
-- `serverRequest()`: Handles the ServerRequest class
-- `redirect()`: Redirect to another route
+- `input($index = null, $defaultValue = null, ...$methods)`: Get input class
+- `uploadFile($file)`: Uploads a file
+- `serverRequest(array $headers = null, $protocol = null)`: Handles the ServerRequest class
+- `redirect(string $url, ?int $code = null)`: Redirect to another route
 - `csrf_token()`: Get current csrf-token
-- `pre()`: formatted var_dump
+- `pre($value)`: formatted `var_dump`
+- `pass_hash($value, int $cost = 10)`: Similar to `password_hash`
+- `pass_verify($value, string $hash)`: Similar to `password_verify`
