@@ -2,6 +2,8 @@
 
 Solital is a complete framework with everything you need to create high-value projects.
 
+Solital framework is based on the [simple-php-router](https://github.com/skipperbent/simple-php-router) component, but with improvements in the core, in addition to having a cache, template, authentication, ORM system and its own console for creating pre-defined structures
+
 ## Installing via Composer 
 
 To download Solital, use the command below:

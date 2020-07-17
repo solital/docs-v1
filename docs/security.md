@@ -2,7 +2,7 @@
 
 ## Hash
 
-To create an encrypted key, use the `Hash` class together with the static` encrypt` function as shown below:
+To create an encrypted key, use the `Hash` class together with the static `encrypt` function as shown below:
 
 ```php
 $res = Hash::encrypt('word_to_encrypt');
@@ -18,7 +18,7 @@ $res = Hash::encrypt('word_to_encrypt', '+1 month');
 pre($res);
 ```
 
-If you want to decrypt, use the `decrypt` function chained with the` value` method.
+If you want to decrypt, use the `decrypt` function chained with the `value` method.
 
 ```php
 $res = Hash::decrypt('word_to_decrypt')::value();
@@ -36,7 +36,9 @@ pre($res);
 
 ## Forgot password
 
-Solital has a standard method for sending a password. To use, use the `Reset` class as shown below:
+Solital has a standard method for password recovery. For that, it is necessary to configure only the constant `EMAIL` in the file `config.php`, inserting the sender and recipient.
+
+The `Reset` class uses php's native `mail` method for sending e-mail.
 
 ```php
 public function forgot()
@@ -44,7 +46,7 @@ public function forgot()
     $email = input()->post('email')->getValue();
 
     (new Reset())->table('your_database_table', 'your_column_table')
-                 ->forgotPass($email, "/your_redirect_url");
+                 ->forgotPass($email, "/your_redirect_url", "+20 minute");
 
     response()->redirect('/home');
 }
@@ -52,7 +54,7 @@ public function forgot()
 
 Instantiate the `Reset` class. In the `table` function, the first parameter should be the name of your table where users’ emails are stored, and in the second parameter the column name where emails are stored, and then chain with the `forgotPass` method.
 
-In the `forgotPass` method, pass as first parameter the email you want to retrieve, and in the second the url in which the user will be redirected when clicking on the email link.
+In the `forgotPass` method, pass as first parameter the email you want to retrieve, and in the second the url in which the user will be redirected when clicking on the email link. The third parameter is optional, the time that the key will be valid will be defined. The default is `+1 hour`
 
 To validate the information by clicking on the email link, you can use the structure below:
 
@@ -62,7 +64,10 @@ public function change($hash)
     $res = Hash::decrypt($hash)::isValid();
     
     if ($res == true) {
-        Wolf::loadView('change', [
+        $email = Hash::decrypt($hash)::value();
+
+        Wolf::loadView('auth.change', [
+            'email' => $email,
             'hash' => $hash
         ]);
     } else {
@@ -85,7 +90,7 @@ If you want to store the token elsewhere, please refer to the "Creating custom T
 When you've created your CSRF-verifier you need to tell Solital that it should use it. You can do this by adding the following line in your `routes.php` file:
 
 ```php
-Course::csrfVerifier(new \Demo\Middlewares\CsrfVerifier());
+Course::csrfVerifier(new \Solital\Core\Http\Middleware\BaseCsrfVerifier());
 ```
 
 ### Getting CSRF-token

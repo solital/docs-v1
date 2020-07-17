@@ -4,7 +4,11 @@ Vinci is the development assistant at Solital. You can create controllers, model
 
 ## Access Vinci
 
-To access Vinci, open the terminal in your project folder and type php vinci for information.
+To access Vinci, open the terminal in your project folder and type `php vinci [command]`
+
+### For Windows
+
+To run the Vinci console on Windows, remember to add the PHP directory to the Windows PATH.
 
 To access information about Solital and its dependencies, open your terminal inside your project folder and type `php vinci about`
 

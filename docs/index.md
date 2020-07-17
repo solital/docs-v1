@@ -7,9 +7,7 @@
   <a href="https://github.com/solital/solital/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/solital/solital?style=flat-square"></a>
 </p>
 
-You are reading the version documentation: `1.0-beta`
-
-*Attention: this framework is still being developed, dont' use it in a real project*
+You are reading the version documentation: `1.x`
 
 **License**
 

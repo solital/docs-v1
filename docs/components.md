@@ -39,26 +39,32 @@ Wolf::loadView('home', [
 ### Loading CSS, JS and images
 Make sure the files exist in the folder `public/assets/_css`, `public/assets/_js` and `public/assets/_img`
 
-To upload a CSS file, use the syntax below in your template
+To load a CSS file, use the static `loadCss` method in your template.
 
 ```html
 <link rel="stylesheet" href="<? self::loadCss('style.css'); ?>">
 ```
         
-To upload a JS file, use the syntax below in your template
+To load a JS file, use the static `loadJs` method in your template.
 
 ```html
 <link rel="stylesheet" href="<? self::loadJs('file.js'); ?>">
 ```
         
-To upload an image, use the syntax below in your template
+To load a image file, use the static `loadImg` method in your template.
 
 ```html
 <img src="<? self::loadImg('image.png'); ?>">
 ```
+
+To load a file outside the `_css`,` _js` and `_img` folder, use the` loadFile` method.
+
+```html
+<img src="<? self::loadFile('path/for/your/file'); ?>">
+```
         
 ### Cache
-See the cache part [here](https://solital.github.io/docs-v1/13.cache/) to learn how to use the cache in Wolf.
+See the cache part [here](https://solital.github.io/docs-v1/cache/) to learn how to use the cache in Wolf.
 
 ## Message
 

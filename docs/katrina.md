@@ -1,7 +1,5 @@
 # Getting Started
 
-## What is Katrina ORM?
-
 Katrina ORM is a component to bring the object-oriented application development paradigm closer to the relational database paradigm. It helps when carrying out common routines, such as the famous CRUD (create, read, edit and delete), in addition to having a login and data paging system.
 
 ### Requirements
@@ -20,13 +18,15 @@ Or add the code below to your `composer.json` file.
 
 ```
 "require": {
-    "solital/katrina": "0.2.*"
+    "solital/katrina": "1.0.*"
 }
 ```
 
 ### Settings
 
-To configure your database, create or edit (in Solital) the `db.php` file inside the `config` folder.
+If you are using the Solital framework, run the `php vinci katrina:configure` command to configure the `db.php` file via Vinci ([see more](https://solital.github.io/docs-v1/vinci/#configure-database) about configuring Katrina ORM No Vinci here)
+
+Or edit (in Solital) the `db.php` file inside the `config` folder.
 
 ```php
 define('DB_CONFIG', [
@@ -42,7 +42,7 @@ define('DB_CONFIG', [
 
 You can use katrina in two ways:
 
-1°) In solital, extend the model already created and define the variables `$table`, `$primaryKey` and `$columns` in your model's constructor as listed below:
+1°) In Solital, extend the model already created and define the variables `$table`, `$primaryKey` and `$columns` in your model's constructor as listed below:
 
 ```php
 <?php

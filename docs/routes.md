@@ -201,15 +201,17 @@ Route groups allow you to share route attributes, such as middleware or namespac
 To assign middleware to all routes within a group, you may use the middleware key in the group attribute array. Middleware are executed in the order they are listed in the array:
 
 ```php
-Course::group(['middleware' => \Demo\Middleware\Auth::class], function () {
-    Course::get('/', function ()    {
-        // Uses Auth Middleware
-    });
-
-    Course::get('/user/profile', function () {
-        // Uses Auth Middleware
-    });
+Course::group(['prefix' => '/admin', 'middleware' => '\Solital\Components\Controller\UserController'], function ()
+{
+    Course::get("/login", "UserController@login")->name('login');
+    Course::put("/logout", "UserController@logout")->name('logout');
 });
+```
+
+Or otherwise:
+
+```php
+Course::match(['get', 'post'], '/user/login', 'UserController@login')->addMiddleware('\Solital\Components\Controller\UserController:guest');
 ```
 
 ### Namespaces
@@ -279,7 +281,7 @@ ExceptionHandler are classes that handles all exceptions. ExceptionsHandlers mus
 
 ### Handling 404, 403 and other errors
 
-If you simply want to catch a 404 (page not found) etc. you can use the `Router::error($callback)` static helper method.
+If you simply want to catch a 404 (page not found) etc. you can use the `Course::error($callback)` static helper method.
 
 This will add a callback method which is fired whenever an error occurs on all routes.
 
@@ -287,9 +289,9 @@ The basic example below simply redirect the page to `/not-found` if an `NotFound
 The code should be placed in the file that contains your routes.
 
 ```php
-Router::get('/not-found', 'PageController@notFound');
+Course::get('/not-found', 'PageController@notFound');
 
-Router::error(function(Request $request, \Exception $exception) {
+Course::error(function(Request $request, \Exception $exception) {
 
     if($exception instanceof NotFoundHttpException && $exception->getCode() === 404) {
         response()->redirect('/not-found');
