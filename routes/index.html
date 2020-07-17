@@ -335,15 +335,15 @@ $url = url('profile', ['id' =&gt; 1]);
 <p>Route groups allow you to share route attributes, such as middleware or namespaces, across a large number of routes without needing to define those attributes on each individual route. Shared attributes are specified in an array format as the first parameter to the <code>Course::group</code> method.</p>
 <h2 id="middleware">Middleware</h2>
 <p>To assign middleware to all routes within a group, you may use the middleware key in the group attribute array. Middleware are executed in the order they are listed in the array:</p>
-<pre><code class="php">Course::group(['middleware' =&gt; \Demo\Middleware\Auth::class], function () {
-    Course::get('/', function ()    {
-        // Uses Auth Middleware
-    });
-
-    Course::get('/user/profile', function () {
-        // Uses Auth Middleware
-    });
+<pre><code class="php">Course::group(['prefix' =&gt; '/admin', 'middleware' =&gt; '\Solital\Components\Controller\UserController'], function ()
+{
+    Course::get(&quot;/login&quot;, &quot;UserController@login&quot;)-&gt;name('login');
+    Course::put(&quot;/logout&quot;, &quot;UserController@logout&quot;)-&gt;name('logout');
 });
+</code></pre>
+
+<p>Or otherwise:</p>
+<pre><code class="php">Course::match(['get', 'post'], '/user/login', 'UserController@login')-&gt;addMiddleware('\Solital\Components\Controller\UserController:guest');
 </code></pre>
 
 <h3 id="namespaces">Namespaces</h3>
@@ -394,13 +394,13 @@ To fix this you can make the callback relative by removing the <code>\</code> in
 <h2 id="exception">Exception</h2>
 <p>ExceptionHandler are classes that handles all exceptions. ExceptionsHandlers must implement the <code>ExceptionHandlerInterface</code> interface.</p>
 <h3 id="handling-404-403-and-other-errors">Handling 404, 403 and other errors</h3>
-<p>If you simply want to catch a 404 (page not found) etc. you can use the <code>Router::error($callback)</code> static helper method.</p>
+<p>If you simply want to catch a 404 (page not found) etc. you can use the <code>Course::error($callback)</code> static helper method.</p>
 <p>This will add a callback method which is fired whenever an error occurs on all routes.</p>
 <p>The basic example below simply redirect the page to <code>/not-found</code> if an <code>NotFoundHttpException</code> (404) occurred.
 The code should be placed in the file that contains your routes.</p>
-<pre><code class="php">Router::get('/not-found', 'PageController@notFound');
+<pre><code class="php">Course::get('/not-found', 'PageController@notFound');
 
-Router::error(function(Request $request, \Exception $exception) {
+Course::error(function(Request $request, \Exception $exception) {
 
     if($exception instanceof NotFoundHttpException &amp;&amp; $exception-&gt;getCode() === 404) {
         response()-&gt;redirect('/not-found');

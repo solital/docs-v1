@@ -203,20 +203,24 @@ Wolf::loadView('home');
 
 <h3 id="loading-css-js-and-images">Loading CSS, JS and images</h3>
 <p>Make sure the files exist in the folder <code>public/assets/_css</code>, <code>public/assets/_js</code> and <code>public/assets/_img</code></p>
-<p>To upload a CSS file, use the syntax below in your template</p>
+<p>To load a CSS file, use the static <code>loadCss</code> method in your template.</p>
 <pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;? self::loadCss('style.css'); ?&gt;&quot;&gt;
 </code></pre>
 
-<p>To upload a JS file, use the syntax below in your template</p>
+<p>To load a JS file, use the static <code>loadJs</code> method in your template.</p>
 <pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;? self::loadJs('file.js'); ?&gt;&quot;&gt;
 </code></pre>
 
-<p>To upload an image, use the syntax below in your template</p>
+<p>To load a image file, use the static <code>loadImg</code> method in your template.</p>
 <pre><code class="html">&lt;img src=&quot;&lt;? self::loadImg('image.png'); ?&gt;&quot;&gt;
 </code></pre>
 
+<p>To load a file outside the <code>_css</code>,<code>_js</code> and <code>_img</code> folder, use the<code>loadFile</code> method.</p>
+<pre><code class="html">&lt;img src=&quot;&lt;? self::loadFile('path/for/your/file'); ?&gt;&quot;&gt;
+</code></pre>
+
 <h3 id="cache">Cache</h3>
-<p>See the cache part <a href="https://solital.github.io/docs-v1/13.cache/">here</a> to learn how to use the cache in Wolf.</p>
+<p>See the cache part <a href="https://solital.github.io/docs-v1/cache/">here</a> to learn how to use the cache in Wolf.</p>
 <h2 id="message">Message</h2>
 <p>Message helps you when displaying messages in your view. Its syntax is basic as shown below.</p>
 <p>To create a new message:</p>

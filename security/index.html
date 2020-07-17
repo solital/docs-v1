@@ -175,7 +175,7 @@
               
                 <h1 id="security">Security</h1>
 <h2 id="hash">Hash</h2>
-<p>To create an encrypted key, use the <code>Hash</code> class together with the static<code>encrypt</code> function as shown below:</p>
+<p>To create an encrypted key, use the <code>Hash</code> class together with the static <code>encrypt</code> function as shown below:</p>
 <pre><code class="php">$res = Hash::encrypt('word_to_encrypt');
 
 pre($res);
@@ -187,7 +187,7 @@ pre($res);
 pre($res);
 </code></pre>
 
-<p>If you want to decrypt, use the <code>decrypt</code> function chained with the<code>value</code> method.</p>
+<p>If you want to decrypt, use the <code>decrypt</code> function chained with the <code>value</code> method.</p>
 <pre><code class="php">$res = Hash::decrypt('word_to_decrypt')::value();
 
 pre($res);
@@ -200,27 +200,31 @@ pre($res);
 </code></pre>
 
 <h2 id="forgot-password">Forgot password</h2>
-<p>Solital has a standard method for sending a password. To use, use the <code>Reset</code> class as shown below:</p>
+<p>Solital has a standard method for password recovery. For that, it is necessary to configure only the constant <code>EMAIL</code> in the file <code>config.php</code>, inserting the sender and recipient.</p>
+<p>The <code>Reset</code> class uses php's native <code>mail</code> method for sending e-mail.</p>
 <pre><code class="php">public function forgot()
 {    
     $email = input()-&gt;post('email')-&gt;getValue();
 
     (new Reset())-&gt;table('your_database_table', 'your_column_table')
-                 -&gt;forgotPass($email, &quot;/your_redirect_url&quot;);
+                 -&gt;forgotPass($email, &quot;/your_redirect_url&quot;, &quot;+20 minute&quot;);
 
     response()-&gt;redirect('/home');
 }
 </code></pre>
 
 <p>Instantiate the <code>Reset</code> class. In the <code>table</code> function, the first parameter should be the name of your table where users’ emails are stored, and in the second parameter the column name where emails are stored, and then chain with the <code>forgotPass</code> method.</p>
-<p>In the <code>forgotPass</code> method, pass as first parameter the email you want to retrieve, and in the second the url in which the user will be redirected when clicking on the email link.</p>
+<p>In the <code>forgotPass</code> method, pass as first parameter the email you want to retrieve, and in the second the url in which the user will be redirected when clicking on the email link. The third parameter is optional, the time that the key will be valid will be defined. The default is <code>+1 hour</code></p>
 <p>To validate the information by clicking on the email link, you can use the structure below:</p>
 <pre><code class="php">public function change($hash)
 {
     $res = Hash::decrypt($hash)::isValid();
 
     if ($res == true) {
-        Wolf::loadView('change', [
+        $email = Hash::decrypt($hash)::value();
+
+        Wolf::loadView('auth.change', [
+            'email' =&gt; $email,
             'hash' =&gt; $hash
         ]);
     } else {
@@ -236,7 +240,7 @@ pre($res);
 If you want to store the token elsewhere, please refer to the "Creating custom Token Provider" section below.</p>
 <h3 id="adding-csrf-verifier">Adding CSRF-verifier</h3>
 <p>When you've created your CSRF-verifier you need to tell Solital that it should use it. You can do this by adding the following line in your <code>routes.php</code> file:</p>
-<pre><code class="php">Course::csrfVerifier(new \Demo\Middlewares\CsrfVerifier());
+<pre><code class="php">Course::csrfVerifier(new \Solital\Core\Http\Middleware\BaseCsrfVerifier());
 </code></pre>
 
 <h3 id="getting-csrf-token">Getting CSRF-token</h3>

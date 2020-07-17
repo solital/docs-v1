@@ -126,7 +126,11 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#what-is-katrina-orm">What is Katrina ORM?</a></li>
+            <li><a class="toctree-l3" href="#requirements">Requirements</a></li>
+        
+            <li><a class="toctree-l3" href="#installation">Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#settings">Settings</a></li>
         
             <li><a class="toctree-l3" href="#initial-structure">Initial structure</a></li>
         
@@ -182,7 +186,6 @@
             <div class="section">
               
                 <h1 id="getting-started">Getting Started</h1>
-<h2 id="what-is-katrina-orm">What is Katrina ORM?</h2>
 <p>Katrina ORM is a component to bring the object-oriented application development paradigm closer to the relational database paradigm. It helps when carrying out common routines, such as the famous CRUD (create, read, edit and delete), in addition to having a login and data paging system.</p>
 <h3 id="requirements">Requirements</h3>
 <p>Make sure that the PDO is enabled in your development environment or in your hosting.</p>
@@ -193,12 +196,13 @@
 
 <p>Or add the code below to your <code>composer.json</code> file.</p>
 <pre><code>&quot;require&quot;: {
-    &quot;solital/katrina&quot;: &quot;0.2.*&quot;
+    &quot;solital/katrina&quot;: &quot;1.0.*&quot;
 }
 </code></pre>
 
 <h3 id="settings">Settings</h3>
-<p>To configure your database, create or edit (in Solital) the <code>db.php</code> file inside the <code>config</code> folder.</p>
+<p>If you are using the Solital framework, run the <code>php vinci katrina:configure</code> command to configure the <code>db.php</code> file via Vinci (<a href="https://solital.github.io/docs-v1/vinci/#configure-database">see more</a> about configuring Katrina ORM No Vinci here)</p>
+<p>Or edit (in Solital) the <code>db.php</code> file inside the <code>config</code> folder.</p>
 <pre><code class="php">define('DB_CONFIG', [
     'DRIVE' =&gt; 'your_drive',
     'HOST' =&gt; 'your_host',
@@ -210,7 +214,7 @@
 
 <h2 id="initial-structure">Initial structure</h2>
 <p>You can use katrina in two ways:</p>
-<p>1°) In solital, extend the model already created and define the variables <code>$table</code>, <code>$primaryKey</code> and <code>$columns</code> in your model's constructor as listed below:</p>
+<p>1°) In Solital, extend the model already created and define the variables <code>$table</code>, <code>$primaryKey</code> and <code>$columns</code> in your model's constructor as listed below:</p>
 <pre><code class="php">&lt;?php
 
 namespace Solital\Components\Model;
