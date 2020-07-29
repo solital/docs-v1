@@ -102,6 +102,8 @@ Below is a list of all auxiliary functions present in Solital.
 - `serverRequest(array $headers = null, $protocol = null)`: Handles the ServerRequest class
 - `redirect(string $url, ?int $code = null)`: Redirect to another route
 - `csrf_token()`: Get current csrf-token
+- `spoofing(string $method)`: Form method spoofing
 - `pre($value)`: formatted `var_dump`
 - `pass_hash($value, int $cost = 10)`: Similar to `password_hash`
 - `pass_verify($value, string $hash)`: Similar to `password_verify`
+- `remove_param()`: Removes url parameters

@@ -65,7 +65,7 @@ Course::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
 });
 ```
 
-**Note:** Route parameters are always encased within {} braces and should consist of alphabetic characters. Route parameters may not contain a - character. Use an underscore (_) instead.
+**Note:** Route parameters are always encased within `{}` braces and should consist of alphabetic characters. Route parameters may not contain a `-` character. Use an underscore `_` instead.
 
 ### Optional parameters
 
@@ -474,10 +474,13 @@ class Router extends Course {
 
 ## Form Method Spoofing
 
-HTML forms do not support `PUT`, `PATCH` or `DELETE` actions. So, when defining `PUT`, `PATCH` or `DELETE` routes that are called from an HTML form, you will need to add a hidden `_method` field to the form. The value sent with the `_method` field will be used as the HTTP request method:
+HTML forms do not support `PUT`,` PATCH` or `DELETE` actions. Therefore, when defining the `PUT`,` PATCH` or `DELETE` routes that are called from an HTML form, you will need to use the` spoofing` helper to add a hidden `_method` field to the form. The value sent with the `_method` field will be used as the HTTP request method:
 
 ```php
-<input type="hidden" name="_method" value="PUT" />
+<form method="post" action="<?= url(); ?>">
+    <?= spoofing('put'); ?>
+    <!-- other input elements here -->
+</form>
 ```
 
 ## Accessing The Current Route

@@ -43,6 +43,15 @@ $res = $folder->folder("folder_name")->fileExists("README.md");
 pre($res);
 ```
 
+You can delete the file if it exists, to do so enter `true` in the second parameter.
+
+```php
+/** Boolean return */
+$res = $folder->folder("folder_name")->fileExists("README.md", true);
+
+pre($res);
+```
+
 ## Create folder
 
 To create a folder inside Solital, use only the `create()` method.

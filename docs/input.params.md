@@ -6,7 +6,7 @@ Solital offers libraries and helpers that makes it easy to manage and manipulate
 
 You can use the `InputHandler` class to easily access and manage parameters from your request. The `InputHandler` class offers extended features such as copying/moving uploaded files directly on the object, getting file-extension, mime-type etc.
 
-### Get single parameter value
+## Get single parameter value
 
 ```input($index, $defaultValue, ...$methods);```
 
@@ -25,7 +25,7 @@ This example matches both POST and GET request-methods and if name is empty the 
 $name = input('name', 'Guest', 'post', 'get');
 ```
 
-### Get parameter object
+## Get parameter object
 
 When dealing with file-uploads it can be useful to retrieve the raw parameter object.
 
@@ -61,27 +61,44 @@ The example below will return an `InputFile` object if the parameter was found o
 $object = input()->file($index, $defaultValue = null);
 ```
 
-### Managing files
+## Managing files
+
+The `UP_DIR` constant is present in the `config.php` file. It defines the directory where your files will be stored.
 
 ```php
 /**
- * Loop through a collection of files uploaded from a form on the page like this
- * <input type="file" name="images[]" />
+ * From a form on the page like this
+ * <input type="file" name="images" />
  */
 
 /* @var $image \Solital\Core\Http\Input\InputFile */
-foreach(input()->file('images', []) as $image)
-{
-    if($image->getMime() === 'image/jpeg') 
-    {
-        $destinationFilname = sprintf('%s.%s', uniqid(), $image->getExtension());
-        $image->move(sprintf('/uploads/%s', $destinationFilename));
-    }
+
+/**
+ * Only file
+ */
+$ext = input()->file('image')->getExtension();
+$imgMain = 'IMG-'.uniqid().".".$ext;
+input()->file('image')->move(UP_DIR.'/fotos/'.$imgMain);
+
+/**
+ * Loop through a collection of files uploaded from a form on the page like this
+ * <input type="file" name="images[]" multiple />
+ */
+
+/* @var $image \Solital\Core\Http\Input\InputFile */
+
+/**
+ * Multiple files
+ */
+foreach ($photo as $photo) {
+    $ext = $photo->getExtension();
+    $img = 'IMG-'.uniqid().".".$ext;
+    $photo->move(UP_DIR.'/fotos/'.$img);
 }
 
 ```
 
-### Get all parameters
+## Get all parameters
 
 ```php
 # Get all

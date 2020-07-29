@@ -117,7 +117,7 @@ public function get()
 }
 ```
 
-To list a single value, pass the table field `id` as a parameter, and in `build()` method use ONLY.
+To list a single value, pass the table field `id` as a parameter, and in `build()` method use `ONLY`.
 
 ```php
 public function get()
@@ -131,32 +131,50 @@ To specify which fields you want to list, pass the values ​​as parameters.
 ```php
 public function get()
 {
-    return $this->instance()->select("name, city, country")->build();
+    return $this->instance()->select(null, null, "name, city, country")->build("ALL");
 }
 ```
 
 If you need the `WHERE` clause, use the second parameter.
 
+```php
+public function get()
+{
+    return $this->instance()->select(null, 'name="Clark"', "name, city, country")->build("ALL");
+}
+```
+
+With primary key:
+
+```php
+public function get()
+{
+    return $this->instance()->select(3, 'name="Clark"', "name, city, country")->build("ONLY");
+}
+```
+
 ### Listing foreign key
 
 **Inner join**
 
-The `innerJoin()` method returns the values of two tables that have a foreign key. Enter the name of the table and the field of the other table that has the primary key for your main table.
+The `innerJoin ()` method returns the values of two tables that have a foreign key.
+
+The first parameter will be the name of the table that has a relationship with the current table. The second will be an array containing in the first index the column name of the current table that has the foreign key, and in the second index the column name of the primary key of the other table. To make it easier, see an example below.
 
 ```php
 public function get()
 {
-    $res = $this->instance()->innerJoin("address", "idAddress")->build("ALL");
+    $res = $this->instance()->innerJoin("address", ["idForeignAddress", "idAddress"])->build("ALL");
     return $res;
 }
 ```
 
-If you want to return only a single value, use the third parameter passing the primary key.
+If you need to use the `WHERE` clause, pass the command in the third parameter as shown below.
 
 ```php
 public function get()
 {
-    $res = $this->instance()->innerJoin("address", "idAddress", 2)->build("ALL");
+    $res = $this->instance()->innerJoin("address", ["idForeignAddress", "idAddress"], "order_status=true")->build("ALL");
     return $res;
 }
 ```
@@ -167,7 +185,7 @@ You can inform which fields you want to return. "a" is your main table while "b"
 public function get()
 {
     $res = $this->instance()
-    ->innerJoin("address", "idAddress", 2 "a.idPerson, a.name, b.street", "address", "idAddress")->build("ALL");
+    ->innerJoin("address", ["idForeignAddress", "idAddress"], "order_status=true" "a.idPerson, a.name, b.street", "address", "idAddress")->build("ALL");
     return $res;
 }
 ```
@@ -183,28 +201,77 @@ public function insert()
     $res = $this->instance()->insert(['Clark', 'Metropolis', 'EUA']);
     return $res;
 }
+/**
+ * Return bool
+ * /
+```
+
+To return the last insert ID, pass a `true` in the second parameter.
+
+```php
+public function insert()
+{
+    $res = $this->instance()->insert(['Clark', 'Metropolis', 'EUA'], true);
+    return $res;
+}
+/**
+ * Return array
+ * 
+ * ['res'] => 'true',
+ * ['lastId'] => '1'
+ * /
 ```
 
 ### Update
 
-The `update()` method updates the values ​​in the table. It is NOT necessary to use `build()` method to update the data. The process is similar to the insert method. The first parameter is the columns that will be updated, the second parameter the values ​​and the third the row `id`.
+The `update()` method updates the values ​​in the table. It is NOT necessary to use `build()` method to update the data. The process is similar to the insert method. The first parameter is the columns that will be updated, the second parameter the values ​​and the third the row `id`. You can use an integer or a string in the third parameter
 
 ```php
 public function update()
 {
-    $res = $this->instance()->update(['name', 'age'], ['Specter', '41'], 8);
+    $res = $this->instance()->update(['name', 'age'], ['Specter', '41'], "id=3");
+    return $res;
+}
+```
+
+Or
+
+```php
+public function update()
+{
+    $res = $this->instance()->update(['name', 'age'], ['Specter', '41'], 3);
     return $res;
 }
 ```
 
 ### Delete
 
-The `delete()` method deletes the values ​​in the table. Enter the primary key corresponding to the table row you want to delete.
+The `delete()` method deletes the values ​​in the table. Enter the value of the line to be deleted, the value being the primary key.
 
 ```php
 public function delete()
 {
     $res = $this->instance()->delete(3)->build();
+    return $res;
+}
+```
+
+Or a string
+
+```php
+public function delete()
+{
+    $res = $this->instance()->delete("Bruce")->build();
+    return $res;
+}
+```
+
+By default, the `delete` method uses the column name of the primary key to delete the row, but you can use the name of another column using the second parameter.
+
+```php
+public function delete()
+{
+    $res = $this->instance()->delete("Bruce", "name")->build();
     return $res;
 }
 ```
@@ -316,7 +383,7 @@ public function get()
 }
 ```
 
-### Rename table
+**Rename table**
 
 Use the `rename()` method to rename a database table. Use the first parameter the current table name and the second parameter the new table name.
 
@@ -421,7 +488,33 @@ public function get()
 }
 ```
 
-The above method will return an array containing `rows` indexes that will return values, and `arrows` that will return commands for pagination. To use in the Wolf template, use it this way.
+The above method will return an array containing `rows` indexes that will return values, and `arrows` that will return commands for pagination. 
+
+To use pagination with relationship in another table, in the third parameter pass an array containing the name of the table that has a relationship with the current table, the column name of the current table that has the foreign key and the column name of the primary key of the another table.
+
+```php
+public function get()
+{
+    $res = $this->instance()->pagination('your_table', 3, ['foreign_table', 'column_foreign_key', 'column_primary_key']);
+    return $res;
+}
+```
+
+**WHERE clause**
+
+To use the WHERE clause, use the fourth parameter as shown below.
+
+```php
+public function get()
+{
+    $res = $this->instance()->pagination('your_table', 3, ['foreign_table', 'column_foreign_key', 'column_primary_key'], "status=true");
+    return $res;
+}
+```
+
+**Wolf Templte**
+
+To use in the Wolf template, use it this way.
 
 ```php
 $html = $this->instance()->pagination('your_table', 3);
@@ -461,7 +554,6 @@ echo $arrows;
 
 The result will be as follows:
 
-
 | Name  | Age | Gender |
 |-------|-----|--------|
 | Sam   | 47  | Male   |
@@ -472,20 +564,70 @@ The result will be as follows:
 << 1 2 3 >>
 ```
 
-To change the arrows (`<<` and `>>`), use the last two parameters of the `pagination()` method.
+To change the arrows (`<<` and `>>`), use the last two parameters of the `pagination()` method. The result will be:
 
 ```php
 public function get()
 {
-    $res = $this->dbInstance()->pagination('tb_users', 3, 'First Item', 'Last Item');
+    $res = $this->instance()->pagination('your_table', 3, null, null, "First", "Last");
     return $res;
 }
 ```
 
-The result will be:
+| Name  | Age | Gender |
+|-------|-----|--------|
+| Sam   | 47  | Male   |
+| Dean  | 49  | Male   |
+| Marry | 52  | Female |
 
 ```html
-First item 1 2 3 Last item
+First 1 2 3 Last
+```
+
+## Custom Pagination
+
+If you have a very complex SELECT statement, you can use the `customPagination` method. This method already has a `LIMIT` by default, in addition to being able to change the name of the arrows.
+
+```php
+public function get()
+{
+    $res = $this->instance()->customPagination("SELECT created_at, order_status, idSession, SUM(idOrder) AS idOrder FROM `tb_order` GROUP BY created_at, order_status, idSession", 3, "First", "Last");
+    
+    return $res;
+}
+```
+
+**Customizing arrows CSS**
+
+You can customize the look of the arrows through the classes `pagination_first_item`, `pagination_atual_item`, `pagination_others_itens` and `pagination_last_item`.
+
+Below is a customization to serve as an example:
+
+```css
+.pagination_atual_item {
+    background-color: #B5B5B5;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: 0.2s;
+}
+
+.pagination_first_item, .pagination_others_itens, .pagination_last_item {
+    background-color: #4682B4;
+    color: #FFF;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: 0.2s;
+}
+
+.pagination_first_item:hover, .pagination_others_itens:hover, .pagination_last_item:hover {
+    background-color: #0071E3;
+    color: #FFF !important;
+    transition: 0.2s;
+}
 ```
 
 ## Types of data
@@ -540,3 +682,5 @@ Below is listed the attributes and data supported by Katrina ORM:
 | `incremet()`               |
 | `notNull()`                |
 | `primary()`                |
+| `after("column_name")`     |
+| `first()`                  |

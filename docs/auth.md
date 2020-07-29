@@ -100,3 +100,9 @@ Guardian::logoff();
 ## Login structure and password recovery
 
 [See here](https://solital.github.io/docs-v1/vinci/#login-structure) how to create a pre-assembled login and password recovery framework using the vinci console.
+
+## Default username and password
+
+You can create a standard database login table using the command `php vinci katrina: userAuth`. This command will insert a default email and password. To authenticate, use the email `solital @ email.com` and password `solital`
+
+**NOTE:** When creating the login structure with the command `php vinci auth`, the method `userAuth` is executed automatically, it is not necessary to execute it later.

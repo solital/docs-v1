@@ -1,6 +1,6 @@
 # Vinci Console
 
-Vinci is the development assistant at Solital. You can create controllers, models, views, CSS files and JS files in graphical mode right from your browser.
+Vinci Console is an auxiliary component to help create files faster, such as login structures, password recovery structures, database configuration and more.
 
 ## Access Vinci
 

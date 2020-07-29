@@ -20,12 +20,20 @@ use Solital\Core\Resource\Cookie;
 Cookie::new('your_index', 'your_value');
 ```
 
+To create an array of values in a session, pass in the third parameter the name of the session index.
+
+```php
+Session::new('index', ['id' => 1, 'name' => 'hero'], 'second_index');
+```
+
+
 ### Display session and cookie
 
 To display a session and cookie, use a syntax below.
 
 ```php
 Session::show('your_index');
+Session::show('index', 'second_index');
 
 Cookie::show('your_index');
 ```
@@ -36,6 +44,7 @@ To check if a session or cookie exists, use a sintax below.
 
 ```php
 Session::has('your_index');
+Session::has('index', 'second_index');
 
 Cookie::has('your_index');
 ```
@@ -46,6 +55,7 @@ To delete a session and cookie, use a syntax below.
 
 ```php
 Session::delete('your_index');
+Session::delete('index', 'second_index');
 
 Cookie::delete('your_index');
 ```

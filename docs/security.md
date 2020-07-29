@@ -5,6 +5,8 @@
 To create an encrypted key, use the `Hash` class together with the static `encrypt` function as shown below:
 
 ```php
+use Solital\Core\Security\Hash;
+
 $res = Hash::encrypt('word_to_encrypt');
 
 pre($res);
@@ -13,6 +15,8 @@ pre($res);
 You can define how long this key will be valid. It can be 1 second, 1 hour or 1 year. by default the value is `+1 hour`.
 
 ```php
+use Solital\Core\Security\Hash;
+
 $res = Hash::encrypt('word_to_encrypt', '+1 month');
 
 pre($res);
@@ -21,6 +25,8 @@ pre($res);
 If you want to decrypt, use the `decrypt` function chained with the `value` method.
 
 ```php
+use Solital\Core\Security\Hash;
+
 $res = Hash::decrypt('word_to_decrypt')::value();
 
 pre($res);
@@ -29,6 +35,8 @@ pre($res);
 If you want to check if the encrypted key is still valid, use `isValid`. If you want to verify that the encrypted key is still valid, use `isValid`. the `isValid` method will return` true` if it is still valid, and `false` if it is already expired
 
 ```php
+use Solital\Core\Security\Hash;
+
 $res = Hash::decrypt('word_to_decrypt')::isValid();
 
 pre($res);
@@ -41,6 +49,8 @@ Solital has a standard method for password recovery. For that, it is necessary t
 The `Reset` class uses php's native `mail` method for sending e-mail.
 
 ```php
+use Solital\Core\Security\Reset;
+
 public function forgot()
 {    
     $email = input()->post('email')->getValue();
@@ -106,7 +116,7 @@ csrf_token();
 You can also get the token directly:
 
 ```php
-return Course::router()->getCsrfVerifier()->getTokenProvider()->getToken();
+return Course::router()->getCsrfVerifier()->getTokenProvider()->setToken();
 ```
 
 The default name/key for the input-field is `csrf_token` and is defined in the `POST_KEY` constant in the `BaseCsrfVerifier` class.
@@ -118,84 +128,8 @@ The example below will post to the current url with a hidden field "`csrf_token`
 
 ```html
 <form method="post" action="<?= url(); ?>">
-    <input type="hidden" name="csrf_token" value="<?= csrf_token(); ?>">
+    <?= csrf_token(); ?>
     <!-- other input elements here -->
 </form>
 ```
-
-### Custom CSRF-verifier
-
-Create a new class and extend the `BaseCsrfVerifier` middleware class provided by default with the simple-php-router library.
-
-Add the property `except` with an array of the urls to the routes you want to exclude/whitelist from the CSRF validation.
-Using ```*``` at the end for the url will match the entire url.
-
-**Here's a basic example on a CSRF-verifier class:**
-
-```php
-namespace Demo\Middlewares;
-
-use Solital\Core\Http\Middleware\BaseCsrfVerifier;
-
-class CsrfVerifier extends BaseCsrfVerifier
-{
-	/**
-	 * CSRF validation will be ignored on the following urls.
-	 */
-	protected $except = ['/api/*'];
-}
-```
-
-### Custom Token Provider
-
-By default the `BaseCsrfVerifier` will use the `CookieTokenProvider` to store the token in a cookie on the clients machine.
-
-If you need to store the token elsewhere, you can do that by creating your own class and implementing the `TokenProviderInterface` class.
-
-```php
-class SessionTokenProvider implements TokenProviderInterface
-{
-
-    /**
-     * Refresh existing token
-     */
-    public function refresh(): void
-    {
-        // Implement your own functionality here...
-    }
-
-    /**
-     * Validate valid CSRF token
-     *
-     * @param string $token
-     * @return bool
-     */
-    public function validate($token): bool
-    {
-        // Implement your own functionality here...
-    }
-    
-    /**
-     * Get token token
-     *
-     * @param string|null $defaultValue
-     * @return string|null
-     */
-    public function getToken(?string $defaultValue = null): ?string 
-    {
-        // Implement your own functionality here...
-    }
-
-}
-```
-
-Next you need to set your custom `TokenProviderInterface` implementation on your `BaseCsrfVerifier` class in your routes file:
-
-```php
-$verifier = new \dscuz\Middleware\CsrfVerifier();
-$verifier->setTokenProvider(new SessionTokenProvider());
-
-Course::csrfVerifier($verifier);
-```
-
 ---
