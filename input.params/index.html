@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>8. Input & params - Solital Framework v1.0</title>
+  <title>Input & params - Solital Framework v1.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "8. Input & params";
+    var mkdocs_page_name = "Input & params";
     var mkdocs_page_input_path = "input.params.md";
     var mkdocs_page_url = "/input.params/";
   </script>
@@ -49,42 +49,42 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">1. Welcome</a>
+    <a class="" href="..">Welcome</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../starting/">2. Starting</a>
+    <a class="" href="../starting/">Starting</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../installation/">3. Installation</a>
+    <a class="" href="../installation/">Installation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../vinci/">4. Vinci Console</a>
+    <a class="" href="../vinci/">Vinci Console</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../components/">5. Components</a>
+    <a class="" href="../components/">Components</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../routes/">6. Routes</a>
+    <a class="" href="../routes/">Routes</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../requisitions/">7. Requisitions</a>
+    <a class="" href="../requisitions/">Requisitions</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">8. Input & params</a>
+    <a class="current" href="./">Input & params</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#input-parameters">Input &amp; parameters</a></li>
@@ -92,6 +92,14 @@
         <ul>
         
             <li><a class="toctree-l3" href="#using-the-input-class-to-manage-parameters">Using the Input class to manage parameters</a></li>
+        
+            <li><a class="toctree-l3" href="#get-single-parameter-value">Get single parameter value</a></li>
+        
+            <li><a class="toctree-l3" href="#get-parameter-object">Get parameter object</a></li>
+        
+            <li><a class="toctree-l3" href="#managing-files">Managing files</a></li>
+        
+            <li><a class="toctree-l3" href="#get-all-parameters">Get all parameters</a></li>
         
         </ul>
     
@@ -101,37 +109,42 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../events/">9. Events</a>
+    <a class="" href="../events/">Events</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../auth/">10. Authenticate</a>
+    <a class="" href="../auth/">Authenticate</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../injection/">11. Dependency Container</a>
+    <a class="" href="../injection/">Dependency Container</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../cache/">12. Cache</a>
+    <a class="" href="../cache/">Cache</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../security/">13. Security</a>
+    <a class="" href="../security/">Security</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../folders-files/">14. Handling Folders and Files</a>
+    <a class="" href="../folders-files/">Handling Folders and Files</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../katrina/">15. Katrina ORM</a>
+    <a class="" href="../http/">HTTP Client</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../katrina/">Katrina ORM</a>
 	    </li>
           
         </ul>
@@ -156,7 +169,7 @@
     
       
     
-    <li>8. Input & params</li>
+    <li>Input & params</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/input.params.md"
@@ -173,7 +186,7 @@
 <p>Solital offers libraries and helpers that makes it easy to manage and manipulate input-parameters like <code>$_POST</code>, <code>$_GET</code> and <code>$_FILE</code>.</p>
 <h2 id="using-the-input-class-to-manage-parameters">Using the Input class to manage parameters</h2>
 <p>You can use the <code>InputHandler</code> class to easily access and manage parameters from your request. The <code>InputHandler</code> class offers extended features such as copying/moving uploaded files directly on the object, getting file-extension, mime-type etc.</p>
-<h3 id="get-single-parameter-value">Get single parameter value</h3>
+<h2 id="get-single-parameter-value">Get single parameter value</h2>
 <p><code>input($index, $defaultValue, ...$methods);</code></p>
 <p>To quickly get a value from a parameter, you can use the <code>input</code> helper function.</p>
 <p>This will automatically trim the value and ensure that it's not empty. If it's empty the <code>$defaultValue</code> will be returned instead.</p>
@@ -184,7 +197,7 @@ This function returns a <code>string</code> unless the parameters are grouped to
 <pre><code class="php">$name = input('name', 'Guest', 'post', 'get');
 </code></pre>
 
-<h3 id="get-parameter-object">Get parameter object</h3>
+<h2 id="get-parameter-object">Get parameter object</h2>
 <p>When dealing with file-uploads it can be useful to retrieve the raw parameter object.</p>
 <p><strong>Search for object with default-value across multiple or specific request-methods:</strong></p>
 <p>The example below will return an <code>InputItem</code> object if the parameter was found or return the <code>$defaultValue</code>. If parameters are grouped, it will return an array of <code>InputItem</code> objects.</p>
@@ -206,25 +219,41 @@ This function returns a <code>string</code> unless the parameters are grouped to
 <pre><code class="php">$object = input()-&gt;file($index, $defaultValue = null);
 </code></pre>
 
-<h3 id="managing-files">Managing files</h3>
+<h2 id="managing-files">Managing files</h2>
+<p>The <code>UP_DIR</code> constant is present in the <code>config.php</code> file. It defines the directory where your files will be stored.</p>
 <pre><code class="php">/**
- * Loop through a collection of files uploaded from a form on the page like this
- * &lt;input type=&quot;file&quot; name=&quot;images[]&quot; /&gt;
+ * From a form on the page like this
+ * &lt;input type=&quot;file&quot; name=&quot;images&quot; /&gt;
  */
 
 /* @var $image \Solital\Core\Http\Input\InputFile */
-foreach(input()-&gt;file('images', []) as $image)
-{
-    if($image-&gt;getMime() === 'image/jpeg') 
-    {
-        $destinationFilname = sprintf('%s.%s', uniqid(), $image-&gt;getExtension());
-        $image-&gt;move(sprintf('/uploads/%s', $destinationFilename));
-    }
+
+/**
+ * Only file
+ */
+$ext = input()-&gt;file('image')-&gt;getExtension();
+$imgMain = 'IMG-'.uniqid().&quot;.&quot;.$ext;
+input()-&gt;file('image')-&gt;move(UP_DIR.'/fotos/'.$imgMain);
+
+/**
+ * Loop through a collection of files uploaded from a form on the page like this
+ * &lt;input type=&quot;file&quot; name=&quot;images[]&quot; multiple /&gt;
+ */
+
+/* @var $image \Solital\Core\Http\Input\InputFile */
+
+/**
+ * Multiple files
+ */
+foreach ($photo as $photo) {
+    $ext = $photo-&gt;getExtension();
+    $img = 'IMG-'.uniqid().&quot;.&quot;.$ext;
+    $photo-&gt;move(UP_DIR.'/fotos/'.$img);
 }
 
 </code></pre>
 
-<h3 id="get-all-parameters">Get all parameters</h3>
+<h2 id="get-all-parameters">Get all parameters</h2>
 <pre><code class="php"># Get all
 $values = input()-&gt;all();
 
@@ -261,10 +290,10 @@ $values = input()-&gt;all([
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../events/" class="btn btn-neutral float-right" title="9. Events">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../events/" class="btn btn-neutral float-right" title="Events">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../requisitions/" class="btn btn-neutral" title="7. Requisitions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../requisitions/" class="btn btn-neutral" title="Requisitions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   

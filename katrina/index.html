@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>15. Katrina ORM - Solital Framework v1.0</title>
+  <title>Katrina ORM - Solital Framework v1.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "15. Katrina ORM";
+    var mkdocs_page_name = "Katrina ORM";
     var mkdocs_page_input_path = "katrina.md";
     var mkdocs_page_url = "/katrina/";
   </script>
@@ -49,77 +49,82 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">1. Welcome</a>
+    <a class="" href="..">Welcome</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../starting/">2. Starting</a>
+    <a class="" href="../starting/">Starting</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../installation/">3. Installation</a>
+    <a class="" href="../installation/">Installation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../vinci/">4. Vinci Console</a>
+    <a class="" href="../vinci/">Vinci Console</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../components/">5. Components</a>
+    <a class="" href="../components/">Components</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../routes/">6. Routes</a>
+    <a class="" href="../routes/">Routes</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../requisitions/">7. Requisitions</a>
+    <a class="" href="../requisitions/">Requisitions</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../input.params/">8. Input & params</a>
+    <a class="" href="../input.params/">Input & params</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../events/">9. Events</a>
+    <a class="" href="../events/">Events</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../auth/">10. Authenticate</a>
+    <a class="" href="../auth/">Authenticate</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../injection/">11. Dependency Container</a>
+    <a class="" href="../injection/">Dependency Container</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../cache/">12. Cache</a>
+    <a class="" href="../cache/">Cache</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../security/">13. Security</a>
+    <a class="" href="../security/">Security</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../folders-files/">14. Handling Folders and Files</a>
+    <a class="" href="../folders-files/">Handling Folders and Files</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../http/">HTTP Client</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">15. Katrina ORM</a>
+    <a class="current" href="./">Katrina ORM</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#getting-started">Getting Started</a></li>
@@ -141,6 +146,8 @@
             <li><a class="toctree-l3" href="#procedure">Procedure</a></li>
         
             <li><a class="toctree-l3" href="#pagination">Pagination</a></li>
+        
+            <li><a class="toctree-l3" href="#custom-pagination">Custom Pagination</a></li>
         
             <li><a class="toctree-l3" href="#types-of-data">Types of data</a></li>
         
@@ -172,7 +179,7 @@
     
       
     
-    <li>15. Katrina ORM</li>
+    <li>Katrina ORM</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/katrina.md"
@@ -281,7 +288,7 @@ class User
 }
 </code></pre>
 
-<p>To list a single value, pass the table field <code>id</code> as a parameter, and in <code>build()</code> method use ONLY.</p>
+<p>To list a single value, pass the table field <code>id</code> as a parameter, and in <code>build()</code> method use <code>ONLY</code>.</p>
 <pre><code class="php">public function get()
 {
     return $this-&gt;instance()-&gt;select(3)-&gt;build(&quot;ONLY&quot;);
@@ -291,25 +298,39 @@ class User
 <p>To specify which fields you want to list, pass the values ​​as parameters.</p>
 <pre><code class="php">public function get()
 {
-    return $this-&gt;instance()-&gt;select(&quot;name, city, country&quot;)-&gt;build();
+    return $this-&gt;instance()-&gt;select(null, null, &quot;name, city, country&quot;)-&gt;build(&quot;ALL&quot;);
 }
 </code></pre>
 
 <p>If you need the <code>WHERE</code> clause, use the second parameter.</p>
-<h3 id="listing-foreign-key">Listing foreign key</h3>
-<p><strong>Inner join</strong></p>
-<p>The <code>innerJoin()</code> method returns the values of two tables that have a foreign key. Enter the name of the table and the field of the other table that has the primary key for your main table.</p>
 <pre><code class="php">public function get()
 {
-    $res = $this-&gt;instance()-&gt;innerJoin(&quot;address&quot;, &quot;idAddress&quot;)-&gt;build(&quot;ALL&quot;);
+    return $this-&gt;instance()-&gt;select(null, 'name=&quot;Clark&quot;', &quot;name, city, country&quot;)-&gt;build(&quot;ALL&quot;);
+}
+</code></pre>
+
+<p>With primary key:</p>
+<pre><code class="php">public function get()
+{
+    return $this-&gt;instance()-&gt;select(3, 'name=&quot;Clark&quot;', &quot;name, city, country&quot;)-&gt;build(&quot;ONLY&quot;);
+}
+</code></pre>
+
+<h3 id="listing-foreign-key">Listing foreign key</h3>
+<p><strong>Inner join</strong></p>
+<p>The <code>innerJoin ()</code> method returns the values of two tables that have a foreign key.</p>
+<p>The first parameter will be the name of the table that has a relationship with the current table. The second will be an array containing in the first index the column name of the current table that has the foreign key, and in the second index the column name of the primary key of the other table. To make it easier, see an example below.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;innerJoin(&quot;address&quot;, [&quot;idForeignAddress&quot;, &quot;idAddress&quot;])-&gt;build(&quot;ALL&quot;);
     return $res;
 }
 </code></pre>
 
-<p>If you want to return only a single value, use the third parameter passing the primary key.</p>
+<p>If you need to use the <code>WHERE</code> clause, pass the command in the third parameter as shown below.</p>
 <pre><code class="php">public function get()
 {
-    $res = $this-&gt;instance()-&gt;innerJoin(&quot;address&quot;, &quot;idAddress&quot;, 2)-&gt;build(&quot;ALL&quot;);
+    $res = $this-&gt;instance()-&gt;innerJoin(&quot;address&quot;, [&quot;idForeignAddress&quot;, &quot;idAddress&quot;], &quot;order_status=true&quot;)-&gt;build(&quot;ALL&quot;);
     return $res;
 }
 </code></pre>
@@ -318,7 +339,7 @@ class User
 <pre><code class="php">public function get()
 {
     $res = $this-&gt;instance()
-    -&gt;innerJoin(&quot;address&quot;, &quot;idAddress&quot;, 2 &quot;a.idPerson, a.name, b.street&quot;, &quot;address&quot;, &quot;idAddress&quot;)-&gt;build(&quot;ALL&quot;);
+    -&gt;innerJoin(&quot;address&quot;, [&quot;idForeignAddress&quot;, &quot;idAddress&quot;], &quot;order_status=true&quot; &quot;a.idPerson, a.name, b.street&quot;, &quot;address&quot;, &quot;idAddress&quot;)-&gt;build(&quot;ALL&quot;);
     return $res;
 }
 </code></pre>
@@ -330,22 +351,63 @@ class User
     $res = $this-&gt;instance()-&gt;insert(['Clark', 'Metropolis', 'EUA']);
     return $res;
 }
+/**
+ * Return bool
+ * /
+</code></pre>
+
+<p>To return the last insert ID, pass a <code>true</code> in the second parameter.</p>
+<pre><code class="php">public function insert()
+{
+    $res = $this-&gt;instance()-&gt;insert(['Clark', 'Metropolis', 'EUA'], true);
+    return $res;
+}
+/**
+ * Return array
+ * 
+ * ['res'] =&gt; 'true',
+ * ['lastId'] =&gt; '1'
+ * /
 </code></pre>
 
 <h3 id="update">Update</h3>
-<p>The <code>update()</code> method updates the values ​​in the table. It is NOT necessary to use <code>build()</code> method to update the data. The process is similar to the insert method. The first parameter is the columns that will be updated, the second parameter the values ​​and the third the row <code>id</code>.</p>
+<p>The <code>update()</code> method updates the values ​​in the table. It is NOT necessary to use <code>build()</code> method to update the data. The process is similar to the insert method. The first parameter is the columns that will be updated, the second parameter the values ​​and the third the row <code>id</code>. You can use an integer or a string in the third parameter</p>
 <pre><code class="php">public function update()
 {
-    $res = $this-&gt;instance()-&gt;update(['name', 'age'], ['Specter', '41'], 8);
+    $res = $this-&gt;instance()-&gt;update(['name', 'age'], ['Specter', '41'], &quot;id=3&quot;);
+    return $res;
+}
+</code></pre>
+
+<p>Or</p>
+<pre><code class="php">public function update()
+{
+    $res = $this-&gt;instance()-&gt;update(['name', 'age'], ['Specter', '41'], 3);
     return $res;
 }
 </code></pre>
 
 <h3 id="delete">Delete</h3>
-<p>The <code>delete()</code> method deletes the values ​​in the table. Enter the primary key corresponding to the table row you want to delete.</p>
+<p>The <code>delete()</code> method deletes the values ​​in the table. Enter the value of the line to be deleted, the value being the primary key.</p>
 <pre><code class="php">public function delete()
 {
     $res = $this-&gt;instance()-&gt;delete(3)-&gt;build();
+    return $res;
+}
+</code></pre>
+
+<p>Or a string</p>
+<pre><code class="php">public function delete()
+{
+    $res = $this-&gt;instance()-&gt;delete(&quot;Bruce&quot;)-&gt;build();
+    return $res;
+}
+</code></pre>
+
+<p>By default, the <code>delete</code> method uses the column name of the primary key to delete the row, but you can use the name of another column using the second parameter.</p>
+<pre><code class="php">public function delete()
+{
+    $res = $this-&gt;instance()-&gt;delete(&quot;Bruce&quot;, &quot;name&quot;)-&gt;build();
     return $res;
 }
 </code></pre>
@@ -433,7 +495,7 @@ class User
 }
 </code></pre>
 
-<h3 id="rename-table">Rename table</h3>
+<p><strong>Rename table</strong></p>
 <p>Use the <code>rename()</code> method to rename a database table. Use the first parameter the current table name and the second parameter the new table name.</p>
 <pre><code class="php">public function get()
 {
@@ -514,7 +576,26 @@ class User
 }
 </code></pre>
 
-<p>The above method will return an array containing <code>rows</code> indexes that will return values, and <code>arrows</code> that will return commands for pagination. To use in the Wolf template, use it this way.</p>
+<p>The above method will return an array containing <code>rows</code> indexes that will return values, and <code>arrows</code> that will return commands for pagination. </p>
+<p>To use pagination with relationship in another table, in the third parameter pass an array containing the name of the table that has a relationship with the current table, the column name of the current table that has the foreign key and the column name of the primary key of the another table.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;pagination('your_table', 3, ['foreign_table', 'column_foreign_key', 'column_primary_key']);
+    return $res;
+}
+</code></pre>
+
+<p><strong>WHERE clause</strong></p>
+<p>To use the WHERE clause, use the fourth parameter as shown below.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;pagination('your_table', 3, ['foreign_table', 'column_foreign_key', 'column_primary_key'], &quot;status=true&quot;);
+    return $res;
+}
+</code></pre>
+
+<p><strong>Wolf Templte</strong></p>
+<p>To use in the Wolf template, use it this way.</p>
 <pre><code class="php">$html = $this-&gt;instance()-&gt;pagination('your_table', 3);
 
 Wolf::loadView('home', [
@@ -578,16 +659,80 @@ echo $arrows;
 <pre><code class="html">&lt;&lt; 1 2 3 &gt;&gt;
 </code></pre>
 
-<p>To change the arrows (<code>&lt;&lt;</code> and <code>&gt;&gt;</code>), use the last two parameters of the <code>pagination()</code> method.</p>
+<p>To change the arrows (<code>&lt;&lt;</code> and <code>&gt;&gt;</code>), use the last two parameters of the <code>pagination()</code> method. The result will be:</p>
 <pre><code class="php">public function get()
 {
-    $res = $this-&gt;dbInstance()-&gt;pagination('tb_users', 3, 'First Item', 'Last Item');
+    $res = $this-&gt;instance()-&gt;pagination('your_table', 3, null, null, &quot;First&quot;, &quot;Last&quot;);
     return $res;
 }
 </code></pre>
 
-<p>The result will be:</p>
-<pre><code class="html">First item 1 2 3 Last item
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Gender</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sam</td>
+<td>47</td>
+<td>Male</td>
+</tr>
+<tr>
+<td>Dean</td>
+<td>49</td>
+<td>Male</td>
+</tr>
+<tr>
+<td>Marry</td>
+<td>52</td>
+<td>Female</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="html">First 1 2 3 Last
+</code></pre>
+
+<h2 id="custom-pagination">Custom Pagination</h2>
+<p>If you have a very complex SELECT statement, you can use the <code>customPagination</code> method. This method already has a <code>LIMIT</code> by default, in addition to being able to change the name of the arrows.</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;customPagination(&quot;SELECT created_at, order_status, idSession, SUM(idOrder) AS idOrder FROM `tb_order` GROUP BY created_at, order_status, idSession&quot;, 3, &quot;First&quot;, &quot;Last&quot;);
+
+    return $res;
+}
+</code></pre>
+
+<p><strong>Customizing arrows CSS</strong></p>
+<p>You can customize the look of the arrows through the classes <code>pagination_first_item</code>, <code>pagination_atual_item</code>, <code>pagination_others_itens</code> and <code>pagination_last_item</code>.</p>
+<p>Below is a customization to serve as an example:</p>
+<pre><code class="css">.pagination_atual_item {
+    background-color: #B5B5B5;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: 0.2s;
+}
+
+.pagination_first_item, .pagination_others_itens, .pagination_last_item {
+    background-color: #4682B4;
+    color: #FFF;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: 0.2s;
+}
+
+.pagination_first_item:hover, .pagination_others_itens:hover, .pagination_last_item:hover {
+    background-color: #0071E3;
+    color: #FFF !important;
+    transition: 0.2s;
+}
 </code></pre>
 
 <h2 id="types-of-data">Types of data</h2>
@@ -712,6 +857,12 @@ echo $arrows;
 <tr>
 <td><code>primary()</code></td>
 </tr>
+<tr>
+<td><code>after("column_name")</code></td>
+</tr>
+<tr>
+<td><code>first()</code></td>
+</tr>
 </tbody>
 </table>
               
@@ -722,7 +873,7 @@ echo $arrows;
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../folders-files/" class="btn btn-neutral" title="14. Handling Folders and Files"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../http/" class="btn btn-neutral" title="HTTP Client"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -750,7 +901,7 @@ echo $arrows;
           <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../folders-files/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../http/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>

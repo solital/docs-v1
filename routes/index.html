@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>6. Routes - Solital Framework v1.0</title>
+  <title>Routes - Solital Framework v1.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "6. Routes";
+    var mkdocs_page_name = "Routes";
     var mkdocs_page_input_path = "routes.md";
     var mkdocs_page_url = "/routes/";
   </script>
@@ -49,32 +49,32 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">1. Welcome</a>
+    <a class="" href="..">Welcome</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../starting/">2. Starting</a>
+    <a class="" href="../starting/">Starting</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../installation/">3. Installation</a>
+    <a class="" href="../installation/">Installation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../vinci/">4. Vinci Console</a>
+    <a class="" href="../vinci/">Vinci Console</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../components/">5. Components</a>
+    <a class="" href="../components/">Components</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">6. Routes</a>
+    <a class="current" href="./">Routes</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#routers">Routers</a></li>
@@ -113,47 +113,52 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../requisitions/">7. Requisitions</a>
+    <a class="" href="../requisitions/">Requisitions</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../input.params/">8. Input & params</a>
+    <a class="" href="../input.params/">Input & params</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../events/">9. Events</a>
+    <a class="" href="../events/">Events</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../auth/">10. Authenticate</a>
+    <a class="" href="../auth/">Authenticate</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../injection/">11. Dependency Container</a>
+    <a class="" href="../injection/">Dependency Container</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../cache/">12. Cache</a>
+    <a class="" href="../cache/">Cache</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../security/">13. Security</a>
+    <a class="" href="../security/">Security</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../folders-files/">14. Handling Folders and Files</a>
+    <a class="" href="../folders-files/">Handling Folders and Files</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../katrina/">15. Katrina ORM</a>
+    <a class="" href="../http/">HTTP Client</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../katrina/">Katrina ORM</a>
 	    </li>
           
         </ul>
@@ -178,7 +183,7 @@
     
       
     
-    <li>6. Routes</li>
+    <li>Routes</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/routes.md"
@@ -240,7 +245,7 @@ Course::any('foo', function() {
 });
 </code></pre>
 
-<p><strong>Note:</strong> Route parameters are always encased within {} braces and should consist of alphabetic characters. Route parameters may not contain a - character. Use an underscore (_) instead.</p>
+<p><strong>Note:</strong> Route parameters are always encased within <code>{}</code> braces and should consist of alphabetic characters. Route parameters may not contain a <code>-</code> character. Use an underscore <code>_</code> instead.</p>
 <h3 id="optional-parameters">Optional parameters</h3>
 <p>Occasionally you may need to specify a route parameter, but make the presence of that route parameter optional. You may do so by placing a ? mark after the parameter name. Make sure to give the route's corresponding variable a default value:</p>
 <pre><code class="php">Course::get('/user/{name?}', function ($name = null) {
@@ -556,8 +561,11 @@ class Router extends Course {
 
 <hr />
 <h2 id="form-method-spoofing">Form Method Spoofing</h2>
-<p>HTML forms do not support <code>PUT</code>, <code>PATCH</code> or <code>DELETE</code> actions. So, when defining <code>PUT</code>, <code>PATCH</code> or <code>DELETE</code> routes that are called from an HTML form, you will need to add a hidden <code>_method</code> field to the form. The value sent with the <code>_method</code> field will be used as the HTTP request method:</p>
-<pre><code class="php">&lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;PUT&quot; /&gt;
+<p>HTML forms do not support <code>PUT</code>,<code>PATCH</code> or <code>DELETE</code> actions. Therefore, when defining the <code>PUT</code>,<code>PATCH</code> or <code>DELETE</code> routes that are called from an HTML form, you will need to use the<code>spoofing</code> helper to add a hidden <code>_method</code> field to the form. The value sent with the <code>_method</code> field will be used as the HTTP request method:</p>
+<pre><code class="php">&lt;form method=&quot;post&quot; action=&quot;&lt;?= url(); ?&gt;&quot;&gt;
+    &lt;?= spoofing('put'); ?&gt;
+    &lt;!-- other input elements here --&gt;
+&lt;/form&gt;
 </code></pre>
 
 <h2 id="accessing-the-current-route">Accessing The Current Route</h2>
@@ -611,10 +619,10 @@ Course::get('/page/404', 'ControllerPage@notFound', ['as' =&gt; 'page.notfound']
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../requisitions/" class="btn btn-neutral float-right" title="7. Requisitions">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../requisitions/" class="btn btn-neutral float-right" title="Requisitions">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../components/" class="btn btn-neutral" title="5. Components"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../components/" class="btn btn-neutral" title="Components"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   

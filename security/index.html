@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>13. Security - Solital Framework v1.0</title>
+  <title>Security - Solital Framework v1.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "13. Security";
+    var mkdocs_page_name = "Security";
     var mkdocs_page_input_path = "security.md";
     var mkdocs_page_url = "/security/";
   </script>
@@ -49,67 +49,67 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">1. Welcome</a>
+    <a class="" href="..">Welcome</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../starting/">2. Starting</a>
+    <a class="" href="../starting/">Starting</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../installation/">3. Installation</a>
+    <a class="" href="../installation/">Installation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../vinci/">4. Vinci Console</a>
+    <a class="" href="../vinci/">Vinci Console</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../components/">5. Components</a>
+    <a class="" href="../components/">Components</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../routes/">6. Routes</a>
+    <a class="" href="../routes/">Routes</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../requisitions/">7. Requisitions</a>
+    <a class="" href="../requisitions/">Requisitions</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../input.params/">8. Input & params</a>
+    <a class="" href="../input.params/">Input & params</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../events/">9. Events</a>
+    <a class="" href="../events/">Events</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../auth/">10. Authenticate</a>
+    <a class="" href="../auth/">Authenticate</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../injection/">11. Dependency Container</a>
+    <a class="" href="../injection/">Dependency Container</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../cache/">12. Cache</a>
+    <a class="" href="../cache/">Cache</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">13. Security</a>
+    <a class="current" href="./">Security</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#security">Security</a></li>
@@ -130,12 +130,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../folders-files/">14. Handling Folders and Files</a>
+    <a class="" href="../folders-files/">Handling Folders and Files</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../katrina/">15. Katrina ORM</a>
+    <a class="" href="../http/">HTTP Client</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../katrina/">Katrina ORM</a>
 	    </li>
           
         </ul>
@@ -160,7 +165,7 @@
     
       
     
-    <li>13. Security</li>
+    <li>Security</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/security.md"
@@ -176,25 +181,33 @@
                 <h1 id="security">Security</h1>
 <h2 id="hash">Hash</h2>
 <p>To create an encrypted key, use the <code>Hash</code> class together with the static <code>encrypt</code> function as shown below:</p>
-<pre><code class="php">$res = Hash::encrypt('word_to_encrypt');
+<pre><code class="php">use Solital\Core\Security\Hash;
+
+$res = Hash::encrypt('word_to_encrypt');
 
 pre($res);
 </code></pre>
 
 <p>You can define how long this key will be valid. It can be 1 second, 1 hour or 1 year. by default the value is <code>+1 hour</code>.</p>
-<pre><code class="php">$res = Hash::encrypt('word_to_encrypt', '+1 month');
+<pre><code class="php">use Solital\Core\Security\Hash;
+
+$res = Hash::encrypt('word_to_encrypt', '+1 month');
 
 pre($res);
 </code></pre>
 
 <p>If you want to decrypt, use the <code>decrypt</code> function chained with the <code>value</code> method.</p>
-<pre><code class="php">$res = Hash::decrypt('word_to_decrypt')::value();
+<pre><code class="php">use Solital\Core\Security\Hash;
+
+$res = Hash::decrypt('word_to_decrypt')::value();
 
 pre($res);
 </code></pre>
 
 <p>If you want to check if the encrypted key is still valid, use <code>isValid</code>. If you want to verify that the encrypted key is still valid, use <code>isValid</code>. the <code>isValid</code> method will return<code>true</code> if it is still valid, and <code>false</code> if it is already expired</p>
-<pre><code class="php">$res = Hash::decrypt('word_to_decrypt')::isValid();
+<pre><code class="php">use Solital\Core\Security\Hash;
+
+$res = Hash::decrypt('word_to_decrypt')::isValid();
 
 pre($res);
 </code></pre>
@@ -202,7 +215,9 @@ pre($res);
 <h2 id="forgot-password">Forgot password</h2>
 <p>Solital has a standard method for password recovery. For that, it is necessary to configure only the constant <code>EMAIL</code> in the file <code>config.php</code>, inserting the sender and recipient.</p>
 <p>The <code>Reset</code> class uses php's native <code>mail</code> method for sending e-mail.</p>
-<pre><code class="php">public function forgot()
+<pre><code class="php">use Solital\Core\Security\Reset;
+
+public function forgot()
 {    
     $email = input()-&gt;post('email')-&gt;getValue();
 
@@ -250,7 +265,7 @@ If you want to store the token elsewhere, please refer to the "Creating custom T
 </code></pre>
 
 <p>You can also get the token directly:</p>
-<pre><code class="php">return Course::router()-&gt;getCsrfVerifier()-&gt;getTokenProvider()-&gt;getToken();
+<pre><code class="php">return Course::router()-&gt;getCsrfVerifier()-&gt;getTokenProvider()-&gt;setToken();
 </code></pre>
 
 <p>The default name/key for the input-field is <code>csrf_token</code> and is defined in the <code>POST_KEY</code> constant in the <code>BaseCsrfVerifier</code> class.
@@ -258,73 +273,9 @@ You can change the key by overwriting the constant in your own CSRF-verifier cla
 <p><strong>Example:</strong></p>
 <p>The example below will post to the current url with a hidden field "<code>csrf_token</code>".</p>
 <pre><code class="html">&lt;form method=&quot;post&quot; action=&quot;&lt;?= url(); ?&gt;&quot;&gt;
-    &lt;input type=&quot;hidden&quot; name=&quot;csrf_token&quot; value=&quot;&lt;?= csrf_token(); ?&gt;&quot;&gt;
+    &lt;?= csrf_token(); ?&gt;
     &lt;!-- other input elements here --&gt;
 &lt;/form&gt;
-</code></pre>
-
-<h3 id="custom-csrf-verifier">Custom CSRF-verifier</h3>
-<p>Create a new class and extend the <code>BaseCsrfVerifier</code> middleware class provided by default with the simple-php-router library.</p>
-<p>Add the property <code>except</code> with an array of the urls to the routes you want to exclude/whitelist from the CSRF validation.
-Using <code>*</code> at the end for the url will match the entire url.</p>
-<p><strong>Here's a basic example on a CSRF-verifier class:</strong></p>
-<pre><code class="php">namespace Demo\Middlewares;
-
-use Solital\Core\Http\Middleware\BaseCsrfVerifier;
-
-class CsrfVerifier extends BaseCsrfVerifier
-{
-    /**
-     * CSRF validation will be ignored on the following urls.
-     */
-    protected $except = ['/api/*'];
-}
-</code></pre>
-
-<h3 id="custom-token-provider">Custom Token Provider</h3>
-<p>By default the <code>BaseCsrfVerifier</code> will use the <code>CookieTokenProvider</code> to store the token in a cookie on the clients machine.</p>
-<p>If you need to store the token elsewhere, you can do that by creating your own class and implementing the <code>TokenProviderInterface</code> class.</p>
-<pre><code class="php">class SessionTokenProvider implements TokenProviderInterface
-{
-
-    /**
-     * Refresh existing token
-     */
-    public function refresh(): void
-    {
-        // Implement your own functionality here...
-    }
-
-    /**
-     * Validate valid CSRF token
-     *
-     * @param string $token
-     * @return bool
-     */
-    public function validate($token): bool
-    {
-        // Implement your own functionality here...
-    }
-
-    /**
-     * Get token token
-     *
-     * @param string|null $defaultValue
-     * @return string|null
-     */
-    public function getToken(?string $defaultValue = null): ?string 
-    {
-        // Implement your own functionality here...
-    }
-
-}
-</code></pre>
-
-<p>Next you need to set your custom <code>TokenProviderInterface</code> implementation on your <code>BaseCsrfVerifier</code> class in your routes file:</p>
-<pre><code class="php">$verifier = new \dscuz\Middleware\CsrfVerifier();
-$verifier-&gt;setTokenProvider(new SessionTokenProvider());
-
-Course::csrfVerifier($verifier);
 </code></pre>
 
 <hr />
@@ -335,10 +286,10 @@ Course::csrfVerifier($verifier);
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../folders-files/" class="btn btn-neutral float-right" title="14. Handling Folders and Files">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../folders-files/" class="btn btn-neutral float-right" title="Handling Folders and Files">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../cache/" class="btn btn-neutral" title="12. Cache"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cache/" class="btn btn-neutral" title="Cache"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   

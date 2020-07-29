@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>14. Handling Folders and Files - Solital Framework v1.0</title>
+  <title>Handling Folders and Files - Solital Framework v1.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "14. Handling Folders and Files";
+    var mkdocs_page_name = "Handling Folders and Files";
     var mkdocs_page_input_path = "folders-files.md";
     var mkdocs_page_url = "/folders-files/";
   </script>
@@ -49,72 +49,72 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">1. Welcome</a>
+    <a class="" href="..">Welcome</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../starting/">2. Starting</a>
+    <a class="" href="../starting/">Starting</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../installation/">3. Installation</a>
+    <a class="" href="../installation/">Installation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../vinci/">4. Vinci Console</a>
+    <a class="" href="../vinci/">Vinci Console</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../components/">5. Components</a>
+    <a class="" href="../components/">Components</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../routes/">6. Routes</a>
+    <a class="" href="../routes/">Routes</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../requisitions/">7. Requisitions</a>
+    <a class="" href="../requisitions/">Requisitions</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../input.params/">8. Input & params</a>
+    <a class="" href="../input.params/">Input & params</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../events/">9. Events</a>
+    <a class="" href="../events/">Events</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../auth/">10. Authenticate</a>
+    <a class="" href="../auth/">Authenticate</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../injection/">11. Dependency Container</a>
+    <a class="" href="../injection/">Dependency Container</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../cache/">12. Cache</a>
+    <a class="" href="../cache/">Cache</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../security/">13. Security</a>
+    <a class="" href="../security/">Security</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">14. Handling Folders and Files</a>
+    <a class="current" href="./">Handling Folders and Files</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#handling-folders-and-files">Handling Folders and Files</a></li>
@@ -137,7 +137,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../katrina/">15. Katrina ORM</a>
+    <a class="" href="../http/">HTTP Client</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../katrina/">Katrina ORM</a>
 	    </li>
           
         </ul>
@@ -162,7 +167,7 @@
     
       
     
-    <li>14. Handling Folders and Files</li>
+    <li>Handling Folders and Files</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/folders-files.md"
@@ -207,6 +212,13 @@ $res = $folder-&gt;folder(&quot;folder_name&quot;)-&gt;fileExists(&quot;README.m
 pre($res);
 </code></pre>
 
+<p>You can delete the file if it exists, to do so enter <code>true</code> in the second parameter.</p>
+<pre><code class="php">/** Boolean return */
+$res = $folder-&gt;folder(&quot;folder_name&quot;)-&gt;fileExists(&quot;README.md&quot;, true);
+
+pre($res);
+</code></pre>
+
 <h2 id="create-folder">Create folder</h2>
 <p>To create a folder inside Solital, use only the <code>create()</code> method.</p>
 <pre><code class="php">/** Boolean return */
@@ -243,10 +255,10 @@ pre($res);
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../katrina/" class="btn btn-neutral float-right" title="15. Katrina ORM">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../http/" class="btn btn-neutral float-right" title="HTTP Client">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../security/" class="btn btn-neutral" title="13. Security"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../security/" class="btn btn-neutral" title="Security"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -277,7 +289,7 @@ pre($res);
         <span><a href="../security/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../katrina/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../http/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

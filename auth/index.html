@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>10. Authenticate - Solital Framework v1.0</title>
+  <title>Authenticate - Solital Framework v1.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "10. Authenticate";
+    var mkdocs_page_name = "Authenticate";
     var mkdocs_page_input_path = "auth.md";
     var mkdocs_page_url = "/auth/";
   </script>
@@ -49,52 +49,52 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="..">1. Welcome</a>
+    <a class="" href="..">Welcome</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../starting/">2. Starting</a>
+    <a class="" href="../starting/">Starting</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../installation/">3. Installation</a>
+    <a class="" href="../installation/">Installation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../vinci/">4. Vinci Console</a>
+    <a class="" href="../vinci/">Vinci Console</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../components/">5. Components</a>
+    <a class="" href="../components/">Components</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../routes/">6. Routes</a>
+    <a class="" href="../routes/">Routes</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../requisitions/">7. Requisitions</a>
+    <a class="" href="../requisitions/">Requisitions</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../input.params/">8. Input & params</a>
+    <a class="" href="../input.params/">Input & params</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../events/">9. Events</a>
+    <a class="" href="../events/">Events</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">10. Authenticate</a>
+    <a class="current" href="./">Authenticate</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#authenticate">Authenticate</a></li>
@@ -109,6 +109,8 @@
         
             <li><a class="toctree-l3" href="#login-structure-and-password-recovery">Login structure and password recovery</a></li>
         
+            <li><a class="toctree-l3" href="#default-username-and-password">Default username and password</a></li>
+        
         </ul>
     
 
@@ -117,27 +119,32 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../injection/">11. Dependency Container</a>
+    <a class="" href="../injection/">Dependency Container</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../cache/">12. Cache</a>
+    <a class="" href="../cache/">Cache</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../security/">13. Security</a>
+    <a class="" href="../security/">Security</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../folders-files/">14. Handling Folders and Files</a>
+    <a class="" href="../folders-files/">Handling Folders and Files</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../katrina/">15. Katrina ORM</a>
+    <a class="" href="../http/">HTTP Client</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../katrina/">Katrina ORM</a>
 	    </li>
           
         </ul>
@@ -162,7 +169,7 @@
     
       
     
-    <li>10. Authenticate</li>
+    <li>Authenticate</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/auth.md"
@@ -258,6 +265,9 @@ Wolf::loadView('login');
 
 <h2 id="login-structure-and-password-recovery">Login structure and password recovery</h2>
 <p><a href="https://solital.github.io/docs-v1/vinci/#login-structure">See here</a> how to create a pre-assembled login and password recovery framework using the vinci console.</p>
+<h2 id="default-username-and-password">Default username and password</h2>
+<p>You can create a standard database login table using the command <code>php vinci katrina: userAuth</code>. This command will insert a default email and password. To authenticate, use the email <code>solital @ email.com</code> and password <code>solital</code></p>
+<p><strong>NOTE:</strong> When creating the login structure with the command <code>php vinci auth</code>, the method <code>userAuth</code> is executed automatically, it is not necessary to execute it later.</p>
               
             </div>
           </div>
@@ -265,10 +275,10 @@ Wolf::loadView('login');
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../injection/" class="btn btn-neutral float-right" title="11. Dependency Container">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../injection/" class="btn btn-neutral float-right" title="Dependency Container">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../events/" class="btn btn-neutral" title="9. Events"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../events/" class="btn btn-neutral" title="Events"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
