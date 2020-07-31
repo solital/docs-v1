@@ -201,12 +201,6 @@
 <pre><code>composer require solital/katrina
 </code></pre>
 
-<p>Or add the code below to your <code>composer.json</code> file.</p>
-<pre><code>&quot;require&quot;: {
-    &quot;solital/katrina&quot;: &quot;1.0.*&quot;
-}
-</code></pre>
-
 <h3 id="settings">Settings</h3>
 <p>If you are using the Solital framework, run the <code>php vinci katrina:configure</code> command to configure the <code>db.php</code> file via Vinci (<a href="https://solital.github.io/docs-v1/vinci/#configure-database">see more</a> about configuring Katrina ORM No Vinci here)</p>
 <p>Or edit (in Solital) the <code>db.php</code> file inside the <code>config</code> folder.</p>
@@ -305,14 +299,16 @@ class User
 <p>If you need the <code>WHERE</code> clause, use the second parameter.</p>
 <pre><code class="php">public function get()
 {
-    return $this-&gt;instance()-&gt;select(null, 'name=&quot;Clark&quot;', &quot;name, city, country&quot;)-&gt;build(&quot;ALL&quot;);
+    return $this-&gt;instance()-&gt;select(null, 'name=&quot;Clark&quot;', &quot;name, city, country&quot;)
+                            -&gt;build(&quot;ALL&quot;);
 }
 </code></pre>
 
 <p>With primary key:</p>
 <pre><code class="php">public function get()
 {
-    return $this-&gt;instance()-&gt;select(3, 'name=&quot;Clark&quot;', &quot;name, city, country&quot;)-&gt;build(&quot;ONLY&quot;);
+    return $this-&gt;instance()-&gt;select(3, 'name=&quot;Clark&quot;', &quot;name, city, country&quot;)
+                            -&gt;build(&quot;ONLY&quot;);
 }
 </code></pre>
 
@@ -322,52 +318,67 @@ class User
 <p>The first parameter will be the name of the table that has a relationship with the current table. The second will be an array containing in the first index the column name of the current table that has the foreign key, and in the second index the column name of the primary key of the other table. To make it easier, see an example below.</p>
 <pre><code class="php">public function get()
 {
-    $res = $this-&gt;instance()-&gt;innerJoin(&quot;address&quot;, [&quot;idForeignAddress&quot;, &quot;idAddress&quot;])-&gt;build(&quot;ALL&quot;);
-    return $res;
+    return $this-&gt;instance()-&gt;innerJoin(&quot;address&quot;, [&quot;idForeignAddress&quot;, &quot;idAddress&quot;])
+                            -&gt;build(&quot;ALL&quot;);
 }
 </code></pre>
 
 <p>If you need to use the <code>WHERE</code> clause, pass the command in the third parameter as shown below.</p>
 <pre><code class="php">public function get()
 {
-    $res = $this-&gt;instance()-&gt;innerJoin(&quot;address&quot;, [&quot;idForeignAddress&quot;, &quot;idAddress&quot;], &quot;order_status=true&quot;)-&gt;build(&quot;ALL&quot;);
-    return $res;
+    return $this-&gt;instance()-&gt;innerJoin(&quot;address&quot;, [&quot;idForeignAddress&quot;, &quot;idAddress&quot;], &quot;order_status=true&quot;)-&gt;build(&quot;ALL&quot;);
 }
 </code></pre>
 
 <p>You can inform which fields you want to return. "a" is your main table while "b" is your table that has the foreign key.</p>
 <pre><code class="php">public function get()
 {
-    $res = $this-&gt;instance()
-    -&gt;innerJoin(&quot;address&quot;, [&quot;idForeignAddress&quot;, &quot;idAddress&quot;], &quot;order_status=true&quot; &quot;a.idPerson, a.name, b.street&quot;, &quot;address&quot;, &quot;idAddress&quot;)-&gt;build(&quot;ALL&quot;);
-    return $res;
+    return $this-&gt;instance()-&gt;innerJoin(&quot;address&quot;, [&quot;idForeignAddress&quot;, &quot;idAddress&quot;], &quot;order_status=true&quot;, &quot;a.idPerson, a.name, b.street&quot;, &quot;address&quot;, &quot;idAddress&quot;)-&gt;build(&quot;ALL&quot;);
+}
+</code></pre>
+
+<h3 id="custom-select">Custom SELECT</h3>
+<p>You can create a custom SELECT statement. To do this, use the function <code>customQueryOnly</code> to return a single value from the database, and<code>customQueryAll</code> to return all values from the database.</p>
+<pre><code class="php">public function getAll()
+{
+    return $this-&gt;instance()-&gt;customQueryAll(&quot;SELECT a.idSession, SUM(b.price) AS price, 
+    SUM(a.qtd) AS qtd FROM tb_order a INNER JOIN tb_product b 
+    WHERE MONTH( a.created_at) = MONTH(NOW()) GROUP BY a.idSession&quot;);
+}
+</code></pre>
+
+<pre><code class="php">public function getOnly()
+{
+    return $this-&gt;instance()-&gt;customQueryOnly(&quot;SELECT a.idSession, SUM(b.price) AS price, 
+    SUM(a.qtd) AS qtd FROM tb_order a INNER JOIN tb_product b 
+    WHERE MONTH( a.created_at) = MONTH(NOW()) GROUP BY a.idSession&quot;);
 }
 </code></pre>
 
 <h3 id="insert">Insert</h3>
 <p>The <code>insert()</code> method inserts the values ​​into the table. It is NOT necessary to use <code>build()</code> method to insert the data. To do this, create an array with the values ​​that the method will receive</p>
-<pre><code class="php">public function insert()
+<pre><code class="php">/**
+ * Return bool
+ */
+public function insert()
 {
     $res = $this-&gt;instance()-&gt;insert(['Clark', 'Metropolis', 'EUA']);
     return $res;
 }
-/**
- * Return bool
- * /
 </code></pre>
 
 <p>To return the last insert ID, pass a <code>true</code> in the second parameter.</p>
-<pre><code class="php">public function insert()
+<pre><code class="php">/**
+ * Return array
+ * 
+ * ['res'] =&gt; 'true',
+ * ['lastId'] =&gt; '2'
+ */
+public function insert()
 {
     $res = $this-&gt;instance()-&gt;insert(['Clark', 'Metropolis', 'EUA'], true);
     return $res;
 }
-/**
- * Return array
- * 
- * ['res'] =&gt; 'true',
- * ['lastId'] =&gt; '1'
- * /
 </code></pre>
 
 <h3 id="update">Update</h3>
@@ -408,6 +419,15 @@ class User
 <pre><code class="php">public function delete()
 {
     $res = $this-&gt;instance()-&gt;delete(&quot;Bruce&quot;, &quot;name&quot;)-&gt;build();
+    return $res;
+}
+</code></pre>
+
+<p><strong> Force delete with foreign key </strong></p>
+<p>In some cases there may be a need to delete a record with the foreign key from another table. To disable foreign key checking, you can use the third parameter as <code>true</code>.</p>
+<pre><code class="php">public function delete()
+{
+    $res = $this-&gt;instance()-&gt;delete(3, null, true)-&gt;build();
     return $res;
 }
 </code></pre>
