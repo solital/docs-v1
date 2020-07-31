@@ -14,14 +14,6 @@ Katrina ORM is already installed by default in Solital. But if you are going to 
 composer require solital/katrina
 ```
 
-Or add the code below to your `composer.json` file.
-
-```
-"require": {
-    "solital/katrina": "1.0.*"
-}
-```
-
 ### Settings
 
 If you are using the Solital framework, run the `php vinci katrina:configure` command to configure the `db.php` file via Vinci ([see more](https://solital.github.io/docs-v1/vinci/#configure-database) about configuring Katrina ORM No Vinci here)
@@ -140,7 +132,8 @@ If you need the `WHERE` clause, use the second parameter.
 ```php
 public function get()
 {
-    return $this->instance()->select(null, 'name="Clark"', "name, city, country")->build("ALL");
+    return $this->instance()->select(null, 'name="Clark"', "name, city, country")
+                            ->build("ALL");
 }
 ```
 
@@ -149,7 +142,8 @@ With primary key:
 ```php
 public function get()
 {
-    return $this->instance()->select(3, 'name="Clark"', "name, city, country")->build("ONLY");
+    return $this->instance()->select(3, 'name="Clark"', "name, city, country")
+                            ->build("ONLY");
 }
 ```
 
@@ -164,8 +158,8 @@ The first parameter will be the name of the table that has a relationship with t
 ```php
 public function get()
 {
-    $res = $this->instance()->innerJoin("address", ["idForeignAddress", "idAddress"])->build("ALL");
-    return $res;
+    return $this->instance()->innerJoin("address", ["idForeignAddress", "idAddress"])
+                            ->build("ALL");
 }
 ```
 
@@ -174,8 +168,7 @@ If you need to use the `WHERE` clause, pass the command in the third parameter a
 ```php
 public function get()
 {
-    $res = $this->instance()->innerJoin("address", ["idForeignAddress", "idAddress"], "order_status=true")->build("ALL");
-    return $res;
+    return $this->instance()->innerJoin("address", ["idForeignAddress", "idAddress"], "order_status=true")->build("ALL");
 }
 ```
 
@@ -184,42 +177,61 @@ You can inform which fields you want to return. "a" is your main table while "b"
 ```php
 public function get()
 {
-    $res = $this->instance()
-    ->innerJoin("address", ["idForeignAddress", "idAddress"], "order_status=true" "a.idPerson, a.name, b.street", "address", "idAddress")->build("ALL");
-    return $res;
+    return $this->instance()->innerJoin("address", ["idForeignAddress", "idAddress"], "order_status=true", "a.idPerson, a.name, b.street", "address", "idAddress")->build("ALL");
 }
 ```
 
+### Custom SELECT
+
+You can create a custom SELECT statement. To do this, use the function `customQueryOnly` to return a single value from the database, and` customQueryAll` to return all values from the database.
+
+```php
+public function getAll()
+{
+    return $this->instance()->customQueryAll("SELECT a.idSession, SUM(b.price) AS price, 
+    SUM(a.qtd) AS qtd FROM tb_order a INNER JOIN tb_product b 
+    WHERE MONTH( a.created_at) = MONTH(NOW()) GROUP BY a.idSession");
+}
+```
+
+```php
+public function getOnly()
+{
+    return $this->instance()->customQueryOnly("SELECT a.idSession, SUM(b.price) AS price, 
+    SUM(a.qtd) AS qtd FROM tb_order a INNER JOIN tb_product b 
+    WHERE MONTH( a.created_at) = MONTH(NOW()) GROUP BY a.idSession");
+}
+```
 
 ### Insert
  
 The `insert()` method inserts the values ​​into the table. It is NOT necessary to use `build()` method to insert the data. To do this, create an array with the values ​​that the method will receive
 
 ```php
+/**
+ * Return bool
+ */
 public function insert()
 {
     $res = $this->instance()->insert(['Clark', 'Metropolis', 'EUA']);
     return $res;
 }
-/**
- * Return bool
- * /
 ```
 
 To return the last insert ID, pass a `true` in the second parameter.
 
 ```php
+/**
+ * Return array
+ * 
+ * ['res'] => 'true',
+ * ['lastId'] => '2'
+ */
 public function insert()
 {
     $res = $this->instance()->insert(['Clark', 'Metropolis', 'EUA'], true);
     return $res;
 }
-/**
- * Return array
- * 
- * ['res'] => 'true',
- * ['lastId'] => '1'
- * /
 ```
 
 ### Update
@@ -272,6 +284,18 @@ By default, the `delete` method uses the column name of the primary key to delet
 public function delete()
 {
     $res = $this->instance()->delete("Bruce", "name")->build();
+    return $res;
+}
+```
+
+** Force delete with foreign key **
+
+In some cases there may be a need to delete a record with the foreign key from another table. To disable foreign key checking, you can use the third parameter as `true`.
+
+```php
+public function delete()
+{
+    $res = $this->instance()->delete(3, null, true)->build();
     return $res;
 }
 ```
