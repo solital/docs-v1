@@ -105,7 +105,7 @@ If you want to remove this structure, use `php vinci remove-auth`
 
 ## Recover password structure
 
-You can create a predefined password recovery framework. To do so, use the `php vinci forget` command
+You can create a predefined password recovery framework. To do so, use the `php vinci forgot` command
 
 This command creates a controller with the name `ForgotController`. With it you will have all the basis to create a password recovery system. To learn more visit [this link](https://solital.github.io/docs-v1/security).
 

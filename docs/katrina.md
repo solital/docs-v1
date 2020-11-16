@@ -524,6 +524,20 @@ public function get()
 }
 ```
 
+**INNER JOIN**
+
+If you want to use pagination with a table that has a foreign key, pass an array in the third parameter.
+
+In the first index, insert the name of the table that is linked to the current table, in the second index the name of the column that contains the foreign key and in the third index the column name of the primary key of the table that references the current table
+
+```php
+public function get()
+{
+    $res = $this->instance()->pagination('your_table', 3, ['foreign_table', 'column_foreign_key', 'column_primary_key'], "status=true");
+    return $res;
+}
+```
+
 **WHERE clause**
 
 To use the WHERE clause, use the fourth parameter as shown below.
@@ -531,7 +545,7 @@ To use the WHERE clause, use the fourth parameter as shown below.
 ```php
 public function get()
 {
-    $res = $this->instance()->pagination('your_table', 3, ['foreign_table', 'column_foreign_key', 'column_primary_key'], "status=true");
+    $res = $this->instance()->pagination('your_table', 3, null, "status=true");
     return $res;
 }
 ```
@@ -667,7 +681,7 @@ Below is listed the attributes and data supported by Katrina ORM:
 | `tinytext("column_name", size)`   |
 | `mediumtext("column_name", size)` |
 | `longtext("column_name", size)`   |
-| `text("column_name", size)`       |
+| `text("column_name")`             |
 
 **Numerical data**
 

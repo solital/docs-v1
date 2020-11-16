@@ -42,25 +42,25 @@ Make sure the files exist in the folder `public/assets/_css`, `public/assets/_js
 To load a CSS file, use the static `loadCss` method in your template.
 
 ```html
-<link rel="stylesheet" href="<? self::loadCss('style.css'); ?>">
+<link rel="stylesheet" href="<?= self::loadCss('style.css'); ?>">
 ```
         
 To load a JS file, use the static `loadJs` method in your template.
 
 ```html
-<link rel="stylesheet" href="<? self::loadJs('file.js'); ?>">
+<link rel="stylesheet" href="<?= self::loadJs('file.js'); ?>">
 ```
         
 To load a image file, use the static `loadImg` method in your template.
 
 ```html
-<img src="<? self::loadImg('image.png'); ?>">
+<img src="<?= self::loadImg('image.png'); ?>">
 ```
 
 To load a file outside the `_css`,` _js` and `_img` folder, use the` loadFile` method.
 
 ```html
-<img src="<? self::loadFile('path/for/your/file'); ?>">
+<img src="<?= self::loadFile('path/for/your/file'); ?>">
 ```
         
 ### Cache
