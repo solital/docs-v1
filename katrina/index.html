@@ -605,11 +605,21 @@ public function insert()
 }
 </code></pre>
 
+<p><strong>INNER JOIN</strong></p>
+<p>If you want to use pagination with a table that has a foreign key, pass an array in the third parameter.</p>
+<p>In the first index, insert the name of the table that is linked to the current table, in the second index the name of the column that contains the foreign key and in the third index the column name of the primary key of the table that references the current table</p>
+<pre><code class="php">public function get()
+{
+    $res = $this-&gt;instance()-&gt;pagination('your_table', 3, ['foreign_table', 'column_foreign_key', 'column_primary_key'], &quot;status=true&quot;);
+    return $res;
+}
+</code></pre>
+
 <p><strong>WHERE clause</strong></p>
 <p>To use the WHERE clause, use the fourth parameter as shown below.</p>
 <pre><code class="php">public function get()
 {
-    $res = $this-&gt;instance()-&gt;pagination('your_table', 3, ['foreign_table', 'column_foreign_key', 'column_primary_key'], &quot;status=true&quot;);
+    $res = $this-&gt;instance()-&gt;pagination('your_table', 3, null, &quot;status=true&quot;);
     return $res;
 }
 </code></pre>
@@ -781,7 +791,7 @@ echo $arrows;
 <td><code>longtext("column_name", size)</code></td>
 </tr>
 <tr>
-<td><code>text("column_name", size)</code></td>
+<td><code>text("column_name")</code></td>
 </tr>
 </tbody>
 </table>

@@ -209,19 +209,19 @@ Wolf::loadView('home');
 <h3 id="loading-css-js-and-images">Loading CSS, JS and images</h3>
 <p>Make sure the files exist in the folder <code>public/assets/_css</code>, <code>public/assets/_js</code> and <code>public/assets/_img</code></p>
 <p>To load a CSS file, use the static <code>loadCss</code> method in your template.</p>
-<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;? self::loadCss('style.css'); ?&gt;&quot;&gt;
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;?= self::loadCss('style.css'); ?&gt;&quot;&gt;
 </code></pre>
 
 <p>To load a JS file, use the static <code>loadJs</code> method in your template.</p>
-<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;? self::loadJs('file.js'); ?&gt;&quot;&gt;
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;?= self::loadJs('file.js'); ?&gt;&quot;&gt;
 </code></pre>
 
 <p>To load a image file, use the static <code>loadImg</code> method in your template.</p>
-<pre><code class="html">&lt;img src=&quot;&lt;? self::loadImg('image.png'); ?&gt;&quot;&gt;
+<pre><code class="html">&lt;img src=&quot;&lt;?= self::loadImg('image.png'); ?&gt;&quot;&gt;
 </code></pre>
 
 <p>To load a file outside the <code>_css</code>,<code>_js</code> and <code>_img</code> folder, use the<code>loadFile</code> method.</p>
-<pre><code class="html">&lt;img src=&quot;&lt;? self::loadFile('path/for/your/file'); ?&gt;&quot;&gt;
+<pre><code class="html">&lt;img src=&quot;&lt;?= self::loadFile('path/for/your/file'); ?&gt;&quot;&gt;
 </code></pre>
 
 <h3 id="cache">Cache</h3>

@@ -186,7 +186,7 @@ Session::new('your_index', 'your_value');
 <p>And for Cookies.</p>
 <pre><code class="php">use Solital\Core\Resource\Cookie;
 
-Cookie::new('your_index', 'your_value');
+Cookie::new('your_index', 'your_value', 'time', 'path');
 </code></pre>
 
 <p>To create an array of values in a session, pass in the third parameter the name of the session index.</p>
@@ -214,7 +214,7 @@ Cookie::has('your_index');
 <pre><code class="php">Session::delete('your_index');
 Session::delete('index', 'second_index');
 
-Cookie::delete('your_index');
+Cookie::delete('your_index', 'path');
 </code></pre>
 
 <p>You can use <code>destroy</code> method to destroy all sessions.</p>
