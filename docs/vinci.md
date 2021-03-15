@@ -16,23 +16,25 @@ To access information about Solital and its dependencies, open your terminal ins
 You can create a new component using the syntax below.
 
 ```
-php vinci [component]:[name_file]
+php vinci [command]:[name_file]
 ```
 
 **Example**
 
 ```
-php vinci controller:User
+php vinci controller:UserController
 ```
 
-| Command    | Description                             |
-|------------|-----------------------------------------|
-| controller | Creates a new controller                |
-| model      | Create a new Model                      |
-| view       | Create a new view                       |
-| css        | Create a new CSS file                   |
-| js         | Create a new JavaScript file            |
-| router     | Creates a new file for the route system |
+| Command      | Description                             |
+|--------------|-----------------------------------------|
+| `controller` | Creates a new controller                |
+| `model`      | Create a new Model                      |
+| `view`       | Create a new view                       |
+| `css`        | Create a new CSS file                   |
+| `js`         | Create a new JavaScript file            |
+| `router`     | Creates a new file for the route system |
+
+-
 
 To see the complete list of commands, run `php vinci show`
 
@@ -41,7 +43,7 @@ To see the complete list of commands, run `php vinci show`
 Add the `remove-` command before using one of the aforementioned commands to remove a component created with Vinci.
 
 ```
-php vinci remove-controller:user
+php vinci remove-controller:UserController
 ```
 
 ## Clearing the cache on solital

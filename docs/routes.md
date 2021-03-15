@@ -45,6 +45,14 @@ Course::form('foo', function() {
 });
 ```
 
+### Default Base Path
+
+This will allows users to set a default basepath for all url requests, which will be prepended to all url parameters. (Credits to [MasterPuffin](https://github.com/MasterPuffin))
+
+```php
+Course::setDefaultBasepath('/forum')
+```
+
 ## Route parameters
 
 ### Required parameters
@@ -69,7 +77,7 @@ Course::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
 
 ### Optional parameters
 
-Occasionally you may need to specify a route parameter, but make the presence of that route parameter optional. You may do so by placing a ? mark after the parameter name. Make sure to give the route's corresponding variable a default value:
+Occasionally you may need to specify a route parameter, but make the presence of that route parameter optional. You may do so by placing a `?` mark after the parameter name. Make sure to give the route's corresponding variable a default value:
 
 ```php
 Course::get('/user/{name?}', function ($name = null) {
@@ -279,24 +287,15 @@ Course::partialGroup('/admin/{applicationId}', function ($applicationId) {
 
 ExceptionHandler are classes that handles all exceptions. ExceptionsHandlers must implement the `ExceptionHandlerInterface` interface.
 
-### Handling 404, 403 and other errors
+### Error route
 
-If you simply want to catch a 404 (page not found) etc. you can use the `Course::error($callback)` static helper method.
-
-This will add a callback method which is fired whenever an error occurs on all routes.
-
-The basic example below simply redirect the page to `/not-found` if an `NotFoundHttpException` (404) occurred.
-The code should be placed in the file that contains your routes.
+If a given route does not exist in your `routers.php` file, you can redirect to another route instead of displaying the route not found error using the `error ()` method. If `true`, the redirection will be done. If `false`, you will not be redirected.
 
 ```php
-Course::get('/not-found', 'PageController@notFound');
+Course::error(true, '/error');
 
-Course::error(function(Request $request, \Exception $exception) {
-
-    if($exception instanceof NotFoundHttpException && $exception->getCode() === 404) {
-        response()->redirect('/not-found');
-    }
-    
+Course::get('/error', function () {
+    echo 'error 404';
 });
 ```
 

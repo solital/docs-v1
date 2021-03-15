@@ -103,6 +103,6 @@ Guardian::logoff();
 
 ## Default username and password
 
-You can create a standard database login table using the command `php vinci katrina: userAuth`. This command will insert a default email and password. To authenticate, use the email `solital @ email.com` and password `solital`
+You can create a standard database login table using the command `php vinci katrina:userAuth`. This command will insert a default email and password. To authenticate, use the email `solital@email.com` and password `solital`
 
 **NOTE:** When creating the login structure with the command `php vinci auth`, the method `userAuth` is executed automatically, it is not necessary to execute it later.

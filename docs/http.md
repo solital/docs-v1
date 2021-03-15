@@ -10,7 +10,7 @@ composer install solital/http-client
 
 ## Requirements
 
-- PHP >= 7.2
+- PHP >= 7.2 (Compatible with PHP 8)
 - CURL extension enabled
 
 ## Basic use
@@ -22,7 +22,7 @@ use Solital\HttpClient;
 
 $client = new HttpClient();
 $client->request("GET", "http://api.url.com");
-$client->toJson();
+$res = $client->toJson();
 
 pre($res);
 ```
@@ -47,13 +47,13 @@ $client = new HttpClient();
 $client->request("GET", "http://api.url.com");
 
 /** Return json */
-$client->toJson();
+$res = $client->toJson();
 
 /** Return array */
-$client->toArray();
+$res = $client->toArray();
 
 /** Return object */
-$client->toObject();
+$res = $client->toObject();
 
 pre($res);
 ```

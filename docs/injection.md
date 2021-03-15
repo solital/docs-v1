@@ -1,4 +1,4 @@
-# Dependecy Container
+# Dependecy Container (PSR-11)
 
 Solital has implemented the PSR-11, that is, you can create containers easily and with good practices.
 

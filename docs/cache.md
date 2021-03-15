@@ -1,10 +1,10 @@
-# Cache
+# Cache (PSR-16)
 
 Cache is a layer of high-speed physical data storage that holds a subset of data, usually temporary in nature, so that future requests for that data are answered more quickly than is possible when accessing the primary storage location of data. Caching allows you to efficiently reuse previously recovered or computed data.
 
 ## How to use
 
-**Single cache**
+### Single cache
 
 You can cache through PSR-16. To do this, perform the instance of the Cache class as follows:
 
@@ -39,7 +39,7 @@ $cache->delete('list');
 
 The `has` method checks whether the item key exists. If it exists, use the `get` method to retrieve the generated cache by passing the key value as a parameter. If it does not exist, the `set` method creates the cached file, passing in the first parameter the name of the key, the value that will be stored and the time (in `int`) that this cached file will be valid.
 
-**Mutiple cache**
+### Mutiple cache
 
 The syntax is similar to the single cache. But the `getMultiple` method needs an array containing the key values as a parameter. The `setMultiple` method generates the cache if it does not exist, but pass as an parameter an array in which the keys will be the indexes of the array, and in the last parameter spend the time that the cache will be valid.
 
@@ -77,7 +77,7 @@ In the multiple cache, use `deleteMultiple` by passing an array containing the c
 $cache->deleteMultiple(["list1", "list2"]);
 ```
 
-**Clear cache**
+### Clear cache
 
 To clear the entire cache created with the `Cache` class, use the`clear` function.
 
@@ -85,7 +85,7 @@ To clear the entire cache created with the `Cache` class, use the`clear` functio
 $cache->clear();
 ```
 
-### Wolf Template
+## Wolf Template
 
 To cache a template in Wolf, use the static cache function to set the cache file time as shown below:
 

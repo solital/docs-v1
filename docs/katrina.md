@@ -4,7 +4,8 @@ Katrina ORM is a component to bring the object-oriented application development 
 
 ### Requirements
 
-Make sure that the PDO is enabled in your development environment or in your hosting.
+- PHP >= 7.2 (Compatible with PHP 8)
+- PHP PDO extension enabled
 
 ### Installation
 
@@ -96,7 +97,7 @@ class User
 }
 ```
 
-## Data manipulation
+## Data manipulation - CRUD
 
 ### List
 

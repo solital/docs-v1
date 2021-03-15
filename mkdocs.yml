@@ -11,10 +11,12 @@ pages:
   - Input & params : input.params.md
   - Events: events.md
   - Authenticate: auth.md
-  - Dependency Container: injection.md
-  - Cache: cache.md
+  - Dependency Container (PSR-11): injection.md
+  - Cache (PSR-16): cache.md
+  - Logger (PSR-3): logger.md
   - Security: security.md
   - Handling Folders and Files: folders-files.md
   - HTTP Client: http.md
   - Katrina ORM: katrina.md
+  - Deploy: deploy.md
 theme: readthedocs

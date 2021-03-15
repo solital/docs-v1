@@ -29,6 +29,8 @@ All event callbacks will retrieve a `EventArgument` object as parameter. This ob
 | `EVENT_RENDER_MIDDLEWARES`  | `route`<br>`middlewares` | Fires before middlewares for a route is rendered. |
 | `EVENT_RENDER_CSRF`         | `csrfVerifier` | Fires before the CSRF-verifier is rendered. |
 
+-
+
 ## Registering new event
 
 To register a new event you need to create a new instance of the `EventHandler` object. On this object you can add as many callbacks as you like by calling the `registerEvent` method.

@@ -30,7 +30,7 @@ php -S localhost:8000 -t public/
         
 ## Requirements
 
-- PHP 7.1 or greater
+- PHP >= 7.2 (Compatible with PHP 8)
 - PHP JSON extension enabled
 - PHP PDO extension enabled
 
@@ -47,3 +47,4 @@ php -S localhost:8000 -t public/
 - Sub-domain routing
 - Custom boot managers to rewrite urls to "nicer" ones.
 - Input manager; easily manage GET, POST and FILE values.
+- PSR-3, PSR-11 and PSR-16.
