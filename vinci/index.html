@@ -7,24 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Vinci Console - Solital Framework v1.0</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "Vinci Console";
     var mkdocs_page_input_path = "vinci.md";
-    var mkdocs_page_url = "/vinci/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -34,126 +36,111 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Solital Framework v1.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Welcome</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../starting/">Starting</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Vinci Console</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#vinci-console">Vinci Console</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../starting/">Starting</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Vinci Console</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#access-vinci">Access Vinci</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#access-vinci">Access Vinci</a></li>
-        
-            <li><a class="toctree-l3" href="#create-a-component">Create a component</a></li>
-        
-            <li><a class="toctree-l3" href="#remove-a-component">Remove a component</a></li>
-        
-            <li><a class="toctree-l3" href="#clearing-the-cache-on-solital">Clearing the cache on solital</a></li>
-        
-            <li><a class="toctree-l3" href="#configure-database">Configure database</a></li>
-        
-            <li><a class="toctree-l3" href="#login-structure">Login structure</a></li>
-        
-            <li><a class="toctree-l3" href="#recover-password-structure">Recover password structure</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#for-windows">For Windows</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-a-component">Create a component</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#remove-a-component">Remove a component</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#clearing-the-cache-on-solital">Clearing the cache on solital</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configure-database">Configure database</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#login-structure">Login structure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recover-password-structure">Recover password structure</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../components/">Components</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../routes/">Routes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../requisitions/">Requisitions</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../input.params/">Input & params</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../events/">Events</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../auth/">Authenticate</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../injection/">Dependency Container</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cache/">Cache</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../security/">Security</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../folders-files/">Handling Folders and Files</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../http/">HTTP Client</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../katrina/">Katrina ORM</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../routes/">Routes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../requisitions/">Requisitions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../input.params/">Input & params</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../events/">Events</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../auth/">Authenticate</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../injection/">Dependency Container (PSR-11)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cache/">Cache (PSR-16)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../logger/">Logger (PSR-3)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../folders-files/">Handling Folders and Files</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../http/">HTTP Client</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../katrina/">Katrina ORM</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../deploy/">Deploy</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -181,6 +168,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -195,13 +183,11 @@
 <p>To access information about Solital and its dependencies, open your terminal inside your project folder and type <code>php vinci about</code></p>
 <h2 id="create-a-component">Create a component</h2>
 <p>You can create a new component using the syntax below.</p>
-<pre><code>php vinci [component]:[name_file]
+<pre><code>php vinci [command]:[name_file]
 </code></pre>
-
 <p><strong>Example</strong></p>
-<pre><code>php vinci controller:User
+<pre><code>php vinci controller:UserController
 </code></pre>
-
 <table>
 <thead>
 <tr>
@@ -211,55 +197,53 @@
 </thead>
 <tbody>
 <tr>
-<td>controller</td>
+<td><code>controller</code></td>
 <td>Creates a new controller</td>
 </tr>
 <tr>
-<td>model</td>
+<td><code>model</code></td>
 <td>Create a new Model</td>
 </tr>
 <tr>
-<td>view</td>
+<td><code>view</code></td>
 <td>Create a new view</td>
 </tr>
 <tr>
-<td>css</td>
+<td><code>css</code></td>
 <td>Create a new CSS file</td>
 </tr>
 <tr>
-<td>js</td>
+<td><code>js</code></td>
 <td>Create a new JavaScript file</td>
 </tr>
 <tr>
-<td>router</td>
+<td><code>router</code></td>
 <td>Creates a new file for the route system</td>
 </tr>
 </tbody>
 </table>
+<p>-</p>
 <p>To see the complete list of commands, run <code>php vinci show</code></p>
 <h2 id="remove-a-component">Remove a component</h2>
 <p>Add the <code>remove-</code> command before using one of the aforementioned commands to remove a component created with Vinci.</p>
-<pre><code>php vinci remove-controller:user
+<pre><code>php vinci remove-controller:UserController
 </code></pre>
-
 <h2 id="clearing-the-cache-on-solital">Clearing the cache on solital</h2>
 <p>To clear the entire solital cache, run the command below.</p>
 <pre><code>php vinci cache-clear
 </code></pre>
-
 <h2 id="configure-database">Configure database</h2>
 <p>The <code>db.php</code> file has the necessary constants for Katrina ORM to communicate with the database. To configure the <code>db.php</code> file, run the command<code>php vinci katrina:configure</code></p>
 <p>This command will ask for: database drive, host, database name, database user and password. Remember to enter the values in that order as shown below.</p>
-<pre><code class="shell">Enter the drive, host, database name, username and password for your database separated by commas
+<pre><code class="language-shell">Enter the drive, host, database name, username and password for your database separated by commas
 
 
 &gt; mysql, localhost, db_solital, root, root
 </code></pre>
-
 <p>If you want to create a standard user in the database, run <code>php vinci katrina:userAuth</code></p>
 <p><strong>Custom commands</strong></p>
 <p>You can create a custom method to create your tables using the <code>SQLCommands</code> method.</p>
-<pre><code class="php">&lt;?php
+<pre><code class="language-php">&lt;?php
 
 namespace Solital\Database\Create;
 use Solital\Components\Model\Model;
@@ -273,11 +257,9 @@ class SQLCommands extends Model
     }
 }
 </code></pre>
-
 <p>And in vinci, execute the method as follows:</p>
 <pre><code>php vinci katrina:myTable
 </code></pre>
-
 <h2 id="login-structure">Login structure</h2>
 <p>To create a predefined login structure, use <code>php vinci auth</code></p>
 <p>This command will create a <code>LoginController</code> class, templates for authentication and dashboard and predefined routes. Plus a standard user in the database. To learn more visit <a href="https://solital.github.io/docs-v1/auth">this link</a>.</p>
@@ -309,20 +291,20 @@ class SQLCommands extends Model
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -332,7 +314,14 @@ class SQLCommands extends Model
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

@@ -7,24 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Events - Solital Framework v1.0</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "Events";
     var mkdocs_page_input_path = "events.md";
-    var mkdocs_page_url = "/events/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -34,118 +36,99 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Solital Framework v1.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Welcome</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../starting/">Starting</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../vinci/">Vinci Console</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../components/">Components</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../routes/">Routes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../requisitions/">Requisitions</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../input.params/">Input & params</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Events</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#events">Events</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#available-events">Available events</a></li>
-        
-            <li><a class="toctree-l3" href="#registering-new-event">Registering new event</a></li>
-        
-            <li><a class="toctree-l3" href="#custom-eventhandlers">Custom EventHandlers</a></li>
-        
-        </ul>
-    
-
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../starting/">Starting</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vinci/">Vinci Console</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../routes/">Routes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../requisitions/">Requisitions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../input.params/">Input & params</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Events</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#available-events">Available events</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#registering-new-event">Registering new event</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#custom-eventhandlers">Custom EventHandlers</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../auth/">Authenticate</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../injection/">Dependency Container</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cache/">Cache</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../security/">Security</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../folders-files/">Handling Folders and Files</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../http/">HTTP Client</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../katrina/">Katrina ORM</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../auth/">Authenticate</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../injection/">Dependency Container (PSR-11)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cache/">Cache (PSR-16)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../logger/">Logger (PSR-3)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../folders-files/">Handling Folders and Files</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../http/">HTTP Client</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../katrina/">Katrina ORM</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../deploy/">Deploy</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -173,6 +156,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -275,12 +259,13 @@ It will also cover the basics of event-handlers; how to use the handlers provide
 </tr>
 </tbody>
 </table>
+<p>-</p>
 <h2 id="registering-new-event">Registering new event</h2>
 <p>To register a new event you need to create a new instance of the <code>EventHandler</code> object. On this object you can add as many callbacks as you like by calling the <code>registerEvent</code> method.</p>
 <p>When you've registered events, make sure to add it to the router by calling 
 <code>Course::addEventHandler()</code>. We recommend that you add your event-handlers within your <code>routes.php</code>.</p>
 <p><strong>Example:</strong></p>
-<pre><code class="php">use Solital\Core\Course\Handlers\EventHandler;
+<pre><code class="language-php">use Solital\Core\Course\Handlers\EventHandler;
 use Solital\Core\Course\Event\EventArgument;
 
 // --- your routes goes here ---
@@ -300,13 +285,12 @@ $eventHandler-&gt;register(EventHandler::EVENT_RENDER_ROUTE, function(EventArgum
 Course::addEventHandler($eventHandler);
 
 </code></pre>
-
 <h2 id="custom-eventhandlers">Custom EventHandlers</h2>
 <p><code>EventHandler</code> is the class that manages events and must inherit from the <code>EventHandlerInterface</code> interface. The handler knows how to handle events for the given handler-type. </p>
 <p>Most of the time the basic <code>\Solital\Core\Course\Handler\EventHandler</code> class will be more than enough for most people as you simply register an event which fires when triggered.</p>
 <p>Let's go over how to create your very own event-handler class.</p>
 <p>Below is a basic example of a custom event-handler called <code>DatabaseDebugHandler</code>. The idea of the sample below is to logs all events to the database when triggered. Hopefully it will be enough to give you an idea on how the event-handlers work.</p>
-<pre><code class="php">namespace Demo\Handlers;
+<pre><code class="language-php">namespace Demo\Handlers;
 
 use Solital\Core\Course\Event\EventArgument;
 use Solital\Core\Course\Router;
@@ -367,7 +351,6 @@ class DatabaseDebugHandler implements EventHandlerInterface
 
 }
 </code></pre>
-
 <hr />
               
             </div>
@@ -391,20 +374,20 @@ class DatabaseDebugHandler implements EventHandlerInterface
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../input.params/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -414,7 +397,14 @@ class DatabaseDebugHandler implements EventHandlerInterface
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

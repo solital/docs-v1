@@ -7,24 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Authenticate - Solital Framework v1.0</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "Authenticate";
     var mkdocs_page_input_path = "auth.md";
-    var mkdocs_page_url = "/auth/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -34,122 +36,103 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Solital Framework v1.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Welcome</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../starting/">Starting</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../vinci/">Vinci Console</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../components/">Components</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../routes/">Routes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../requisitions/">Requisitions</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../input.params/">Input & params</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../events/">Events</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Authenticate</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#authenticate">Authenticate</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#setting">Setting</a></li>
-        
-            <li><a class="toctree-l3" href="#check-login">Check login</a></li>
-        
-            <li><a class="toctree-l3" href="#log-off">Log off</a></li>
-        
-            <li><a class="toctree-l3" href="#login-structure-and-password-recovery">Login structure and password recovery</a></li>
-        
-            <li><a class="toctree-l3" href="#default-username-and-password">Default username and password</a></li>
-        
-        </ul>
-    
-
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../starting/">Starting</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vinci/">Vinci Console</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../routes/">Routes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../requisitions/">Requisitions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../input.params/">Input & params</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../events/">Events</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Authenticate</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#setting">Setting</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#check-login">Check login</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#log-off">Log off</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#login-structure-and-password-recovery">Login structure and password recovery</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#default-username-and-password">Default username and password</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../injection/">Dependency Container</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cache/">Cache</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../security/">Security</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../folders-files/">Handling Folders and Files</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../http/">HTTP Client</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../katrina/">Katrina ORM</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../injection/">Dependency Container (PSR-11)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cache/">Cache (PSR-16)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../logger/">Logger (PSR-3)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../folders-files/">Handling Folders and Files</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../http/">HTTP Client</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../katrina/">Katrina ORM</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../deploy/">Deploy</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -177,6 +160,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -184,7 +168,7 @@
               
                 <h1 id="authenticate">Authenticate</h1>
 <p>Solital uses the <code>Guardian</code> class to perform authentication. First of all, make sure to change the Guardian constants in config.php inside the config folder.</p>
-<pre><code class="php">/**
+<pre><code class="language-php">/**
 * GUARDIAN CONSTANTS
 */
 
@@ -195,10 +179,9 @@ define('URL_DASHBOARD', 'your_dashboard_url');
 /* Standard Guardian index */
 define('INDEX_LOGIN', 'solital_index_login');
 </code></pre>
-
 <h2 id="setting">Setting</h2>
 <p>On your Controller, extend the <code>AuthController</code> class.</p>
-<pre><code class="php">&lt;?php
+<pre><code class="language-php">&lt;?php
 
 namespace Solital\Components\Controller;
 use Solital\Components\Controller\Auth\AuthController;
@@ -207,22 +190,19 @@ class UserController extends AuthController {
     #...
 }
 </code></pre>
-
 <p>To do this, define your database username and password fields, the values ​​of your form input and the table where your username and password will be stored as shown below.</p>
-<pre><code class="php">$res = $this-&gt;columns('your_username_column', 'your_password_column')
+<pre><code class="language-php">$res = $this-&gt;columns('your_username_column', 'your_password_column')
             -&gt;values('input_username_name', 'input_password_name')
             -&gt;register('your_table');
 </code></pre>
-
 <p>The <code>$res</code> variable will return <code>true</code> if authentication is true. But if it is <code>false</code>, you can add a reply message after the above code if authentication fails.</p>
-<pre><code class="php">if ($res == false) {
+<pre><code class="language-php">if ($res == false) {
     Message::newMessage('wrongLogin', 'Incorrect username or password');
     response()-&gt;redirect('your_login_url');
 }
 </code></pre>
-
 <p>Below is an example method of authentication.</p>
-<pre><code class="php">&lt;?php
+<pre><code class="language-php">&lt;?php
 
 namespace Solital\Components\Controller;
 use Solital\Components\Controller\Auth\AuthController;
@@ -244,29 +224,25 @@ class UserController extends AuthController
 
 }
 </code></pre>
-
 <h2 id="check-login">Check login</h2>
 <p>To ensure that the user is authenticated, use <code>checkLogin()</code> method. If the login has not been validated using the <code>validate()</code> method, the user will be redirected to the route defined in the constant <code>URL_LOGIN</code>. The example below shows the method along with the Wolf template.</p>
-<pre><code class="php">Guardian::checkLogin();
+<pre><code class="language-php">Guardian::checkLogin();
 
 Wolf::loadView('home');
 </code></pre>
-
 <p>To ensure that the user doesn't fall into the login route when it has already been validated, insert the <code>checkLogged()</code> method in your login route. This method will redirect the user to your system's dashboard. Make sure your constant <code>URL_DASHBOARD</code> has a defined value.</p>
-<pre><code class="php">Guardian::checkLogged();
+<pre><code class="language-php">Guardian::checkLogged();
 
 Wolf::loadView('login');
 </code></pre>
-
 <h2 id="log-off">Log off</h2>
 <p>To log off, use the <code>logoff()</code> method.</p>
-<pre><code class="php">Guardian::logoff();
+<pre><code class="language-php">Guardian::logoff();
 </code></pre>
-
 <h2 id="login-structure-and-password-recovery">Login structure and password recovery</h2>
 <p><a href="https://solital.github.io/docs-v1/vinci/#login-structure">See here</a> how to create a pre-assembled login and password recovery framework using the vinci console.</p>
 <h2 id="default-username-and-password">Default username and password</h2>
-<p>You can create a standard database login table using the command <code>php vinci katrina: userAuth</code>. This command will insert a default email and password. To authenticate, use the email <code>solital @ email.com</code> and password <code>solital</code></p>
+<p>You can create a standard database login table using the command <code>php vinci katrina:userAuth</code>. This command will insert a default email and password. To authenticate, use the email <code>solital@email.com</code> and password <code>solital</code></p>
 <p><strong>NOTE:</strong> When creating the login structure with the command <code>php vinci auth</code>, the method <code>userAuth</code> is executed automatically, it is not necessary to execute it later.</p>
               
             </div>
@@ -275,7 +251,7 @@ Wolf::loadView('login');
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../injection/" class="btn btn-neutral float-right" title="Dependency Container">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../injection/" class="btn btn-neutral float-right" title="Dependency Container (PSR-11)">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../events/" class="btn btn-neutral" title="Events"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -290,20 +266,20 @@ Wolf::loadView('login');
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../events/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -313,7 +289,14 @@ Wolf::loadView('login');
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

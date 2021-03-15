@@ -7,24 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Security - Solital Framework v1.0</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "Security";
     var mkdocs_page_input_path = "security.md";
-    var mkdocs_page_url = "/security/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -34,118 +36,105 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Solital Framework v1.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Welcome</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../starting/">Starting</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../vinci/">Vinci Console</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../components/">Components</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../routes/">Routes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../requisitions/">Requisitions</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../input.params/">Input & params</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../events/">Events</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../auth/">Authenticate</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../injection/">Dependency Container</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cache/">Cache</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Security</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#security">Security</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../starting/">Starting</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vinci/">Vinci Console</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../routes/">Routes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../requisitions/">Requisitions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../input.params/">Input & params</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../events/">Events</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../auth/">Authenticate</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../injection/">Dependency Container (PSR-11)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cache/">Cache (PSR-16)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../logger/">Logger (PSR-3)</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Security</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#hash">Hash</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#forgot-password">Forgot password</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#csrf-protection">CSRF Protection</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#hash">Hash</a></li>
-        
-            <li><a class="toctree-l3" href="#forgot-password">Forgot password</a></li>
-        
-            <li><a class="toctree-l3" href="#csrf-protection">CSRF Protection</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#adding-csrf-verifier">Adding CSRF-verifier</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getting-csrf-token">Getting CSRF-token</a>
+    </li>
         </ul>
-    
-
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../folders-files/">Handling Folders and Files</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../http/">HTTP Client</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../katrina/">Katrina ORM</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../folders-files/">Handling Folders and Files</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../http/">HTTP Client</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../katrina/">Katrina ORM</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../deploy/">Deploy</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -173,6 +162,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -181,41 +171,37 @@
                 <h1 id="security">Security</h1>
 <h2 id="hash">Hash</h2>
 <p>To create an encrypted key, use the <code>Hash</code> class together with the static <code>encrypt</code> function as shown below:</p>
-<pre><code class="php">use Solital\Core\Security\Hash;
+<pre><code class="language-php">use Solital\Core\Security\Hash;
 
 $res = Hash::encrypt('word_to_encrypt');
 
 pre($res);
 </code></pre>
-
 <p>You can define how long this key will be valid. It can be 1 second, 1 hour or 1 year. by default the value is <code>+1 hour</code>.</p>
-<pre><code class="php">use Solital\Core\Security\Hash;
+<pre><code class="language-php">use Solital\Core\Security\Hash;
 
 $res = Hash::encrypt('word_to_encrypt', '+1 month');
 
 pre($res);
 </code></pre>
-
 <p>If you want to decrypt, use the <code>decrypt</code> function chained with the <code>value</code> method.</p>
-<pre><code class="php">use Solital\Core\Security\Hash;
+<pre><code class="language-php">use Solital\Core\Security\Hash;
 
 $res = Hash::decrypt('word_to_decrypt')::value();
 
 pre($res);
 </code></pre>
-
 <p>If you want to check if the encrypted key is still valid, use <code>isValid</code>. If you want to verify that the encrypted key is still valid, use <code>isValid</code>. the <code>isValid</code> method will return<code>true</code> if it is still valid, and <code>false</code> if it is already expired</p>
-<pre><code class="php">use Solital\Core\Security\Hash;
+<pre><code class="language-php">use Solital\Core\Security\Hash;
 
 $res = Hash::decrypt('word_to_decrypt')::isValid();
 
 pre($res);
 </code></pre>
-
 <h2 id="forgot-password">Forgot password</h2>
 <p>Solital has a standard method for password recovery. For that, it is necessary to configure only the constant <code>EMAIL</code> in the file <code>config.php</code>, inserting the sender and recipient.</p>
 <p>The <code>Reset</code> class uses php's native <code>mail</code> method for sending e-mail.</p>
-<pre><code class="php">use Solital\Core\Security\Reset;
+<pre><code class="language-php">use Solital\Core\Security\Reset;
 
 public function forgot()
 {    
@@ -227,11 +213,10 @@ public function forgot()
     response()-&gt;redirect('/home');
 }
 </code></pre>
-
 <p>Instantiate the <code>Reset</code> class. In the <code>table</code> function, the first parameter should be the name of your table where users’ emails are stored, and in the second parameter the column name where emails are stored, and then chain with the <code>forgotPass</code> method.</p>
 <p>In the <code>forgotPass</code> method, pass as first parameter the email you want to retrieve, and in the second the url in which the user will be redirected when clicking on the email link. The third parameter is optional, the time that the key will be valid will be defined. The default is <code>+1 hour</code></p>
 <p>To validate the information by clicking on the email link, you can use the structure below:</p>
-<pre><code class="php">public function change($hash)
+<pre><code class="language-php">public function change($hash)
 {
     $res = Hash::decrypt($hash)::isValid();
 
@@ -247,7 +232,6 @@ public function forgot()
     }
 }
 </code></pre>
-
 <h2 id="csrf-protection">CSRF Protection</h2>
 <p>Any forms posting to <code>POST</code>, <code>PUT</code> or <code>DELETE</code> routes should include the CSRF-token. We strongly recommend that you enable CSRF-verification on your site to maximize security.</p>
 <p>You can use the <code>BaseCsrfVerifier</code> to enable CSRF-validation on all request. If you need to disable verification for specific urls, please refer to the "Custom CSRF-verifier" section below.</p>
@@ -255,29 +239,25 @@ public function forgot()
 If you want to store the token elsewhere, please refer to the "Creating custom Token Provider" section below.</p>
 <h3 id="adding-csrf-verifier">Adding CSRF-verifier</h3>
 <p>When you've created your CSRF-verifier you need to tell Solital that it should use it. You can do this by adding the following line in your <code>routes.php</code> file:</p>
-<pre><code class="php">Course::csrfVerifier(new \Solital\Core\Http\Middleware\BaseCsrfVerifier());
+<pre><code class="language-php">Course::csrfVerifier(new \Solital\Core\Http\Middleware\BaseCsrfVerifier());
 </code></pre>
-
 <h3 id="getting-csrf-token">Getting CSRF-token</h3>
 <p>When posting to any of the urls that has CSRF-verification enabled, you need post your CSRF-token or else the request will get rejected.</p>
 <p>You can get the CSRF-token by calling the helper method:</p>
-<pre><code class="php">csrf_token();
+<pre><code class="language-php">csrf_token();
 </code></pre>
-
 <p>You can also get the token directly:</p>
-<pre><code class="php">return Course::router()-&gt;getCsrfVerifier()-&gt;getTokenProvider()-&gt;setToken();
+<pre><code class="language-php">return Course::router()-&gt;getCsrfVerifier()-&gt;getTokenProvider()-&gt;setToken();
 </code></pre>
-
 <p>The default name/key for the input-field is <code>csrf_token</code> and is defined in the <code>POST_KEY</code> constant in the <code>BaseCsrfVerifier</code> class.
 You can change the key by overwriting the constant in your own CSRF-verifier class.</p>
 <p><strong>Example:</strong></p>
 <p>The example below will post to the current url with a hidden field "<code>csrf_token</code>".</p>
-<pre><code class="html">&lt;form method=&quot;post&quot; action=&quot;&lt;?= url(); ?&gt;&quot;&gt;
+<pre><code class="language-html">&lt;form method=&quot;post&quot; action=&quot;&lt;?= url(); ?&gt;&quot;&gt;
     &lt;?= csrf_token(); ?&gt;
     &lt;!-- other input elements here --&gt;
 &lt;/form&gt;
 </code></pre>
-
 <hr />
               
             </div>
@@ -289,7 +269,7 @@ You can change the key by overwriting the constant in your own CSRF-verifier cla
         <a href="../folders-files/" class="btn btn-neutral float-right" title="Handling Folders and Files">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../cache/" class="btn btn-neutral" title="Cache"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../logger/" class="btn btn-neutral" title="Logger (PSR-3)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -301,30 +281,37 @@ You can change the key by overwriting the constant in your own CSRF-verifier cla
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../cache/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../logger/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../folders-files/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

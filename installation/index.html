@@ -7,24 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Installation - Solital Framework v1.0</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "Installation";
     var mkdocs_page_input_path = "installation.md";
-    var mkdocs_page_url = "/installation/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -34,120 +36,105 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Solital Framework v1.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Welcome</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../starting/">Starting</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Installation</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#installation">Installation</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../starting/">Starting</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#setting-up-nginx">Setting up Nginx</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setting-up-apache">Setting up Apache</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setting-up-iis">Setting up IIS</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#setting-up-nginx">Setting up Nginx</a></li>
-        
-            <li><a class="toctree-l3" href="#setting-up-apache">Setting up Apache</a></li>
-        
-            <li><a class="toctree-l3" href="#setting-up-iis">Setting up IIS</a></li>
-        
-            <li><a class="toctree-l3" href="#helper-functions">Helper functions</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#webconfig-example">web.config example</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#helper-functions">Helper functions</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../vinci/">Vinci Console</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../components/">Components</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../routes/">Routes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../requisitions/">Requisitions</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../input.params/">Input & params</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../events/">Events</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../auth/">Authenticate</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../injection/">Dependency Container</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cache/">Cache</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../security/">Security</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../folders-files/">Handling Folders and Files</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../http/">HTTP Client</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../katrina/">Katrina ORM</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vinci/">Vinci Console</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../routes/">Routes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../requisitions/">Requisitions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../input.params/">Input & params</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../events/">Events</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../auth/">Authenticate</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../injection/">Dependency Container (PSR-11)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cache/">Cache (PSR-16)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../logger/">Logger (PSR-3)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../folders-files/">Handling Folders and Files</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../http/">HTTP Client</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../katrina/">Katrina ORM</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../deploy/">Deploy</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -175,6 +162,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -188,7 +176,6 @@
     try_files $uri $uri/ /index.php?$query_string;
 }
 </code></pre>
-
 <h3 id="setting-up-apache">Setting up Apache</h3>
 <p>Nothing special is required for Apache to work. We've include the <code>.htaccess</code> file in the <code>public</code> folder. If rewriting is not working for you, please check that the <code>mod_rewrite</code> module (htaccess support) is enabled in the Apache configuration.</p>
 <p>Below is an example of an working <code>.htaccess</code> file used by Solital.</p>
@@ -199,13 +186,12 @@ RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-l
 RewriteRule ^(.*)$ index.php/$1
 </code></pre>
-
 <h3 id="setting-up-iis">Setting up IIS</h3>
 <p>On IIS you have to add some lines your <code>web.config</code> file in the <code>public</code> folder or create a new one. If rewriting is not working for you, please check that your IIS version have included the <code>url rewrite</code> module or download and install them from Microsoft web site.</p>
 <h4 id="webconfig-example">web.config example</h4>
 <p>Below is an example of an working <code>web.config</code> file used by Solital.</p>
 <p>Simply create a new <code>web.config</code> file in your projects <code>public</code> directory and paste the contents below in your newly created file. This will redirect all requests to your <code>index.php</code> file (see Configuration section below). If the <code>web.config</code> file already exists, add the <code>&lt;rewrite&gt;</code> section inside the <code>&lt;system.webServer&gt;</code> branch.</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;configuration&gt;
     &lt;system.webServer&gt;
     &lt;rewrite&gt;
@@ -232,22 +218,6 @@ RewriteRule ^(.*)$ index.php/$1
     &lt;/system.webServer&gt;
 &lt;/configuration&gt;
 </code></pre>
-
-<h4 id="troubleshooting">Troubleshooting</h4>
-<p>If you do not have a <code>favicon.ico</code> file in your project, you can get a <code>NotFoundHttpException</code> (404 - not found).</p>
-<p>To add <code>favicon.ico</code> to the IIS ignore-list, add the following line to the <code>&lt;conditions&gt;</code> group:</p>
-<pre><code>&lt;add input=&quot;{REQUEST_FILENAME}&quot; negate=&quot;true&quot; pattern=&quot;favicon.ico&quot; ignoreCase=&quot;true&quot; /&gt;
-</code></pre>
-
-<p>You can also make one exception for files with some extensions:</p>
-<pre><code>&lt;add input=&quot;{REQUEST_FILENAME}&quot; pattern=&quot;\.ico|\.png|\.css|\.jpg&quot; negate=&quot;true&quot; ignoreCase=&quot;true&quot; /&gt;
-</code></pre>
-
-<p>If you are using <code>$_SERVER['ORIG_PATH_INFO']</code>, you will get <code>\index.php\</code> as part of the returned value. </p>
-<p><strong>Example:</strong></p>
-<pre><code>/index.php/test/mypage.php
-</code></pre>
-
 <h3 id="helper-functions">Helper functions</h3>
 <p>Below is a list of all auxiliary functions present in Solital.</p>
 <ul>
@@ -287,20 +257,20 @@ RewriteRule ^(.*)$ index.php/$1
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../starting/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -310,7 +280,14 @@ RewriteRule ^(.*)$ index.php/$1
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

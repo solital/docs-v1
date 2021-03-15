@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Logger (PSR-3) - Solital Framework v1.0</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Logger (PSR-3)";
+    var mkdocs_page_input_path = "logger.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Solital Framework v1.0</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../starting/">Starting</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vinci/">Vinci Console</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../routes/">Routes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../requisitions/">Requisitions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../input.params/">Input & params</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../events/">Events</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../auth/">Authenticate</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../injection/">Dependency Container (PSR-11)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cache/">Cache (PSR-16)</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Logger (PSR-3)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#simple-20-second-getting-started-tutorial">Simple 20-Second Getting-Started Tutorial</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#extended-example">Extended Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#log-output">Log Output</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#log-levels">Log Levels</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contextual-data">Contextual Data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#logging-exceptions">Logging Exceptions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#log-channels">Log Channels</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debug-features">Debug Features</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#logging-to-stdout">Logging to STDOUT</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dummy-logger">Dummy Logger</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../folders-files/">Handling Folders and Files</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../http/">HTTP Client</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../katrina/">Katrina ORM</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../deploy/">Deploy</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Solital Framework v1.0</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Logger (PSR-3)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/logger.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="logger-psr-3">Logger (PSR-3)</h1>
+<p>Logger is a powerful PSR-3 logger for PHP that is simple to use.</p>
+<p>Simplicity is achieved by providing great defaults. No options to configure! Yet flexible enough to meet most logging needs.
+And if your application's logging needs expand beyond what Logger provides, since it implements PSR-3, you can drop in
+another great PSR-3 logger like <a href="https://github.com/Seldaek/monolog">MonoLog</a> in its place when the time comes with minimal changes.</p>
+<p>Made by <a href="https://github.com/markrogoyski/simplelog-php">markrogoyski</a></p>
+<h2 id="simple-20-second-getting-started-tutorial">Simple 20-Second Getting-Started Tutorial</h2>
+<pre><code class="language-php">use Solital\Core\Resource\Logger;
+
+$logfile = '/path/to/logfile.log';
+$channel = 'events';
+$logger  = new Logger($logfile, $channel);
+
+$logger-&gt;info('Logger really is simple.');
+</code></pre>
+<p>That's it! Your application is logging!</p>
+<h2 id="extended-example">Extended Example</h2>
+<pre><code class="language-php">use Solital\Core\Resource\Logger;
+
+$logfile = '/var/log/events.log';
+$channel = 'billing';
+$logger  = new Logger($logfile, $channel);
+
+$logger-&gt;info('Begin process that usually fails.', ['process' =&gt; 'invoicing', 'user' =&gt; $user]);
+
+try {
+    invoiceUser($user); // This usually fails
+} catch (\Exception $e) {
+    $logger-&gt;error('Billing failure.', ['process' =&gt; 'invoicing', 'user' =&gt; $user, 'exception' =&gt; $e]);
+}
+</code></pre>
+<p>Logger output</p>
+<pre><code>2017-02-13 00:35:55.426630  [info]  [billing] [pid:17415] Begin process that usually fails. {&quot;process&quot;:&quot;invoicing&quot;,&quot;user&quot;:&quot;bob&quot;}  {}
+2017-02-13 00:35:55.430071  [error] [billing] [pid:17415] Billing failure.  {&quot;process&quot;:&quot;invoicing&quot;,&quot;user&quot;:&quot;bob&quot;}  {&quot;message&quot;:&quot;Could not process invoice.&quot;,&quot;code&quot;:0,&quot;file&quot;:&quot;/path/to/app.php&quot;,&quot;line&quot;:20,&quot;trace&quot;:[{&quot;file&quot;:&quot;/path/to/app.php&quot;,&quot;line&quot;:13,&quot;function&quot;:&quot;invoiceUser&quot;,&quot;args&quot;:[&quot;mark&quot;]}]}
+</code></pre>
+<h2 id="log-output">Log Output</h2>
+<p>Log lines have the following format:</p>
+<pre><code>YYYY-mm-dd HH:ii:ss.uuuuuu  [loglevel]  [channel]  [pid:##]  Log message content  {&quot;Optional&quot;:&quot;JSON Contextual Support Data&quot;}  {&quot;Optional&quot;:&quot;Exception Data&quot;}
+</code></pre>
+<p>Log lines are easily readable and parsable. Log lines are always on a single line. Fields are tab separated.</p>
+<h2 id="log-levels">Log Levels</h2>
+<p>Logger has eight log level severities based on <a href="http://www.php-fig.org/psr/psr-3/#psrlogloglevel">PSR Log Levels</a>.</p>
+<pre><code class="language-php">$logger-&gt;debug('Detailed information about the application run.');
+$logger-&gt;info('Informational messages about the application run.');
+$logger-&gt;notice('Normal but significant events.');
+$logger-&gt;warning('Information that something potentially bad has occured.');
+$logger-&gt;error('Runtime error that should be monitored.');
+$logger-&gt;critical('A service is unavailable or unresponsive.');
+$logger-&gt;alert('The entire site is down.');
+$logger-&gt;emergency('The Web site is on fire.');
+</code></pre>
+<p>By default all log levels are logged. The minimum log level can be changed in two ways:
+ * Optional constructor parameter
+ * Setter method at any time</p>
+<pre><code class="language-php">use Solital\Core\Resource\Logger;
+use Psr\Log\LogLevel;
+
+// Optional constructor Parameter (Only error and above are logged [error, critical, alert, emergency])
+$logger = new Logger($logfile, $channel, LogLevel::ERROR);
+
+// Setter method (Only warning and above are logged)
+$logger-&gt;setLogLevel(LogLevel::WARNING);
+</code></pre>
+<h2 id="contextual-data">Contextual Data</h2>
+<p>Logger enables logging best practices to have general-use log messages with contextual support data to give context to the message.</p>
+<p>The second argument to a log message is an associative array of key-value pairs that will log as a JSON string, serving as the contextual support data to the log message.</p>
+<pre><code class="language-php">// Add context to a Web request.
+$log-&gt;info('Web request initiated', ['method' =&gt; 'GET', 'endpoint' =&gt; 'user/account', 'queryParameters' =&gt; 'id=1234']);
+
+// Add context to a disk space warning.
+$log-&gt;warning('Free space is below safe threshold.', ['volume' =&gt; '/var/log', 'availablePercent' =&gt; 4]);
+</code></pre>
+<h2 id="logging-exceptions">Logging Exceptions</h2>
+<p>Exceptions are logged with the contextual data using the key <em>exception</em> and the value the exception variable.</p>
+<pre><code class="language-php">catch (\Exception $e) {
+    $logger-&gt;error('Something exceptional has happened', ['exception' =&gt; $e]);
+}
+</code></pre>
+<h2 id="log-channels">Log Channels</h2>
+<p>Think of channels as namespaces for log lines. If you want to have multiple loggers or applications logging to a single log file, channels are your friend.</p>
+<p>Channels can be set in two ways:
+ * Constructor parameter
+ * Setter method at any time</p>
+<pre><code class="language-php">use Solital\Core\Resource\Logger;
+
+// Constructor Parameter
+$channel = 'router';
+$logger  = new Logger($logfile, $channel);
+
+// Setter method
+$logger-&gt;setChannel('database');
+</code></pre>
+<h2 id="debug-features">Debug Features</h2>
+<h3 id="logging-to-stdout">Logging to STDOUT</h3>
+<p>When developing, you can turn on log output to the screen (STDOUT) as a convenience.</p>
+<pre><code class="language-php">$logger-&gt;setOutput(true);
+$logger-&gt;debug('This will get logged to STDOUT as well as the log file.');
+</code></pre>
+<h3 id="dummy-logger">Dummy Logger</h3>
+<p>Suppose you need a logger to meet an injected dependency during a unit test, and you don't want it to actually log anything.
+You can set the log level to <code>Logger::LOG_LEVEL_NONE</code> which won't log at any level.</p>
+<pre><code class="language-php">use Solital\Core\Resource\Logger;
+
+$logger-&gt;setLogLevel(Logger::LOG_LEVEL_NONE);
+$logger-&gt;info('This will not log to a file.');
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../security/" class="btn btn-neutral float-right" title="Security">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../cache/" class="btn btn-neutral" title="Cache (PSR-16)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../cache/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../security/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

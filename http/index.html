@@ -7,24 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>HTTP Client - Solital Framework v1.0</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "HTTP Client";
     var mkdocs_page_input_path = "http.md";
-    var mkdocs_page_url = "/http/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -34,130 +36,121 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Solital Framework v1.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Welcome</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../starting/">Starting</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../vinci/">Vinci Console</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../components/">Components</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../routes/">Routes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../requisitions/">Requisitions</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../input.params/">Input & params</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../events/">Events</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../auth/">Authenticate</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../injection/">Dependency Container</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cache/">Cache</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../security/">Security</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../folders-files/">Handling Folders and Files</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">HTTP Client</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#http-client">HTTP CLient</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../starting/">Starting</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vinci/">Vinci Console</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../routes/">Routes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../requisitions/">Requisitions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../input.params/">Input & params</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../events/">Events</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../auth/">Authenticate</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../injection/">Dependency Container (PSR-11)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cache/">Cache (PSR-16)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../logger/">Logger (PSR-3)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../folders-files/">Handling Folders and Files</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">HTTP Client</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basic-use">Basic use</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#supported-methods">Supported methods</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#return-types">Return types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sending-data">Sending data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#custom-headers">Custom Headers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enabling-ssl-verification">Enabling SSL verification</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#authentication">Authentication</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#requirements">Requirements</a></li>
-        
-            <li><a class="toctree-l3" href="#basic-use">Basic use</a></li>
-        
-            <li><a class="toctree-l3" href="#supported-methods">Supported methods</a></li>
-        
-            <li><a class="toctree-l3" href="#return-types">Return types</a></li>
-        
-            <li><a class="toctree-l3" href="#sending-data">Sending data</a></li>
-        
-            <li><a class="toctree-l3" href="#custom-headers">Custom Headers</a></li>
-        
-            <li><a class="toctree-l3" href="#enabling-ssl-verification">Enabling SSL verification</a></li>
-        
-            <li><a class="toctree-l3" href="#authentication">Authentication</a></li>
-        
-            <li><a class="toctree-l3" href="#securing-routes">Securing routes</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#basic-auth">Basic Auth</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#securing-routes">Securing routes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#with-basic-auth">With Basic Auth</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#with-digest-auth">With Digest Auth</a>
+    </li>
+        </ul>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../katrina/">Katrina ORM</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../katrina/">Katrina ORM</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../deploy/">Deploy</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -185,6 +178,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -195,23 +189,21 @@
 <p>Before, you will need to install the component using the command below:</p>
 <pre><code>composer install solital/http-client
 </code></pre>
-
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>PHP &gt;= 7.2</li>
+<li>PHP &gt;= 7.2 (Compatible with PHP 8)</li>
 <li>CURL extension enabled</li>
 </ul>
 <h2 id="basic-use">Basic use</h2>
 <p>To make basic use of the component, you will need to instantiate the <code>HttpClient</code> class. Then, call the <code>request</code> function, passing the method (GET, POST, ...) and the url as a parameter. Then return the data.</p>
-<pre><code class="php">use Solital\HttpClient;
+<pre><code class="language-php">use Solital\HttpClient;
 
 $client = new HttpClient();
 $client-&gt;request(&quot;GET&quot;, &quot;http://api.url.com&quot;);
-$client-&gt;toJson();
+$res = $client-&gt;toJson();
 
 pre($res);
 </code></pre>
-
 <h2 id="supported-methods">Supported methods</h2>
 <p>HttpClient supports the methods below.</p>
 <ul>
@@ -224,24 +216,23 @@ pre($res);
 </ul>
 <h2 id="return-types">Return types</h2>
 <p>You can return the answer in json, array or object. The methods below show an example.</p>
-<pre><code class="php">$client = new HttpClient();
+<pre><code class="language-php">$client = new HttpClient();
 $client-&gt;request(&quot;GET&quot;, &quot;http://api.url.com&quot;);
 
 /** Return json */
-$client-&gt;toJson();
+$res = $client-&gt;toJson();
 
 /** Return array */
-$client-&gt;toArray();
+$res = $client-&gt;toArray();
 
 /** Return object */
-$client-&gt;toObject();
+$res = $client-&gt;toObject();
 
 pre($res);
 </code></pre>
-
 <h2 id="sending-data">Sending data</h2>
 <p>If you are using a POST or PUT request, for example, and need to send data to the HTTP header, you can pass an array with the values in the <code>request</code> method.</p>
-<pre><code class="php">$client = new HttpClient();
+<pre><code class="language-php">$client = new HttpClient();
 
 $res = $client-&gt;request(&quot;PUT&quot;, &quot;http://api.url.com&quot;, [
     'data' =&gt; 'your_data_values'
@@ -249,7 +240,6 @@ $res = $client-&gt;request(&quot;PUT&quot;, &quot;http://api.url.com&quot;, [
 
 echo $res;
 </code></pre>
-
 <h2 id="custom-headers">Custom Headers</h2>
 <p>By default, HttpClient has the following headers:</p>
 <ul>
@@ -257,25 +247,23 @@ echo $res;
 <li>Accept: application/json</li>
 </ul>
 <p>To add other headers to the request, use an array in the constructor on the instance.</p>
-<pre><code class="php">$headers = [
+<pre><code class="language-php">$headers = [
     'Content-Type: application/pdf'
 ];
 
 $client = new HttpClient($headers);
 #...
 </code></pre>
-
 <h2 id="enabling-ssl-verification">Enabling SSL verification</h2>
 <p>HttpClient by default does not perform SSL verification. To enable verification, use the <code>enableSSL</code> method.</p>
-<pre><code class="php">$client = new HttpClient();
+<pre><code class="language-php">$client = new HttpClient();
 $client-&gt;enableSSL();
 #...
 </code></pre>
-
 <h2 id="authentication">Authentication</h2>
 <h3 id="basic-auth">Basic Auth</h3>
 <p>To perform authentication on an API that requires basic authentication, you can use the second parameter to inform the user and password. It is necessary to inform an array containing the indexes <code>user</code> and<code>pass</code>.</p>
-<pre><code class="php">$client = new HttpClient(null, [
+<pre><code class="language-php">$client = new HttpClient(null, [
     'user' =&gt; 'username',
     'pass' =&gt; '123'
 ]);
@@ -285,12 +273,11 @@ $res = $client-&gt;toJson();
 
 pre($res);
 </code></pre>
-
 <h2 id="securing-routes">Securing routes</h2>
 <h3 id="with-basic-auth">With Basic Auth</h3>
 <p>Basic authentication requires the username and password in the class constructor. If an index other than <code>user</code> and<code>pass</code> is informed, an exception will be thrown.</p>
 <p>You can protect your routes through basic authentication as shown below.</p>
-<pre><code class="php">use Solital\Http\Auth\HttpAuth;
+<pre><code class="language-php">use Solital\Http\Auth\HttpAuth;
 
 $auth = new HttpAuth([
     'user' =&gt; 'username',
@@ -298,10 +285,9 @@ $auth = new HttpAuth([
 ]);
 $auth-&gt;basic();
 </code></pre>
-
 <h3 id="with-digest-auth">With Digest Auth</h3>
 <p>In digest authentication, it is not necessary to inform anything in the constructor, just pass the allowed users with their respective passwords as a parameter in the <code>digest</code> method.</p>
-<pre><code class="php">use Solital\Http\Auth\HttpAuth;
+<pre><code class="language-php">use Solital\Http\Auth\HttpAuth;
 
 $auth = new HttpAuth();
 # 'username' =&gt; 'password'
@@ -329,20 +315,20 @@ $auth-&gt;digest(['admin' =&gt; 'pass1', 'admin2' =&gt; 'pass2', ...]);
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../folders-files/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -352,7 +338,14 @@ $auth-&gt;digest(['admin' =&gt; 'pass1', 'admin2' =&gt; 'pass2', ...]);
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

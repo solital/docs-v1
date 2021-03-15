@@ -7,24 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Routes - Solital Framework v1.0</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "Routes";
     var mkdocs_page_input_path = "routes.md";
-    var mkdocs_page_url = "/routes/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -34,136 +36,171 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Solital Framework v1.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Welcome</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../starting/">Starting</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../vinci/">Vinci Console</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../components/">Components</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Routes</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#routers">Routers</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../starting/">Starting</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../vinci/">Vinci Console</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../components/">Components</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Routes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#basic-routing">Basic routing</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#basic-routing">Basic routing</a></li>
-        
-            <li><a class="toctree-l3" href="#route-parameters">Route parameters</a></li>
-        
-            <li><a class="toctree-l3" href="#named-routes">Named routes</a></li>
-        
-            <li><a class="toctree-l3" href="#router-groups">Router groups</a></li>
-        
-            <li><a class="toctree-l3" href="#middleware">Middleware</a></li>
-        
-            <li><a class="toctree-l3" href="#partial-groups">Partial groups</a></li>
-        
-            <li><a class="toctree-l3" href="#exception">Exception</a></li>
-        
-            <li><a class="toctree-l3" href="#url-rewriting">URL Rewriting</a></li>
-        
-            <li><a class="toctree-l3" href="#extending">Extending</a></li>
-        
-            <li><a class="toctree-l3" href="#form-method-spoofing">Form Method Spoofing</a></li>
-        
-            <li><a class="toctree-l3" href="#accessing-the-current-route">Accessing The Current Route</a></li>
-        
-            <li><a class="toctree-l3" href="#other-examples">Other examples</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#available-methods">Available methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#multiple-http-verbs">Multiple HTTP-verbs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#default-base-path">Default Base Path</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#route-parameters">Route parameters</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#required-parameters">Required parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#optional-parameters">Optional parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#regular-expression-constraints">Regular expression constraints</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#regular-expression-route-match">Regular expression route-match</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-regex-for-matching-parameters">Custom regex for matching parameters</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#named-routes">Named routes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#generating-urls-to-named-routes">Generating URLs To Named Routes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#router-groups">Router groups</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#middleware">Middleware</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#namespaces">Namespaces</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#note">Note</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#subdomain-routing">Subdomain-routing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#route-prefixes">Route prefixes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#partial-groups">Partial groups</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exception">Exception</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#error-route">Error route</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-custom-exception-handlers">Using custom exception handlers</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#url-rewriting">URL Rewriting</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#changing-current-route">Changing current route</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bootmanager-loading-routes-dynamically">Bootmanager: loading routes dynamically</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-routes-manually">Adding routes manually</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#extending">Extending</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#form-method-spoofing">Form Method Spoofing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#accessing-the-current-route">Accessing The Current Route</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#other-examples">Other examples</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../requisitions/">Requisitions</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../input.params/">Input & params</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../events/">Events</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../auth/">Authenticate</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../injection/">Dependency Container</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cache/">Cache</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../security/">Security</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../folders-files/">Handling Folders and Files</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../http/">HTTP Client</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../katrina/">Katrina ORM</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../requisitions/">Requisitions</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../input.params/">Input & params</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../events/">Events</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../auth/">Authenticate</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../injection/">Dependency Container (PSR-11)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cache/">Cache (PSR-16)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../logger/">Logger (PSR-3)</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../folders-files/">Handling Folders and Files</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../http/">HTTP Client</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../katrina/">Katrina ORM</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../deploy/">Deploy</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -191,6 +228,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -199,24 +237,22 @@
                 <h1 id="routers">Routers</h1>
 <h2 id="basic-routing">Basic routing</h2>
 <p>Below is a very basic example of setting up a route. First parameter is the url which the route should match - next parameter is a <code>Closure</code> or callback function that will be triggered once the route matches.</p>
-<pre><code class="php">Course::get('/', function() {
+<pre><code class="language-php">Course::get('/', function() {
     return 'Hello world';
 });
 </code></pre>
-
 <h3 id="available-methods">Available methods</h3>
 <p>Here you can see a list over all available routes:</p>
-<pre><code class="php">Course::get($url, $callback, $settings);
+<pre><code class="language-php">Course::get($url, $callback, $settings);
 Course::post($url, $callback, $settings);
 Course::put($url, $callback, $settings);
 Course::patch($url, $callback, $settings);
 Course::delete($url, $callback, $settings);
 Course::options($url, $callback, $settings);
 </code></pre>
-
 <h3 id="multiple-http-verbs">Multiple HTTP-verbs</h3>
 <p>Sometimes you might need to create a route that accepts multiple HTTP-verbs. If you need to match all HTTP-verbs you can use the <code>any</code> method.</p>
-<pre><code class="php">Course::match(['get', 'post'], '/', function() {
+<pre><code class="language-php">Course::match(['get', 'post'], '/', function() {
     // ...
 });
 
@@ -224,31 +260,31 @@ Course::any('foo', function() {
     // ...
 });
 </code></pre>
-
 <p>We've created a simple method which matches <code>GET</code> and <code>POST</code> which is most commonly used:</p>
-<pre><code class="php">Course::form('foo', function() {
+<pre><code class="language-php">Course::form('foo', function() {
     // ...
 });
 </code></pre>
-
+<h3 id="default-base-path">Default Base Path</h3>
+<p>This will allows users to set a default basepath for all url requests, which will be prepended to all url parameters. (Credits to <a href="https://github.com/MasterPuffin">MasterPuffin</a>)</p>
+<pre><code class="language-php">Course::setDefaultBasepath('/forum')
+</code></pre>
 <h2 id="route-parameters">Route parameters</h2>
 <h3 id="required-parameters">Required parameters</h3>
 <p>You'll properly wondering by know how you parse parameters from your urls. For example, you might want to capture the users id from an url. You can do so by defining route-parameters.</p>
-<pre><code class="php">Course::get('/user/{id}', function ($userId) {
+<pre><code class="language-php">Course::get('/user/{id}', function ($userId) {
     return 'User with id: ' . $userId;
 });
 </code></pre>
-
 <p>You may define as many route parameters as required by your route:</p>
-<pre><code class="php">Course::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
+<pre><code class="language-php">Course::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
     // ...
 });
 </code></pre>
-
 <p><strong>Note:</strong> Route parameters are always encased within <code>{}</code> braces and should consist of alphabetic characters. Route parameters may not contain a <code>-</code> character. Use an underscore <code>_</code> instead.</p>
 <h3 id="optional-parameters">Optional parameters</h3>
-<p>Occasionally you may need to specify a route parameter, but make the presence of that route parameter optional. You may do so by placing a ? mark after the parameter name. Make sure to give the route's corresponding variable a default value:</p>
-<pre><code class="php">Course::get('/user/{name?}', function ($name = null) {
+<p>Occasionally you may need to specify a route parameter, but make the presence of that route parameter optional. You may do so by placing a <code>?</code> mark after the parameter name. Make sure to give the route's corresponding variable a default value:</p>
+<pre><code class="language-php">Course::get('/user/{name?}', function ($name = null) {
     return $name;
 });
 
@@ -256,10 +292,9 @@ Course::get('/user/{name?}', function ($name = 'Simon') {
     return $name;
 });
 </code></pre>
-
 <h3 id="regular-expression-constraints">Regular expression constraints</h3>
 <p>You may constrain the format of your route parameters using the where method on a route instance. The where method accepts the name of the parameter and a regular expression defining how the parameter should be constrained:</p>
-<pre><code class="php">Course::get('/user/{name}', function ($name) {
+<pre><code class="language-php">Course::get('/user/{name}', function ($name) {
 
     // ... do stuff
 
@@ -277,7 +312,6 @@ Course::get('/user/{id}/{name}', function ($id, $name) {
 
 })-&gt;where(['id' =&gt; '[0-9]+', 'name' =&gt; '[a-z]+']);
 </code></pre>
-
 <h3 id="regular-expression-route-match">Regular expression route-match</h3>
 <p>You can define a regular-expression match for the entire route if you wish.</p>
 <p>This is useful if you for example are creating a model-box which loads urls from ajax.</p>
@@ -285,12 +319,11 @@ Course::get('/user/{id}/{name}', function ($id, $name) {
 <p><strong>Matches:</strong> <code>/ajax/abc/</code>, <code>/ajax/abc/123/</code></p>
 <p><strong>Won't match:</strong> <code>/ajax/</code></p>
 <p>Match groups specified in the regex will be passed on as parameters:</p>
-<pre><code class="php">Course::all('/ajax/abc/123', function($param1, $param2) {
+<pre><code class="language-php">Course::all('/ajax/abc/123', function($param1, $param2) {
     // param1 = abc
     // param2 = 123
 })-&gt;setMatch('/\/ajax\/([\w]+)\/?([0-9]+)?\/?/is');
 </code></pre>
-
 <h3 id="custom-regex-for-matching-parameters">Custom regex for matching parameters</h3>
 <p>By default Solital uses the <code>\w</code> regular expression when matching parameters.
 This decision was made with speed and reliability in mind, as this match will match both letters, number and most of the used symbols on the internet.</p>
@@ -299,93 +332,82 @@ This decision was made with speed and reliability in mind, as this match will ma
 <p><strong>Note:</strong> If you the regular expression to be available across, we recommend using the global parameter on a group as demonstrated in the examples below.</p>
 <h4 id="example">Example</h4>
 <p>This example will ensure that all parameters use the <code>[\w\-]+</code> regular expression when parsing.</p>
-<pre><code class="php">Course::get('/path/{parameter}', 'VideoController@home', ['defaultParameterRegex' =&gt; '[\w\-]+']);
+<pre><code class="language-php">Course::get('/path/{parameter}', 'VideoController@home', ['defaultParameterRegex' =&gt; '[\w\-]+']);
 </code></pre>
-
 <p>You can also apply this setting to a group if you need multiple routes to use your custom regular expression when parsing parameters.</p>
-<pre><code class="php">Course::group(['defaultParameterRegex' =&gt; '[\w\-]+'], function() {
+<pre><code class="language-php">Course::group(['defaultParameterRegex' =&gt; '[\w\-]+'], function() {
 
     Course::get('/path/{parameter}', 'VideoController@home');
 
 });
 </code></pre>
-
 <h2 id="named-routes">Named routes</h2>
 <p>Named routes allow the convenient generation of URLs or redirects for specific routes. You may specify a name for a route by chaining the name method onto the route definition:</p>
-<pre><code class="php">Course::get('/user/profile', function () {
+<pre><code class="language-php">Course::get('/user/profile', function () {
     // Your code here
 })-&gt;name('profile');
 </code></pre>
-
 <p>You can also specify names for Controller-actions:</p>
-<pre><code class="php">Course::get('/user/profile', 'UserController@profile')-&gt;name('profile');
+<pre><code class="language-php">Course::get('/user/profile', 'UserController@profile')-&gt;name('profile');
 </code></pre>
-
 <h3 id="generating-urls-to-named-routes">Generating URLs To Named Routes</h3>
 <p>Once you have assigned a name to a given route, you may use the route's name when generating URLs or redirects via the global <code>url</code> helper-function (see helpers section):</p>
-<pre><code class="php">// Generating URLs...
+<pre><code class="language-php">// Generating URLs...
 $url = url('profile');
 </code></pre>
-
 <p>If the named route defines parameters, you may pass the parameters as the second argument to the <code>url</code> function. The given parameters will automatically be inserted into the URL in their correct positions:</p>
-<pre><code class="php">Course::get('/user/{id}/profile', function ($id) {
+<pre><code class="language-php">Course::get('/user/{id}/profile', function ($id) {
     //
 })-&gt;name('profile');
 
 $url = url('profile', ['id' =&gt; 1]);
 </code></pre>
-
 <p>For more information on urls, please see the <a href="#urls">Urls</a> section.</p>
 <h2 id="router-groups">Router groups</h2>
 <p>Route groups allow you to share route attributes, such as middleware or namespaces, across a large number of routes without needing to define those attributes on each individual route. Shared attributes are specified in an array format as the first parameter to the <code>Course::group</code> method.</p>
 <h2 id="middleware">Middleware</h2>
 <p>To assign middleware to all routes within a group, you may use the middleware key in the group attribute array. Middleware are executed in the order they are listed in the array:</p>
-<pre><code class="php">Course::group(['prefix' =&gt; '/admin', 'middleware' =&gt; '\Solital\Components\Controller\UserController'], function ()
+<pre><code class="language-php">Course::group(['prefix' =&gt; '/admin', 'middleware' =&gt; '\Solital\Components\Controller\UserController'], function ()
 {
     Course::get(&quot;/login&quot;, &quot;UserController@login&quot;)-&gt;name('login');
     Course::put(&quot;/logout&quot;, &quot;UserController@logout&quot;)-&gt;name('logout');
 });
 </code></pre>
-
 <p>Or otherwise:</p>
-<pre><code class="php">Course::match(['get', 'post'], '/user/login', 'UserController@login')-&gt;addMiddleware('\Solital\Components\Controller\UserController:guest');
+<pre><code class="language-php">Course::match(['get', 'post'], '/user/login', 'UserController@login')-&gt;addMiddleware('\Solital\Components\Controller\UserController:guest');
 </code></pre>
-
 <h3 id="namespaces">Namespaces</h3>
 <p>Solital already has the default namespace to search for controllers (<code>Solital\Components\Controller</code>)</p>
 <h4 id="note">Note</h4>
 <p>Group namespaces will only be added to routes with relative callbacks.
 For example if your route has an absolute callback like <code>UserController@home</code>, the namespace from the route will not be prepended.
 To fix this you can make the callback relative by removing the <code>\</code> in the beginning of the callback.</p>
-<pre><code class="php">Course::group(['namespace' =&gt; 'Admin'], function () {
+<pre><code class="language-php">Course::group(['namespace' =&gt; 'Admin'], function () {
     // Controllers Within The &quot;App\Http\Controllers\Admin&quot; Namespace
 });
 </code></pre>
-
 <h3 id="subdomain-routing">Subdomain-routing</h3>
 <p>Route groups may also be used to handle sub-domain routing. Sub-domains may be assigned route parameters just like route urls, allowing you to capture a portion of the sub-domain for usage in your route or controller. The sub-domain may be specified using the <code>domain</code> key on the group attribute array:</p>
-<pre><code class="php">Course::group(['domain' =&gt; '{account}.myapp.com'], function () {
+<pre><code class="language-php">Course::group(['domain' =&gt; '{account}.myapp.com'], function () {
     Course::get('/user/{id}', function ($account, $id) {
         //
     });
 });
 </code></pre>
-
 <h3 id="route-prefixes">Route prefixes</h3>
 <p>The <code>prefix</code> group attribute may be used to prefix each route in the group with a given url. For example, you may want to prefix all route urls within the group with <code>admin</code>:</p>
-<pre><code class="php">Course::group(['prefix' =&gt; '/admin'], function () {
+<pre><code class="language-php">Course::group(['prefix' =&gt; '/admin'], function () {
     Course::get('/users', function ()    {
         // Matches The &quot;/admin/users&quot; URL
     });
 });
 </code></pre>
-
 <h2 id="partial-groups">Partial groups</h2>
 <p>Partial router groups has the same benefits as a normal group, but supports parameters and are only rendered once the url has matched.</p>
 <p>This can be extremely useful in situations, where you only want special routes to be added, when a certain criteria or logic has been met.</p>
 <p><strong>NOTE:</strong> Use partial groups with caution as routes added within are only rendered and available once the url of the partial-group has matched. This can cause <code>url()</code> not to find urls for the routes added within.</p>
 <p><strong>Example:</strong></p>
-<pre><code class="php">Course::partialGroup('/admin/{applicationId}', function ($applicationId) {
+<pre><code class="language-php">Course::partialGroup('/admin/{applicationId}', function ($applicationId) {
 
     Course::get('/', function($applicationId) {
 
@@ -395,28 +417,19 @@ To fix this you can make the callback relative by removing the <code>\</code> in
 
 });
 </code></pre>
-
 <h2 id="exception">Exception</h2>
 <p>ExceptionHandler are classes that handles all exceptions. ExceptionsHandlers must implement the <code>ExceptionHandlerInterface</code> interface.</p>
-<h3 id="handling-404-403-and-other-errors">Handling 404, 403 and other errors</h3>
-<p>If you simply want to catch a 404 (page not found) etc. you can use the <code>Course::error($callback)</code> static helper method.</p>
-<p>This will add a callback method which is fired whenever an error occurs on all routes.</p>
-<p>The basic example below simply redirect the page to <code>/not-found</code> if an <code>NotFoundHttpException</code> (404) occurred.
-The code should be placed in the file that contains your routes.</p>
-<pre><code class="php">Course::get('/not-found', 'PageController@notFound');
+<h3 id="error-route">Error route</h3>
+<p>If a given route does not exist in your <code>routers.php</code> file, you can redirect to another route instead of displaying the route not found error using the <code>error ()</code> method. If <code>true</code>, the redirection will be done. If <code>false</code>, you will not be redirected.</p>
+<pre><code class="language-php">Course::error(true, '/error');
 
-Course::error(function(Request $request, \Exception $exception) {
-
-    if($exception instanceof NotFoundHttpException &amp;&amp; $exception-&gt;getCode() === 404) {
-        response()-&gt;redirect('/not-found');
-    }
-
+Course::get('/error', function () {
+    echo 'error 404';
 });
 </code></pre>
-
 <h3 id="using-custom-exception-handlers">Using custom exception handlers</h3>
 <p>This is a basic example of an ExceptionHandler implementation (please see "<a href="#easily-overwrite-route-about-to-be-loaded">Easily overwrite route about to be loaded</a>" for examples on how to change callback).</p>
-<pre><code class="php">namespace Demo\Handlers;
+<pre><code class="language-php">namespace Demo\Handlers;
 
 use Solital\Core\Http\Request;
 use Solital\Core\Handlers\ExceptionHandlerInterface;
@@ -451,7 +464,6 @@ class CustomExceptionHandler implements ExceptionHandlerInterface
     }
 }
 </code></pre>
-
 <hr />
 <h2 id="url-rewriting">URL Rewriting</h2>
 <h3 id="changing-current-route">Changing current route</h3>
@@ -459,17 +471,16 @@ class CustomExceptionHandler implements ExceptionHandlerInterface
 Solital allows you to easily manipulate and change the routes which are about to be rendered.
 All information about the current route is stored in the <code>\Solital\Core\Course\Router</code> instance's <code>loadedRoute</code> property.</p>
 <p>For easy access you can use the shortcut helper function <code>request()</code> instead of calling the class directly <code>\Solital\Core\Course\Course::router()</code>.</p>
-<pre><code class="php">request()-&gt;setRewriteCallback('Example\MyCustomClass@hello');
+<pre><code class="language-php">request()-&gt;setRewriteCallback('Example\MyCustomClass@hello');
 
 // -- or you can rewrite by url --
 
 request()-&gt;setRewriteUrl('/my-rewrite-url');
 </code></pre>
-
 <h3 id="bootmanager-loading-routes-dynamically">Bootmanager: loading routes dynamically</h3>
 <p>Sometimes it can be necessary to keep urls stored in the database, file or similar. In this example, we want the url <code>/my-cat-is-beatiful</code> to load the route <code>/article/view/1</code> which the router knows, because it's defined in the <code>routes.php</code> file.</p>
 <p>To interfere with the router, we create a class that implements the <code>RouterBootManagerInterface</code> interface. This class will be loaded before any other rules in <code>routes.php</code> and allow us to "change" the current route, if any of our criteria are fulfilled (like coming from the url <code>/my-cat-is-beatiful</code>).</p>
-<pre><code class="php">use Solital\Core\Http\Request;
+<pre><code class="language-php">use Solital\Core\Http\Request;
 use Solital\Core\Course\RouterBootManagerInterface;
 use Solital\Core\Course\Router;
 
@@ -503,18 +514,16 @@ class CustomRouterRules implements RouterBootManagerInterface
 
 }
 </code></pre>
-
 <p>The above should be pretty self-explanatory and can easily be changed to loop through urls store in the database, file or cache.</p>
 <p>What happens is that if the current route matches the route defined in the index of our <code>$rewriteRules</code> array, we set the route to the array value instead.</p>
 <p>By doing this the route will now load the url <code>/article/view/1</code> instead of <code>/my-cat-is-beatiful</code>.</p>
 <p>The last thing we need to do, is to add our custom boot-manager to the <code>routes.php</code> file. You can create as many bootmanagers as you like and easily add them in your <code>routes.php</code> file.</p>
-<pre><code class="php">Course::addBootManager(new CustomRouterRules());
+<pre><code class="language-php">Course::addBootManager(new CustomRouterRules());
 </code></pre>
-
 <h3 id="adding-routes-manually">Adding routes manually</h3>
 <p>The <code>Course</code> class referenced in the previous example, is just a simple helper class that knows how to communicate with the <code>Router</code> class.
 If you are up for a challenge, want the full control or simply just want to create your own <code>Router</code> helper class, this example is for you.</p>
-<pre><code class="php">use \Solital\Core\Course\Router;
+<pre><code class="language-php">use \Solital\Core\Course\Router;
 use \Solital\Core\Course\Route\RouteUrl;
 
 /* Create new Router instance */
@@ -533,11 +542,10 @@ $route-&gt;setPrefix('v1');
 /* Add the route to the router */
 $router-&gt;addRoute($route);
 </code></pre>
-
 <h2 id="extending">Extending</h2>
 <p>This is a simple example of an integration into a framework.</p>
 <p>The framework has it's own <code>Router</code> class which inherits from the <code>Course</code> class. This allows the framework to add custom functionality like loading a custom <code>routes.php</code> file or add debugging information etc.</p>
-<pre><code class="php">namespace Demo;
+<pre><code class="language-php">namespace Demo;
 
 use Solital\Core\Course\Course;
 
@@ -558,25 +566,22 @@ class Router extends Course {
 
 }
 </code></pre>
-
 <hr />
 <h2 id="form-method-spoofing">Form Method Spoofing</h2>
 <p>HTML forms do not support <code>PUT</code>,<code>PATCH</code> or <code>DELETE</code> actions. Therefore, when defining the <code>PUT</code>,<code>PATCH</code> or <code>DELETE</code> routes that are called from an HTML form, you will need to use the<code>spoofing</code> helper to add a hidden <code>_method</code> field to the form. The value sent with the <code>_method</code> field will be used as the HTTP request method:</p>
-<pre><code class="php">&lt;form method=&quot;post&quot; action=&quot;&lt;?= url(); ?&gt;&quot;&gt;
+<pre><code class="language-php">&lt;form method=&quot;post&quot; action=&quot;&lt;?= url(); ?&gt;&quot;&gt;
     &lt;?= spoofing('put'); ?&gt;
     &lt;!-- other input elements here --&gt;
 &lt;/form&gt;
 </code></pre>
-
 <h2 id="accessing-the-current-route">Accessing The Current Route</h2>
 <p>You can access information about the current route loaded by using the following method:</p>
-<pre><code class="php">Course::request()-&gt;getLoadedRoute();
+<pre><code class="language-php">Course::request()-&gt;getLoadedRoute();
 request()-&gt;getLoadedRoute();
 </code></pre>
-
 <h2 id="other-examples">Other examples</h2>
 <p>You can find many other examples in the sample file below:</p>
-<pre><code class="php">&lt;?php
+<pre><code class="language-php">&lt;?php
 use Solital\Core\Course\Course;
 
 /* Adding custom csrfVerifier here */
@@ -634,20 +639,20 @@ Course::get('/page/404', 'ControllerPage@notFound', ['as' =&gt; 'page.notfound']
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/solital/docs-v1/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../components/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -657,7 +662,14 @@ Course::get('/page/404', 'ControllerPage@notFound', ['as' =&gt; 'page.notfound']
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
