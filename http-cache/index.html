@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Cache (PSR-16) - Solital Framework v1.x</title>
+  <title>HTTP Cache - Solital Framework v1.x</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Cache (PSR-16)";
-    var mkdocs_page_input_path = "cache.md";
+    var mkdocs_page_name = "HTTP Cache";
+    var mkdocs_page_input_path = "http-cache.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -99,22 +99,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../injection/">Dependency Container (PSR-11)</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Cache (PSR-16)</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to use</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#single-cache">Single cache</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#mutiple-cache">Mutiple cache</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#clear-cache">Clear cache</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#wolf-template">Wolf Template</a>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cache/">Cache (PSR-16)</a>
                     </li>
                 </ul>
                 <ul>
@@ -133,8 +119,20 @@
                     <li class="toctree-l1"><a class="reference internal" href="../http/">HTTP Client</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../http-cache/">HTTP Cache</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">HTTP Cache</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#cache-control">Cache-Control</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#expires">Expires</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#time-based">Time-based</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#etag">Etag</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cache-prevention">Cache prevention</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -166,10 +164,10 @@
     
       
     
-    <li>Cache (PSR-16)</li>
+    <li>HTTP Cache</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/cache.md"
+        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/http-cache.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -180,76 +178,49 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="cache-psr-16">Cache (PSR-16)</h1>
-<p>Cache is a layer of high-speed physical data storage that holds a subset of data, usually temporary in nature, so that future requests for that data are answered more quickly than is possible when accessing the primary storage location of data. Caching allows you to efficiently reuse previously recovered or computed data.</p>
-<h2 id="how-to-use">How to use</h2>
-<h3 id="single-cache">Single cache</h3>
-<p>You can cache through PSR-16. To do this, perform the instance of the Cache class as follows:</p>
-<pre><code class="language-php">use Solital\Cache\Cache;
+                <h1 id="http-cache">HTTP Cache</h1>
+<p>Font by <a href="" title="https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers">heroku</a></p>
+<p>The modern day developer has a wide variety of techniques and technologies available to improve application performance and end-user experience. One of the most frequently overlooked technologies is that of the HTTP cache.</p>
+<p>HTTP caching is a universally adopted specification across all modern web browsers, making its implementation in web applications simple. Appropriate use of these standards can benefit your application greatly, improving response times and reducing server load. However, incorrect caching can cause users to see out-of-date content and hard to debug issues. This article discusses the specifics of HTTP caching and in what scenarios to employ an HTTP cache header based strategy.</p>
+<pre><code class="language-php">use Solital\Core\Http\HttpCache;
 
-$cache = new Cache();
-
-$list = $this-&gt;instance()-&gt;select()-&gt;build(&quot;all&quot;);
-
-// The 'has' method checks whether the index exists
-if ($cache-&gt;has('list') == true) {
-    echo '&lt;h1&gt;from cache&lt;/h1&gt;';
-    // The 'get' method returns the cached value if it exists
-    $cache-&gt;get('list');
-} else {
-    echo '&lt;h1&gt;created cache&lt;/h1&gt;';
-    // The 'set' method creates the cached file
-    $cache-&gt;set('list', $list, 20);
-}
-
-// Displays the original content of the $list variable
-echo '&lt;h1&gt;from original&lt;/h1&gt;';
-var_dump($list);
+$cache = new HttpCache();
 </code></pre>
-<p>To delete the cache that was created, use the <code>delete</code> method passing the cache key as a parameter.</p>
-<pre><code class="language-php">$cache-&gt;delete('list');
+<h2 id="cache-control">Cache-Control</h2>
+<p>The Cache-Control header is the most important header to set as it effectively ‘switches on’ caching in the browser. With this header in place, and set with a value that enables caching, the browser will cache the file for as long as specified. Without this header the browser will re-request the file on each subsequent request.</p>
+<p><code>public</code> resources can be cached not only by the end-user’s browser but also by any intermediate proxies that may be serving many other users as well.</p>
+<p><code>private</code> resources are bypassed by intermediate proxies and can only be cached by the end-client.</p>
+<p>The value of the Cache-Control header is a composite one, indicating whether the resource is public or private while also indicating the maximum amount of time it can be cached before considered stale. The max-age value sets a timespan for how long to cache the resource (in seconds).</p>
+<p>In the first parameter it is necessary to inform <code>public</code> or<code>private</code>, and in the second parameter the timestamp value of <code>max_age</code>. </p>
+<pre><code class="language-php">$cache-&gt;cacheControl(&quot;public&quot;, 31536000);
 </code></pre>
-<p>The <code>has</code> method checks whether the item key exists. If it exists, use the <code>get</code> method to retrieve the generated cache by passing the key value as a parameter. If it does not exist, the <code>set</code> method creates the cached file, passing in the first parameter the name of the key, the value that will be stored and the time (in <code>int</code>) that this cached file will be valid.</p>
-<h3 id="mutiple-cache">Mutiple cache</h3>
-<p>The syntax is similar to the single cache. But the <code>getMultiple</code> method needs an array containing the key values as a parameter. The <code>setMultiple</code> method generates the cache if it does not exist, but pass as an parameter an array in which the keys will be the indexes of the array, and in the last parameter spend the time that the cache will be valid.</p>
-<pre><code class="language-php">use Solital\Cache\Cache;
-
-$cache = new Cache();
-
-$list = [
-    'nome' =&gt; 'Harvey Specter',
-    'email' =&gt; 'specter@pearsonhardman.com'
-];
-
-$list2 = [
-    'nome' =&gt; 'Louis Litt',
-    'email' =&gt; 'liitup@pearsonhardman.com'
-];
-
-$cache-&gt;getMultiple(['list1', 'list2']);
-
-echo '&lt;h1&gt;created cache&lt;/h1&gt;';
-$cache-&gt;setMultiple([
-    'list1' =&gt; $list,
-    'list2' =&gt; $list2
-], 20);
-
-echo '&lt;h1&gt;from original&lt;/h1&gt;';
-print_r($list);
-print_r($list2);
+<p>While the Cache-Control header turns on client-side caching and sets the max-age of a resource the Expires header is used to specify a specific point in time the resource is no longer valid.</p>
+<h2 id="expires">Expires</h2>
+<p>When accompanying the Cache-Control header, Expires simply sets a date from which the cached resource should no longer be considered valid. From this date forward the browser will request a fresh copy of the resource. Until then, the browsers local cached copy will be used:</p>
+<pre><code class="language-php">$cache-&gt;cacheControl(&quot;public&quot;, 31536000);
+$cache-&gt;expires();
 </code></pre>
-<p>In the multiple cache, use <code>deleteMultiple</code> by passing an array containing the cache keys to delete the cached files generated with the<code>setMultiple</code> method.</p>
-<pre><code class="language-php">$cache-&gt;deleteMultiple([&quot;list1&quot;, &quot;list2&quot;]);
+<h2 id="time-based">Time-based</h2>
+<p>A time-based conditional request ensures that only if the requested resource has changed since the browser’s copy was cached will the contents be transferred. If the cached copy is the most up-to-date then the server returns the <code>304</code> response code.</p>
+<p>To enable conditional requests the application specifies the last modified time of a resource via the Last-Modified response header.</p>
+<p>To use this condition, use the <code>lastModified</code> method after the <code>cacheControl</code> method. </p>
+<pre><code class="language-php">$cache-&gt;cacheControl(&quot;public&quot;, 31536000);
+$cache-&gt;lastModified();
 </code></pre>
-<h3 id="clear-cache">Clear cache</h3>
-<p>To clear the entire cache created with the <code>Cache</code> class, use the<code>clear</code> function.</p>
-<pre><code class="language-php">$cache-&gt;clear();
+<p>The next time the browser requests this resource it will only ask for the contents of the resource if they’re unchanged since this date using the If-Modified-Since request header</p>
+<pre><code class="language-php">$cache-&gt;ifModifiedSince();
 </code></pre>
-<h2 id="wolf-template">Wolf Template</h2>
-<p>To cache a template in Wolf, use the static cache function to set the cache file time as shown below:</p>
-<pre><code class="language-php">Wolf::cache(date('Hi'));
-
-Wolf::loadView('home');
+<p>If the resource hasn’t changed, the server will return with an empty body with the <code>304</code> response code.</p>
+<h2 id="etag">Etag</h2>
+<p>The ETag (or Entity Tag) works in a similar way to the Last-Modified header except its value is a digest of the resources contents (for instance, an MD5 hash). This allows the server to identify if the cached contents of the resource are different to the most recent version.</p>
+<p>Use the <code>eTag</code> class parameter the value that will be cached.</p>
+<pre><code class="language-php">$cache-&gt;cacheControl(&quot;public&quot;, 31536000);
+$cache-&gt;eTag('value');
+</code></pre>
+<h2 id="cache-prevention">Cache prevention</h2>
+<p>Highly secure or variable resources often require no caching. For instance, anything involving a shopping cart checkout process. Unfortunately, merely omitting cache headers will not work as many modern web browsers cache items based on their own internal algorithms. In such cases it is necessary to tell the browser to explicitly to not cache items.</p>
+<p>In addition to public and private the Cache-Control header can specify no-cache and no-store which informs the browser to not cache the resources under any circumstances.</p>
+<pre><code class="language-php">$cache-&gt;noCacheControl();
 </code></pre>
               
             </div>
@@ -258,10 +229,10 @@ Wolf::loadView('home');
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../logger/" class="btn btn-neutral float-right" title="Logger (PSR-3)">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../katrina/" class="btn btn-neutral float-right" title="Katrina ORM">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../injection/" class="btn btn-neutral" title="Dependency Container (PSR-11)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../http/" class="btn btn-neutral" title="HTTP Client"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -289,10 +260,10 @@ Wolf::loadView('home');
           <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../injection/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../http/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../logger/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../katrina/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

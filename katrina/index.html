@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Katrina ORM - Solital Framework v1.0</title>
+  <title>Katrina ORM - Solital Framework v1.x</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -38,7 +38,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Solital Framework v1.0</a>
+        <a href=".." class="icon icon-home"> Solital Framework v1.x</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -72,11 +72,19 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../requisitions/">Requisitions</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../sessions_cookies/">Sessions and Cookies</a>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../input.params/">Input & params</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../json/">JSON</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../validation/">Validation</a>
                     </li>
                 </ul>
                 <ul>
@@ -111,6 +119,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../http/">HTTP Client</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../http-cache/">HTTP Cache</a>
+                    </li>
+                </ul>
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Katrina ORM</a>
     <ul class="current">
@@ -119,6 +131,8 @@
     <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#for-sqlite">For SQLite</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#initial-structure">Initial structure</a>
     </li>
@@ -180,7 +194,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Solital Framework v1.0</a>
+        <a href="..">Solital Framework v1.x</a>
       </nav>
 
       
@@ -226,6 +240,15 @@
     'DBNAME' =&gt; 'your_database_name',
     'USER' =&gt; 'your_user',
     'PASS' =&gt; 'your_password'
+]);
+</code></pre>
+<h3 id="for-sqlite">For SQLite</h3>
+<p>Some differences exist for connecting to an SQLite database. First, add an additional index called <code>SQLITE_DIR</code> in the <code>DB_CONFIG</code> constant. This constant must have the absolute path where the SQLite database file will be located.</p>
+<p>Then, assign the value <code>sqlite</code> in the index <code>DRIVE</code>.</p>
+<pre><code class="language-php">define('DB_CONFIG', [
+    'DRIVE' =&gt; 'sqlite',
+    'DBNAME' =&gt; 'your_database_name.db',
+    'SQLITE_DIR' =&gt; '/path/to/file/'
 ]);
 </code></pre>
 <h2 id="initial-structure">Initial structure</h2>
@@ -874,7 +897,7 @@ echo $arrows;
         <a href="../deploy/" class="btn btn-neutral float-right" title="Deploy">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../http/" class="btn btn-neutral" title="HTTP Client"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../http-cache/" class="btn btn-neutral" title="HTTP Cache"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -902,7 +925,7 @@ echo $arrows;
           <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../http/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../http-cache/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../deploy/" style="color: #fcfcfc">Next &raquo;</a></span>

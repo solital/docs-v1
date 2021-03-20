@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Requisitions - Solital Framework v1.0</title>
+  <title>Validation - Solital Framework v1.x</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Requisitions";
-    var mkdocs_page_input_path = "requisitions.md";
+    var mkdocs_page_name = "Validation";
+    var mkdocs_page_input_path = "validation.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -38,7 +38,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Solital Framework v1.0</a>
+        <a href=".." class="icon icon-home"> Solital Framework v1.x</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -71,26 +71,48 @@
                     <li class="toctree-l1"><a class="reference internal" href="../routes/">Routes</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Requisitions</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#sessions-and-cookies">Sessions and Cookies</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#create-session-and-cookie">Create session and cookie</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#display-session-and-cookie">Display session and cookie</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#check-session-and-cookie">Check session and cookie</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#delete-session-and-cookie">Delete session and cookie</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sessions_cookies/">Sessions and Cookies</a>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../input.params/">Input & params</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../json/">JSON</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Validation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#validate-email-string-and-more">Validate email, string and more</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#email">Email</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#number">Number</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#null">Null</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lowercase">Lowercase</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uppercase">Uppercase</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#validate-date">Validate Date</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#format-date">Format date</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#add-months-to-a-date">Add months to a date</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#add-days-to-a-date">Add days to a date</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#add-time-to-another-time">Add time to another time</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -126,6 +148,10 @@
                     </li>
                 </ul>
                 <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../http-cache/">HTTP Cache</a>
+                    </li>
+                </ul>
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../katrina/">Katrina ORM</a>
                     </li>
                 </ul>
@@ -142,7 +168,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Solital Framework v1.0</a>
+        <a href="..">Solital Framework v1.x</a>
       </nav>
 
       
@@ -154,10 +180,10 @@
     
       
     
-    <li>Requisitions</li>
+    <li>Validation</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/requisitions.md"
+        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/validation.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -168,45 +194,99 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="requisitions">Requisitions</h1>
-<h2 id="sessions-and-cookies">Sessions and Cookies</h2>
-<h3 id="create-session-and-cookie">Create session and cookie</h3>
-<p>The operation of the sessions and cookies are the same. To create a session, the first parameter reports the session index or the second value of it.</p>
-<pre><code class="language-php">use Solital\Core\Resource\Session;
+                <h1 id="validation">Validation</h1>
+<p>You can validate email, string, array and others.</p>
+<p>To start, make an instance of the <code>Validation</code> class: </p>
+<pre><code class="language-php">use Solital\Core\Resource\Validation;
 
-Session::new('your_index', 'your_value');
+$valid = new Validation();
 </code></pre>
-<p>And for Cookies.</p>
-<pre><code class="language-php">use Solital\Core\Resource\Cookie;
+<h2 id="validate-email-string-and-more">Validate email, string and more</h2>
+<h3 id="email">Email</h3>
+<pre><code class="language-php">$valid = new Validation();
+$res = $valid-&gt;email('solital@email.com');
 
-Cookie::new('your_index', 'your_value', 'time', 'path');
+/* Return `string` if true or `null` if false */
+pre($res);
 </code></pre>
-<p>To create an array of values in a session, pass in the third parameter the name of the session index.</p>
-<pre><code class="language-php">Session::new('index', ['id' =&gt; 1, 'name' =&gt; 'hero'], 'second_index');
-</code></pre>
-<h3 id="display-session-and-cookie">Display session and cookie</h3>
-<p>To display a session and cookie, use a syntax below.</p>
-<pre><code class="language-php">Session::show('your_index');
-Session::show('index', 'second_index');
+<h3 id="number">Number</h3>
+<p>You can validate whether a number is <code>int</code> or<code>float</code>. </p>
+<pre><code class="language-php">$valid = new Validation();
+$res = $valid-&gt;number(12.5);
 
-Cookie::show('your_index');
+/* Return `int` or `float` if true or `null` if false */
+pre($res);
 </code></pre>
-<h3 id="check-session-and-cookie">Check session and cookie</h3>
-<p>To check if a session or cookie exists, use a sintax below.</p>
-<pre><code class="language-php">Session::has('your_index');
-Session::has('index', 'second_index');
+<h3 id="null">Null</h3>
+<pre><code class="language-php">$valid = new Validation();
+$res = $valid-&gt;isNull(null);
 
-Cookie::has('your_index');
+/* Return bool */
+pre($res);
 </code></pre>
-<h3 id="delete-session-and-cookie">Delete session and cookie</h3>
-<p>To delete a session and cookie, use a syntax below.</p>
-<pre><code class="language-php">Session::delete('your_index');
-Session::delete('index', 'second_index');
+<h3 id="lowercase">Lowercase</h3>
+<p>You can validate a string if it is lowercase. If not, the <code>isLower</code> method will 
+convert the string to lowercase. </p>
+<pre><code class="language-php">$valid = new Validation();
+$res = $valid-&gt;isLower('SOLITAL');
 
-Cookie::delete('your_index', 'path');
+/* Return string */
+pre($res);
 </code></pre>
-<p>You can use <code>destroy</code> method to destroy all sessions.</p>
-<pre><code class="language-php">Session::destroy();
+<h3 id="uppercase">Uppercase</h3>
+<p>You can validate a string if it is uppercase. If not, the <code>isUpper</code> method will 
+convert the string to uppercase. </p>
+<pre><code class="language-php">$valid = new Validation();
+$res = $valid-&gt;isUpper('solital');
+
+/* Return string */
+pre($res);
+</code></pre>
+<h2 id="validate-date">Validate Date</h2>
+<p>It is possible to validate dates and times using the <code>Convertime</code> class. 
+To start, perform the instance: </p>
+<pre><code class="language-php">use Solital\Core\Resource\Convertime;
+
+$convertime = new Convertime();
+</code></pre>
+<p>In the class constructor, you can define the timezone. By default, the default 
+timezone is set to <code>America/Sao_Paulo</code>.</p>
+<pre><code class="language-php">$convertime = new Convertime(&quot;America/Fortaleza&quot;);
+</code></pre>
+<h3 id="format-date">Format date</h3>
+<p>To format a date, enter the date you want to convert and the format to be converted.</p>
+<pre><code class="language-php">$convertime = new Convertime();
+$res = $convertime-&gt;formatDate('04/01/1999', 'Y-m-d');
+
+/* Return 1999-01-04 */
+pre($res);
+</code></pre>
+<h3 id="add-months-to-a-date">Add months to a date</h3>
+<p>In some cases, you may need to add months to a specific date. To do this, use the <code>addMonth</code> class. 
+This class is similar to the <code>formatDate</code> class, with the difference that you must enter 
+in the last parameter the number of months that will be added to the date.</p>
+<p>This class already has conversion for days with 28, 29, 30 or 31 days. </p>
+<pre><code class="language-php">$convertime = new Convertime();
+$res = $convertime-&gt;addMonth('1999-01-04', 'd/m/Y', 1);
+
+/* Return 1999-02-04 */
+pre($res);
+</code></pre>
+<h3 id="add-days-to-a-date">Add days to a date</h3>
+<p>To add days to a date, the <code>addDays</code> method works in a similar way to the<code>addMonth</code> method.  </p>
+<pre><code class="language-php">$convertime = new Convertime();
+$res = $convertime-&gt;addDays('1999-01-04', 'd/m/Y', 3);
+
+/* Return 1999-01-07 */
+pre($res);
+</code></pre>
+<h3 id="add-time-to-another-time">Add time to another time</h3>
+<p>It is possible to add a specific time to another time. For example: add 3 more hours at 13:00.</p>
+<pre><code class="language-php">$convertime = new Convertime();
+$res = $convertime-&gt;addHour('13:00', '03:00');
+
+/* Return 16:00 */
+pre($res);
 </code></pre>
               
             </div>
@@ -215,10 +295,10 @@ Cookie::delete('your_index', 'path');
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../input.params/" class="btn btn-neutral float-right" title="Input & params">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../events/" class="btn btn-neutral float-right" title="Events">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../routes/" class="btn btn-neutral" title="Routes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../json/" class="btn btn-neutral" title="JSON"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -246,10 +326,10 @@ Cookie::delete('your_index', 'path');
           <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../routes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../json/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../input.params/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../events/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

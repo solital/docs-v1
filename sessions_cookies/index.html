@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Cache (PSR-16) - Solital Framework v1.x</title>
+  <title>Sessions and Cookies - Solital Framework v1.x</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Cache (PSR-16)";
-    var mkdocs_page_input_path = "cache.md";
+    var mkdocs_page_name = "Sessions and Cookies";
+    var mkdocs_page_input_path = "sessions_cookies.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -71,8 +71,18 @@
                     <li class="toctree-l1"><a class="reference internal" href="../routes/">Routes</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sessions_cookies/">Sessions and Cookies</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Sessions and Cookies</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#create-session-and-cookie">Create session and cookie</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#display-session-and-cookie">Display session and cookie</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#check-session-and-cookie">Check session and cookie</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#delete-session-and-cookie">Delete session and cookie</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -99,22 +109,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../injection/">Dependency Container (PSR-11)</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Cache (PSR-16)</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to use</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#single-cache">Single cache</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#mutiple-cache">Mutiple cache</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#clear-cache">Clear cache</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#wolf-template">Wolf Template</a>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cache/">Cache (PSR-16)</a>
                     </li>
                 </ul>
                 <ul>
@@ -166,10 +162,10 @@
     
       
     
-    <li>Cache (PSR-16)</li>
+    <li>Sessions and Cookies</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/cache.md"
+        <a href="https://github.com/solital/docs-v1/tree/gh-pages/edit/master/docs/sessions_cookies.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -180,76 +176,44 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="cache-psr-16">Cache (PSR-16)</h1>
-<p>Cache is a layer of high-speed physical data storage that holds a subset of data, usually temporary in nature, so that future requests for that data are answered more quickly than is possible when accessing the primary storage location of data. Caching allows you to efficiently reuse previously recovered or computed data.</p>
-<h2 id="how-to-use">How to use</h2>
-<h3 id="single-cache">Single cache</h3>
-<p>You can cache through PSR-16. To do this, perform the instance of the Cache class as follows:</p>
-<pre><code class="language-php">use Solital\Cache\Cache;
+                <h1 id="sessions-and-cookies">Sessions and Cookies</h1>
+<h2 id="create-session-and-cookie">Create session and cookie</h2>
+<p>The operation of the sessions and cookies are the same. To create a session, the first parameter reports the session index or the second value of it.</p>
+<pre><code class="language-php">use Solital\Core\Resource\Session;
 
-$cache = new Cache();
-
-$list = $this-&gt;instance()-&gt;select()-&gt;build(&quot;all&quot;);
-
-// The 'has' method checks whether the index exists
-if ($cache-&gt;has('list') == true) {
-    echo '&lt;h1&gt;from cache&lt;/h1&gt;';
-    // The 'get' method returns the cached value if it exists
-    $cache-&gt;get('list');
-} else {
-    echo '&lt;h1&gt;created cache&lt;/h1&gt;';
-    // The 'set' method creates the cached file
-    $cache-&gt;set('list', $list, 20);
-}
-
-// Displays the original content of the $list variable
-echo '&lt;h1&gt;from original&lt;/h1&gt;';
-var_dump($list);
+Session::new('your_index', 'your_value');
 </code></pre>
-<p>To delete the cache that was created, use the <code>delete</code> method passing the cache key as a parameter.</p>
-<pre><code class="language-php">$cache-&gt;delete('list');
+<p>And for Cookies.</p>
+<pre><code class="language-php">use Solital\Core\Resource\Cookie;
+
+Cookie::new('your_index', 'your_value', 'time', 'path');
 </code></pre>
-<p>The <code>has</code> method checks whether the item key exists. If it exists, use the <code>get</code> method to retrieve the generated cache by passing the key value as a parameter. If it does not exist, the <code>set</code> method creates the cached file, passing in the first parameter the name of the key, the value that will be stored and the time (in <code>int</code>) that this cached file will be valid.</p>
-<h3 id="mutiple-cache">Mutiple cache</h3>
-<p>The syntax is similar to the single cache. But the <code>getMultiple</code> method needs an array containing the key values as a parameter. The <code>setMultiple</code> method generates the cache if it does not exist, but pass as an parameter an array in which the keys will be the indexes of the array, and in the last parameter spend the time that the cache will be valid.</p>
-<pre><code class="language-php">use Solital\Cache\Cache;
-
-$cache = new Cache();
-
-$list = [
-    'nome' =&gt; 'Harvey Specter',
-    'email' =&gt; 'specter@pearsonhardman.com'
-];
-
-$list2 = [
-    'nome' =&gt; 'Louis Litt',
-    'email' =&gt; 'liitup@pearsonhardman.com'
-];
-
-$cache-&gt;getMultiple(['list1', 'list2']);
-
-echo '&lt;h1&gt;created cache&lt;/h1&gt;';
-$cache-&gt;setMultiple([
-    'list1' =&gt; $list,
-    'list2' =&gt; $list2
-], 20);
-
-echo '&lt;h1&gt;from original&lt;/h1&gt;';
-print_r($list);
-print_r($list2);
+<p>To create an array of values in a session, pass in the third parameter the name of the session index.</p>
+<pre><code class="language-php">Session::new('index', ['id' =&gt; 1, 'name' =&gt; 'hero'], 'second_index');
 </code></pre>
-<p>In the multiple cache, use <code>deleteMultiple</code> by passing an array containing the cache keys to delete the cached files generated with the<code>setMultiple</code> method.</p>
-<pre><code class="language-php">$cache-&gt;deleteMultiple([&quot;list1&quot;, &quot;list2&quot;]);
-</code></pre>
-<h3 id="clear-cache">Clear cache</h3>
-<p>To clear the entire cache created with the <code>Cache</code> class, use the<code>clear</code> function.</p>
-<pre><code class="language-php">$cache-&gt;clear();
-</code></pre>
-<h2 id="wolf-template">Wolf Template</h2>
-<p>To cache a template in Wolf, use the static cache function to set the cache file time as shown below:</p>
-<pre><code class="language-php">Wolf::cache(date('Hi'));
+<h2 id="display-session-and-cookie">Display session and cookie</h2>
+<p>To display a session and cookie, use a syntax below.</p>
+<pre><code class="language-php">Session::show('your_index');
+Session::show('index', 'second_index');
 
-Wolf::loadView('home');
+Cookie::show('your_index');
+</code></pre>
+<h2 id="check-session-and-cookie">Check session and cookie</h2>
+<p>To check if a session or cookie exists, use a sintax below.</p>
+<pre><code class="language-php">Session::has('your_index');
+Session::has('index', 'second_index');
+
+Cookie::has('your_index');
+</code></pre>
+<h2 id="delete-session-and-cookie">Delete session and cookie</h2>
+<p>To delete a session and cookie, use a syntax below.</p>
+<pre><code class="language-php">Session::delete('your_index');
+Session::delete('index', 'second_index');
+
+Cookie::delete('your_index', 'path');
+</code></pre>
+<p>You can use <code>destroy</code> method to destroy all sessions.</p>
+<pre><code class="language-php">Session::destroy();
 </code></pre>
               
             </div>
@@ -258,10 +222,10 @@ Wolf::loadView('home');
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../logger/" class="btn btn-neutral float-right" title="Logger (PSR-3)">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../input.params/" class="btn btn-neutral float-right" title="Input & params">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../injection/" class="btn btn-neutral" title="Dependency Container (PSR-11)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../routes/" class="btn btn-neutral" title="Routes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -289,10 +253,10 @@ Wolf::loadView('home');
           <a href="https://github.com/solital/docs-v1/tree/gh-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../injection/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../routes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../logger/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../input.params/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
