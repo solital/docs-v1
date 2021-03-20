@@ -1,4 +1,4 @@
-site_name: Solital Framework v1.0
+site_name: Solital Framework v1.x
 repo_url: https://github.com/solital/docs-v1/tree/gh-pages
 pages:
   - Welcome: index.md
@@ -7,8 +7,10 @@ pages:
   - Vinci Console: vinci.md
   - Components: components.md
   - Routes: routes.md
-  - Requisitions: requisitions.md
+  - Sessions and Cookies: sessions_cookies.md
   - Input & params : input.params.md
+  - JSON: json.md
+  - Validation: validation.md
   - Events: events.md
   - Authenticate: auth.md
   - Dependency Container (PSR-11): injection.md
@@ -17,6 +19,7 @@ pages:
   - Security: security.md
   - Handling Folders and Files: folders-files.md
   - HTTP Client: http.md
+  - HTTP Cache: http-cache.md
   - Katrina ORM: katrina.md
   - Deploy: deploy.md
 theme: readthedocs

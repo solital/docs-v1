@@ -31,6 +31,20 @@ define('DB_CONFIG', [
 ]);
 ```
 
+### For SQLite
+
+Some differences exist for connecting to an SQLite database. First, add an additional index called `SQLITE_DIR` in the `DB_CONFIG` constant. This constant must have the absolute path where the SQLite database file will be located.
+
+Then, assign the value `sqlite` in the index `DRIVE`.
+
+```php
+define('DB_CONFIG', [
+    'DRIVE' => 'sqlite',
+    'DBNAME' => 'your_database_name.db',
+    'SQLITE_DIR' => '/path/to/file/'
+]);
+```
+
 ## Initial structure
 
 You can use katrina in two ways:
